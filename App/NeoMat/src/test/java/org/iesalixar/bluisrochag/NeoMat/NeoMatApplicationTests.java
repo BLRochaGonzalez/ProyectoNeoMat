@@ -1,4 +1,4 @@
-package org.iesalixar.bluisrochag.NeoMat;
+package org.iesalixar.bluisrochag.neomat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
