@@ -1,13 +1,18 @@
 package org.iesalixar.bluisrochag.neomat.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,9 +29,6 @@ public class Troup {
 
 	@Column(name = "description", columnDefinition = "longtext", nullable = false)
 	private String description;
-	
-	@Column(name = "quantity", columnDefinition = "integer")
-	private Integer quantity;
 	
 	@Column(name = "isdef", columnDefinition = "boolean", nullable = false)
 	private Boolean isDef;
@@ -54,18 +56,20 @@ public class Troup {
 	
 	@Column(name = "buildsrequired")
 	private Map<String, Integer> buildsRequired = new HashMap<String, Integer>();
+	
+	@OneToMany(mappedBy = "troup", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
 
 	public Troup() {
 		super();
 	}
 
-	public Troup(String name, String description, Integer quantity, Boolean isDef, Integer reqWQuantity,
+	public Troup(String name, String description, Boolean isDef, Integer reqWQuantity,
 			Integer reqGQuantity, Integer reqCQuantity, Integer reqSQuantity, Integer reqRadQuantity,
 			Integer createTime, Map<String, Integer> researchsRequired, Map<String, Integer> buildsRequired) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.quantity = quantity;
 		this.isDef = isDef;
 		this.reqWQuantity = reqWQuantity;
 		this.reqGQuantity = reqGQuantity;
@@ -91,14 +95,6 @@ public class Troup {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
 	}
 
 	public Boolean getIsDef() {

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +27,10 @@ public class Location {
 	@Column(name = "region", columnDefinition = "integer", nullable = false)
 	private Integer region;
 
+	@OneToOne
+    @JoinColumn(name = "fk_settlement", updatable = false, nullable = false)
+    private Settlement settlement;
+	
 	public Location() {
 		super();
 	}

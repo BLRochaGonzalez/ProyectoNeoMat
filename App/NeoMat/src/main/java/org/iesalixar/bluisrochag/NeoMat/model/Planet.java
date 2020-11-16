@@ -1,12 +1,17 @@
 package org.iesalixar.bluisrochag.neomat.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,24 +33,27 @@ public class Planet {
 	@Column (name = "launchdate", nullable=false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern ="dd/MM/yyyy")
-    private Date launchDate;
+    private LocalDate launchDate;
 	
 	@Column(name = "numplayers", columnDefinition = "integer", nullable=false)
 	private Integer numPlayers;
 	
 	@Column(name = "numSettlements", columnDefinition = "integer", nullable=false)
 	private Integer numSettlements;
+	
+	@OneToMany(mappedBy = "planet", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<User> usersId = new ArrayList<>();
 
 	public Planet() {
 		super();
 	}
 
-	public Planet(String name, Date launchDate, Integer numPlayers, Integer numSettlements) {
+	public Planet(String name, LocalDate localDate) {
 		super();
 		this.name = name;
-		this.launchDate = launchDate;
-		this.numPlayers = numPlayers;
-		this.numSettlements = numSettlements;
+		this.launchDate = localDate;
+		this.numPlayers = 0;
+		this.numSettlements = 0;
 	}
 
 	public String getName() {
@@ -56,11 +64,11 @@ public class Planet {
 		this.name = name;
 	}
 
-	public Date getLaunchDate() {
+	public LocalDate getLaunchDate() {
 		return launchDate;
 	}
 
-	public void setLaunchDate(Date launchDate) {
+	public void setLaunchDate(LocalDate launchDate) {
 		this.launchDate = launchDate;
 	}
 

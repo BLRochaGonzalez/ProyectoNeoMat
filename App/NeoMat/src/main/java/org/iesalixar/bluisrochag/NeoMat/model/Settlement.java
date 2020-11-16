@@ -1,10 +1,19 @@
 package org.iesalixar.bluisrochag.neomat.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -47,21 +56,36 @@ public class Settlement {
 	@Column(name = "lastconnection", columnDefinition = "bigint")
     private Long lastConnection;
 	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user")
+	private User user;
+	
+	@OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+    private Location location;
+	
+	@OneToMany(mappedBy = "settlementtroupid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "settlementbuildingid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "settlementresearchid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
+	
 	public Settlement() {
 		super();
 	}
 
-	public Settlement(String name, Integer wQuantity, Integer gQuantity, Integer cQuantity, Integer sQuantity,
-			Integer rQuantity, Integer eQuantity, Long milis) {
+	public Settlement(String name) {
 		super();
 		this.name = name;
-		this.wQuantity = wQuantity;
-		this.gQuantity = gQuantity;
-		this.cQuantity = cQuantity;
-		this.sQuantity = sQuantity;
-		this.rQuantity = rQuantity;
-		this.eQuantity = eQuantity;
-		this.lastConnection = System.currentTimeMillis();
+		this.wQuantity = 50;
+		this.gQuantity = 50;
+		this.cQuantity = 50;
+		this.sQuantity = 50;
+		this.rQuantity = 0;
+		this.eQuantity = 0;
+		this.lastConnection = 0L;
 	}
 
 	public String getName() {
