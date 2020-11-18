@@ -32,7 +32,7 @@ public class SettlementResearch {
 	@Column(name = "reqcquantity", columnDefinition = "integer", nullable = false)
 	private Integer reqCQuantity;
 
-	@Column(name = "reqSquantity", columnDefinition = "integer", nullable = false)
+	@Column(name = "reqsquantity", columnDefinition = "integer", nullable = false)
 	private Integer reqSQuantity;
 
 	@Column(name = "reqrquantity", columnDefinition = "integer")
@@ -43,13 +43,13 @@ public class SettlementResearch {
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "settlement")
-	private Settlement settlementId;
+	private Settlement settlementIds;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "research")
-	private Research researchId;
+	private Research researchIds;
 
-	public SettlementResearch() {
+	protected SettlementResearch() {
 		super();
 	}
 
@@ -65,27 +65,84 @@ public class SettlementResearch {
 		this.researchTime = researchTime;
 	}
 
-	public Long getSettlementResearchId() {
-		return settlementResearchId;
+	public Integer getResearchLevel() {
+		return researchLevel;
 	}
 
-	public void setSettlementResearchId(Long settlementResearchId) {
-		this.settlementResearchId = settlementResearchId;
+	public void setResearchLevel(Integer researchLevel) {
+		this.researchLevel = researchLevel;
 	}
 
-	public Settlement getSettlementId() {
-		return settlementId;
+	public Integer getReqWQuantity() {
+		return reqWQuantity;
 	}
 
-	public void setSettlementId(Settlement settlementId) {
-		this.settlementId = settlementId;
+	public void setReqWQuantity(Integer reqWQuantity) {
+		this.reqWQuantity = reqWQuantity;
 	}
 
-	public Research getResearchId() {
-		return researchId;
+	public Integer getReqGQuantity() {
+		return reqGQuantity;
 	}
 
-	public void setResearchId(Research researchId) {
-		this.researchId = researchId;
+	public void setReqGQuantity(Integer reqGQuantity) {
+		this.reqGQuantity = reqGQuantity;
 	}
+
+	public Integer getReqCQuantity() {
+		return reqCQuantity;
+	}
+
+	public void setReqCQuantity(Integer reqCQuantity) {
+		this.reqCQuantity = reqCQuantity;
+	}
+
+	public Integer getReqSQuantity() {
+		return reqSQuantity;
+	}
+
+	public void setReqSQuantity(Integer reqSQuantity) {
+		this.reqSQuantity = reqSQuantity;
+	}
+
+	public Integer getReqRadQuantity() {
+		return reqRadQuantity;
+	}
+
+	public void setReqRadQuantity(Integer reqRadQuantity) {
+		this.reqRadQuantity = reqRadQuantity;
+	}
+
+	public Integer getResearchTime() {
+		return researchTime;
+	}
+
+	public void setResearchTime(Integer researchTime) {
+		this.researchTime = researchTime;
+	}
+
+	public Settlement getSettlementIds() {
+		return settlementIds;
+	}
+
+	public void setSettlementIds(Settlement settlementIds) {
+		this.settlementIds = settlementIds;
+	}
+
+	public Research getResearchIds() {
+		return researchIds;
+	}
+
+	public void setResearchIds(Research researchIds) {
+		this.researchIds = researchIds;
+	}
+
+	@Override
+	public String toString() {
+		return "SettlementResearch [researchLevel=" + researchLevel + ", reqWQuantity=" + reqWQuantity
+				+ ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity=" + reqSQuantity
+				+ ", reqRadQuantity=" + reqRadQuantity + ", researchTime=" + researchTime + ", settlementIds="
+				+ settlementIds + ", researchIds=" + researchIds + "]";
+	}
+
 }

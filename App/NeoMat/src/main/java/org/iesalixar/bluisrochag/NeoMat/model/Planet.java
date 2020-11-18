@@ -13,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -31,7 +28,6 @@ public class Planet {
 	private String name;
 	
 	@Column (name = "launchdate", nullable=false)
-    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate launchDate;
 	
@@ -88,5 +84,14 @@ public class Planet {
 		this.numSettlements = numSettlements;
 	}
 
-	
+	public List<User> getUsersId() {
+		return usersId;
+	}
+
+	@Override
+	public String toString() {
+		return "Planet [name=" + name + ", launchDate=" + launchDate + ", numPlayers=" + numPlayers
+				+ ", numSettlements=" + numSettlements + ", usersId=" + usersId + "]";
+	}
+
 }

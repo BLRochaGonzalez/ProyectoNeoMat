@@ -17,20 +17,20 @@ public class Location {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "locationid")
 	private Long locationId;
-	
+
 	@Column(name = "continent", columnDefinition = "integer", nullable = false)
 	private Integer continent;
-	
+
 	@Column(name = "country", columnDefinition = "integer", nullable = false)
 	private Integer country;
-	
+
 	@Column(name = "region", columnDefinition = "integer", nullable = false)
 	private Integer region;
 
 	@OneToOne
-    @JoinColumn(name = "fk_settlement", updatable = false, nullable = false)
-    private Settlement settlement;
-	
+	@JoinColumn(name = "settlement", updatable = false, nullable = false)
+	private Settlement settlement;
+
 	public Location() {
 		super();
 	}
@@ -65,4 +65,19 @@ public class Location {
 	public void setRegion(Integer region) {
 		this.region = region;
 	}
+
+	public Settlement getSettlement() {
+		return settlement;
+	}
+
+	public void setSettlement(Settlement settlement) {
+		this.settlement = settlement;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [continent=" + continent + ", country=" + country + ", region=" + region + ", settlement="
+				+ settlement + "]";
+	}
+
 }

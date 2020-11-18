@@ -28,10 +28,10 @@ public class Building {
 	@Column (name = "description", columnDefinition = "longtext", nullable=false)
 	private String description;
 	
-	@OneToMany(mappedBy = "building", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
 
-	public Building() {
+	protected Building() {
 		super();
 	}
 
@@ -56,5 +56,16 @@ public class Building {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public List<SettlementBuilding> getSettlementBuildingsIds() {
+		return settlementBuildingsIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Building [name=" + name + ", description=" + description + ", settlementBuildingsIds="
+				+ settlementBuildingsIds + "]";
+	}
+
 
 }

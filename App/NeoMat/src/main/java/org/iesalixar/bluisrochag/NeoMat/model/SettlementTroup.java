@@ -25,11 +25,11 @@ public class SettlementTroup {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "settlement")
-	private Settlement settlementId;
+	private Settlement settlementIds;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "troup")
-	private Troup troupId;
+	private Troup troupIds;
 
 	public SettlementTroup() {
 		super();
@@ -44,4 +44,27 @@ public class SettlementTroup {
 		this.quantity = quantity;
 	}
 
+	public Settlement getSettlementIds() {
+		return settlementIds;
+	}
+
+	public void setSettlementIds(Settlement settlementIds) {
+		this.settlementIds = settlementIds;
+	}
+
+	public Troup getTroupIds() {
+		return troupIds;
+	}
+
+	public void setTroupIds(Troup troupIds) {
+		this.troupIds = troupIds;
+	}
+
+	@Override
+	public String toString() {
+		return "SettlementTroup [quantity=" + quantity + ", settlementIds=" + settlementIds + ", troupIds=" + troupIds
+				+ "]";
+	}
+
+	
 }

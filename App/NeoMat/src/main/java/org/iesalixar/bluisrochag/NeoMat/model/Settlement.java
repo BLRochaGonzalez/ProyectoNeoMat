@@ -22,10 +22,10 @@ public class Settlement {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userid")
-	private Long userId;
+	@Column(name = "settlementid")
+	private Long settlementId;
 
-	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
+	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false)
 	private String name;
 
 	/*
@@ -60,19 +60,19 @@ public class Settlement {
 	@JoinColumn(name = "user")
 	private User user;
 	
-	@OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "settlement", cascade = CascadeType.ALL)
     private Location location;
 	
-	@OneToMany(mappedBy = "settlementtroupid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "settlementbuildingid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "settlementresearchid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 	
-	public Settlement() {
+	protected Settlement() {
 		super();
 	}
 
@@ -151,5 +151,44 @@ public class Settlement {
 	public void setLastConnection(Long lastConnection) {
 		this.lastConnection = lastConnection;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public void setSettlementTroupsIds(List<SettlementTroup> settlementTroupsIds) {
+		this.settlementTroupsIds = settlementTroupsIds;
+	}
+
+	public void setSettlementBuildingsIds(List<SettlementBuilding> settlementBuildingsIds) {
+		this.settlementBuildingsIds = settlementBuildingsIds;
+	}
+
+	public void setSettlementResearchsIds(List<SettlementResearch> settlementResearchsIds) {
+		this.settlementResearchsIds = settlementResearchsIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Settlement [name=" + name + ", wQuantity=" + wQuantity + ", gQuantity=" + gQuantity + ", cQuantity="
+				+ cQuantity + ", sQuantity=" + sQuantity + ", rQuantity=" + rQuantity + ", eQuantity=" + eQuantity
+				+ ", lastConnection=" + lastConnection + ", user=" + user + ", location=" + location
+				+ ", settlementTroupsIds=" + settlementTroupsIds + ", settlementBuildingsIds=" + settlementBuildingsIds
+				+ ", settlementResearchsIds=" + settlementResearchsIds + "]";
+	}
+
+	
 	
 }

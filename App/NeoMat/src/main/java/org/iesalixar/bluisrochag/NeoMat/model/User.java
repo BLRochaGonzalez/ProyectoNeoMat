@@ -49,7 +49,7 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Settlement> settlementsId = new ArrayList<>();
 
-	public User() {
+	protected User() {
 		super();
 	}
 
@@ -110,4 +110,27 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	public Planet getPlanet() {
+		return planet;
+	}
+
+	public void setPlanet(Planet planet) {
+		this.planet = planet;
+	}
+
+	public List<Settlement> getSettlementsId() {
+		return settlementsId;
+	}
+
+	public void setSettlementsId(List<Settlement> settlementsId) {
+		this.settlementsId = settlementsId;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", nick=" + nick + ", email=" + email + ", password=" + password + ", phone="
+				+ phone + ", role=" + role + ", planet=" + planet + ", settlementsId=" + settlementsId + "]";
+	}
 }
+	

@@ -35,7 +35,7 @@ public class SettlementBuilding {
 	@Column (name = "reqcquantity", columnDefinition = "integer", nullable=false)
 	private Integer reqCQuantity;
 	
-	@Column (name = "reqSquantity", columnDefinition = "integer", nullable=false)
+	@Column (name = "reqsquantity", columnDefinition = "integer", nullable=false)
 	private Integer reqSQuantity;
 	
 	@Column (name = "reqrquantity", columnDefinition = "integer")
@@ -51,11 +51,11 @@ public class SettlementBuilding {
 	@JoinColumn(name = "settlement")
 	private Settlement settlementId;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "building")
-	private Building buildingId;
+	private Building buildingIds;
 
-	public SettlementBuilding() {
+	protected SettlementBuilding() {
 		super();
 	}
 
@@ -74,12 +74,76 @@ public class SettlementBuilding {
 		this.resourceQuantity = resourceQuantity;
 	}
 
-	public Long getSettlementBuildingId() {
-		return settlementBuildingId;
+	public Integer getBuildLevel() {
+		return buildLevel;
 	}
 
-	public void setSettlementBuildingId(Long settlementBuildingId) {
-		this.settlementBuildingId = settlementBuildingId;
+	public void setBuildLevel(Integer buildLevel) {
+		this.buildLevel = buildLevel;
+	}
+
+	public Integer getReqEQuantity() {
+		return reqEQuantity;
+	}
+
+	public void setReqEQuantity(Integer reqEQuantity) {
+		this.reqEQuantity = reqEQuantity;
+	}
+
+	public Integer getReqWQuantity() {
+		return reqWQuantity;
+	}
+
+	public void setReqWQuantity(Integer reqWQuantity) {
+		this.reqWQuantity = reqWQuantity;
+	}
+
+	public Integer getReqGQuantity() {
+		return reqGQuantity;
+	}
+
+	public void setReqGQuantity(Integer reqGQuantity) {
+		this.reqGQuantity = reqGQuantity;
+	}
+
+	public Integer getReqCQuantity() {
+		return reqCQuantity;
+	}
+
+	public void setReqCQuantity(Integer reqCQuantity) {
+		this.reqCQuantity = reqCQuantity;
+	}
+
+	public Integer getReqSQuantity() {
+		return reqSQuantity;
+	}
+
+	public void setReqSQuantity(Integer reqSQuantity) {
+		this.reqSQuantity = reqSQuantity;
+	}
+
+	public Integer getReqRadQuantity() {
+		return reqRadQuantity;
+	}
+
+	public void setReqRadQuantity(Integer reqRadQuantity) {
+		this.reqRadQuantity = reqRadQuantity;
+	}
+
+	public Integer getBuildTime() {
+		return buildTime;
+	}
+
+	public void setBuildTime(Integer buildTime) {
+		this.buildTime = buildTime;
+	}
+
+	public Integer getResourceQuantity() {
+		return resourceQuantity;
+	}
+
+	public void setResourceQuantity(Integer resourceQuantity) {
+		this.resourceQuantity = resourceQuantity;
 	}
 
 	public Settlement getSettlementId() {
@@ -90,11 +154,22 @@ public class SettlementBuilding {
 		this.settlementId = settlementId;
 	}
 
-	public Building getBuildingId() {
-		return buildingId;
+	public Building getBuildingIds() {
+		return buildingIds;
 	}
 
-	public void setBuildingId(Building buildingId) {
-		this.buildingId = buildingId;
+	public void setBuildingIds(Building buildingIds) {
+		this.buildingIds = buildingIds;
 	}
+
+	@Override
+	public String toString() {
+		return "SettlementBuilding [buildLevel=" + buildLevel + ", reqEQuantity=" + reqEQuantity + ", reqWQuantity="
+				+ reqWQuantity + ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity="
+				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", buildTime=" + buildTime
+				+ ", resourceQuantity=" + resourceQuantity + ", settlementId=" + settlementId + ", buildingIds="
+				+ buildingIds + "]";
+	}
+
+	
 }

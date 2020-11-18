@@ -1,17 +1,18 @@
 package org.iesalixar.bluisrochag.neomat.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -42,7 +43,7 @@ public class Troup {
 	@Column(name = "reqcquantity", columnDefinition = "integer", nullable = false)
 	private Integer reqCQuantity;
 
-	@Column(name = "reqSquantity", columnDefinition = "integer", nullable=false)
+	@Column(name = "reqsquantity", columnDefinition = "integer", nullable=false)
 	private Integer reqSQuantity;
 
 	@Column(name = "reqrquantity", columnDefinition = "integer")
@@ -51,22 +52,26 @@ public class Troup {
 	@Column(name = "createtime", columnDefinition = "integer")
 	private Integer createTime;
 	
+	@ElementCollection
+	@CollectionTable(name = "researchtroupsrequired", joinColumns = @JoinColumn(name = "troupid"))
 	@Column(name = "researchsrequired")
-	private Map<String, Integer> researchsRequired = new HashMap<String, Integer>();
+	private List<String> researchsRequired = new ArrayList<String>();
 	
+	@ElementCollection
+	@CollectionTable(name = "buildstroupsrequired", joinColumns = @JoinColumn(name = "troupid"))
 	@Column(name = "buildsrequired")
-	private Map<String, Integer> buildsRequired = new HashMap<String, Integer>();
+	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "troup", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "troupIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
 
-	public Troup() {
+	protected Troup() {
 		super();
 	}
 
 	public Troup(String name, String description, Boolean isDef, Integer reqWQuantity,
 			Integer reqGQuantity, Integer reqCQuantity, Integer reqSQuantity, Integer reqRadQuantity,
-			Integer createTime, Map<String, Integer> researchsRequired, Map<String, Integer> buildsRequired) {
+			Integer createTime, List<String> researchsRequired, List<String> buildsRequired) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -153,19 +158,38 @@ public class Troup {
 		this.createTime = createTime;
 	}
 
-	public Map<String, Integer> getResearchsRequired() {
+	public List<String> getResearchsRequired() {
 		return researchsRequired;
 	}
 
-	public void setResearchsRequired(Map<String, Integer> researchsRequired) {
+	public void setResearchsRequired(List<String> researchsRequired) {
 		this.researchsRequired = researchsRequired;
 	}
 
-	public Map<String, Integer> getBuildsRequired() {
+	public List<String> getBuildsRequired() {
 		return buildsRequired;
 	}
 
-	public void setBuildsRequired(Map<String, Integer> buildsRequired) {
+	public void setBuildsRequired(List<String> buildsRequired) {
 		this.buildsRequired = buildsRequired;
 	}
+
+	public List<SettlementTroup> getSettlementTroupsIds() {
+		return settlementTroupsIds;
+	}
+
+	public void setSettlementTroupsIds(List<SettlementTroup> settlementTroupsIds) {
+		this.settlementTroupsIds = settlementTroupsIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Troup [name=" + name + ", description=" + description + ", isDef=" + isDef + ", reqWQuantity="
+				+ reqWQuantity + ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity="
+				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", createTime=" + createTime
+				+ ", researchsRequired=" + researchsRequired + ", buildsRequired=" + buildsRequired
+				+ ", settlementTroupsIds=" + settlementTroupsIds + "]";
+	}
+
+	
 }

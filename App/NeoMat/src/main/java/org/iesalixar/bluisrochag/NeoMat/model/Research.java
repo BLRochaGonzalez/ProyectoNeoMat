@@ -1,17 +1,18 @@
 package org.iesalixar.bluisrochag.neomat.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,17 +31,19 @@ public class Research {
 	@Column(name = "description", columnDefinition = "longtext", nullable = false)
 	private String description;
 	
+	@ElementCollection
+	@CollectionTable(name = "researchbuildsrequired", joinColumns = @JoinColumn(name = "researchid"))
 	@Column(name = "buildsrequired")
-	private Map<String, Integer> buildsRequired = new HashMap<String, Integer>();
+	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "research", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "researchIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 
-	public Research() {
+	protected Research() {
 		super();
 	}
 
-	public Research(String name, String description, Map<String, Integer> buildsRequired) {
+	public Research(String name, String description, List<String> buildsRequired) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -63,12 +66,22 @@ public class Research {
 		this.description = description;
 	}
 
-	public Map<String, Integer> getBuildsRequired() {
+	public List<String> getBuildsRequired() {
 		return buildsRequired;
 	}
 
-	public void setBuildsRequired(Map<String, Integer> buildsRequired) {
+	public void setBuildsRequired(List<String> buildsRequired) {
 		this.buildsRequired = buildsRequired;
+	}
+
+	public List<SettlementResearch> getSettlementResearchsIds() {
+		return settlementResearchsIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Research [name=" + name + ", description=" + description + ", buildsRequired=" + buildsRequired
+				+ ", settlementResearchsIds=" + settlementResearchsIds + "]";
 	}
 
 }
