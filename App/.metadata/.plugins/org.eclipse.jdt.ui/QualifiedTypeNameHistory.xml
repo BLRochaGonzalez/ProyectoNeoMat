@@ -10,13 +10,24 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Planet"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.User"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Settlement"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Research"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Troup"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.support.JpaRepositoryFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.PlanetRepository"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Planet"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.User"/>
 </qualifiedTypeNameHistroy>
