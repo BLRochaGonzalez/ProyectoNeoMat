@@ -1,0 +1,62 @@
+:root{
+    /*Constants Colours*/
+    --mainRed-0-75:  rgba(114, 13, 13, 0.75);
+    --mainBlue-0-75: rgba(65, 161, 225, 0.75);
+    --mainWhite: rgb(243, 231, 223);
+
+    /*Constants*/
+    --mainBorder: 2px solid;
+    --mainRadius: 10%;
+    --mainColor: var(--mainWhite);
+}
+
+body{
+    background-image:url("../assets/settlements/asentamiento3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#mainContainer{
+    color: var(--mainWhite);
+    padding: 2%;
+    padding-top: 4%;
+}
+
+#infoWiki{
+    padding: 5%;
+}
+
+#btnWiki{
+    border: var(--mainBorder);
+    border-radius: var(--mainRadius);
+    border-color: var(--mainColor);
+}
+
+#prologueTitle{
+    background-color: var(--mainRed-0-75);
+    width: 100%;
+    margin: 2%;
+    text-align: center;
+    border: var(--mainBorder);
+    border-radius: 50%;
+    border-color: var(--mainColor);
+}
+
+#prologueInfo{
+    background-color: var(--mainRed-0-75);
+}
+
+#resourcesTitle{
+    background-color: var(--mainBlue-0-75);
+    width: 100%;
+    margin: 2%;
+    text-align: center;
+    border: var(--mainBorder);
+    border-radius: 50%;
+    border-color: var(--mainColor);
+}
+
+#resourcesInfo{
+    background-color: var(--mainBlue-0-75);
+}

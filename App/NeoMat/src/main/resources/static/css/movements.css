@@ -1,0 +1,99 @@
+:root{
+    /*Constants Colours*/
+    --mainRed: rgba(114, 13, 13);
+    --mainRed-0-75:  rgba(114, 13, 13, 0.75);
+    --mainLightRed: rgb(209, 72, 72);
+    --mainBlue: rgb(65, 161, 225);
+    --mainBlue-0-75: rgba(65, 161, 225, 0.75);
+    --mainLightBlue: rgb(113, 188, 238);
+    --mainWhite: rgb(243, 231, 223);
+    --mainBlack: rgba(15, 15, 15);
+    --mainBlack-0-40: rgba(15, 15, 15, 0.40);
+
+    /*Constants Buttons*/
+    --mainBorder: 2px solid;
+    --mainRadius: 10%;
+    --mainColor: var(--mainWhite);
+}
+body{
+    background-image:url("../assets/settlements/asentamiento9.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#mainContainer{
+    color: var(--mainWhite);
+    padding: 2%;
+    padding-top: 2%;
+}
+
+.recourceContainer{
+    background-color: var(--mainBlack);
+    border: var(--mainBorder);
+    margin-right: 1%;
+    margin-left: 1%;
+    height: 11vh;
+}
+
+h5{
+    font-size: 1vw;
+}
+
+.imgResource{
+    width: 8vw;
+    height: 8vh;
+}
+
+.imgSettlement{
+    width: 8vw;
+    height: 8vh;
+    border: var(--mainBorder);
+    border-color: var(--mainColor);
+    border-radius: var(--mainRadius);
+}
+
+.buttonActive{
+    border: var(--mainBorder);
+    border-color: white;
+}
+
+#backgroundMainSection{
+    background-color: var(--mainBlack);
+    height: 70vh;
+}
+
+#backgroundMainUp, #backgroundMainDown{
+    overflow: hidden;
+    border: var(--mainBorder);
+    border-color: var(--mainColor);
+}
+
+#imgUp, #imgDown{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    height: 35vh;
+    width: 100%;
+}
+
+#imgMovementChosen{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    height: 35vh;
+    width: 100%;
+}
+
+#imgUp:hover, #imgDown:hover{
+    opacity: 0.25;
+    transform: scale(1.5); 
+}
+
+#selectorImg, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8, #selectorImg9, #selectorImg10, #selectorImg11, #selectorImg12, #selectorImg13, #selectorImg14, #selectorImg15, #selectorImg16, #selectorImg17, #selectorImg18, #selectorImg19, #selectorImg20, #selectorImg21{
+    height: 10vh;
+    width: 75%;
+    border: var(--mainBorder);
+    border-color: var(--mainColor);
+    margin-top: 5px;
+}

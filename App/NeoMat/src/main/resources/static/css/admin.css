@@ -1,0 +1,34 @@
+:root{
+    /*Constants Colours*/
+    --mainRed: rgba(114, 13, 13);
+    --mainRed-0-75:  rgba(114, 13, 13, 0.75);
+    --mainLightRed: rgb(209, 72, 72);
+    --mainBlue: rgb(65, 161, 225);
+    --mainBlue-0-75: rgba(65, 161, 225, 0.75);
+    --mainLightBlue: rgb(113, 188, 238);
+    --mainWhite: rgb(243, 231, 223);
+    --mainBlack: rgba(15, 15, 15);
+    --mainBlack-0-40: rgba(15, 15, 15, 0.40);
+    --mainBlack-0-70: rgba(15, 15, 15, 0.70);
+
+    /*Constants Buttons*/
+    --mainButtonBorder: 2px solid;
+    --mainButtonRadius: 10%;
+    --mainButtonColor: var(--mainWhite);
+}
+
+body{
+    background-image:url("../assets/researches/investigacion_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--mainWhite);
+}
+
+#mainContainer{
+    color: var(--mainWhite);
+    padding: 2%;
+    padding-top: 2%;
+    background-color: var(--mainBlack-0-70);
+    height: 100vh;
+}
