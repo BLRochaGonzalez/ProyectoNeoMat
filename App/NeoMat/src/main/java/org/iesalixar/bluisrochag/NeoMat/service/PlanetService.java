@@ -12,7 +12,7 @@ public class PlanetService {
 	static
 	PlanetRepository planetRepository;
 
-	public static Planet search(String name) {
+	public Planet search(String name) {
 		return planetRepository.findByName(name);
 	}
 }

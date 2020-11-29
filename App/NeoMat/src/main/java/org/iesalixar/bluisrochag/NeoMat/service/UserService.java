@@ -1,13 +1,9 @@
 package org.iesalixar.bluisrochag.neomat.service;
 
+import org.iesalixar.bluisrochag.neomat.model.User;
 import org.iesalixar.bluisrochag.neomat.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-
-import org.iesalixar.bluisrochag.neomat.model.Planet;
-import org.iesalixar.bluisrochag.neomat.model.User;
 
 @Service
 public class UserService {
@@ -15,12 +11,11 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public User createUser(User user, Planet planet) {
-		UserRepository.createUser(user, planet);
+	public User createUser(User user) {
 		return userRepository.save(user);
 	}
 	
-	public Optional<User> search(String email) {
+	public User search(String email) {
 		return this.userRepository.findByEmail(email);
 	}
 	

@@ -24,10 +24,10 @@ public class User {
 	@Column(name = "userid")
 	private Long userId;
 	
-	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
+	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false)
 	private String name;
 	
-	@Column(name = "nick", columnDefinition = "varchar(45)")
+	@Column(name = "nick", columnDefinition = "varchar(45)", unique = true)
 	private String nick;
 	
 	@Column(name = "email", columnDefinition = "varchar(80)", nullable = false, unique = true)

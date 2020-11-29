@@ -13,10 +13,8 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Settlement"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Research"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Troup"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
     <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
     <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
     <fullyQualifiedTypeName name="org.hibernate.Session"/>
@@ -27,7 +25,17 @@
     <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.PlanetRepository"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Planet"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.service.PlanetService"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Settlement"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.User"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Planet"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.PlanetRepository"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.utils.Utils"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.UserRepository"/>
 </qualifiedTypeNameHistroy>

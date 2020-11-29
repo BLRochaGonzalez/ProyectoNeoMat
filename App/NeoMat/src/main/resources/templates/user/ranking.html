@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <script src="../static/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/general.css">
-    <script src="../static/js/myOwnJS.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/ranking.css">
+    <script src="../../static/js/myOwnJS.js"></script>
     <title>Neo Material / General</title>
 </head>
 
@@ -73,47 +73,44 @@
                         <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
                     </svg>
                 </a>
-                <a href="./general.html" class="btn btn-info buttonActive w-100 mt-5" role="button">GENERAL</a>
+                <a href="./general.html" class="btn btn-info w-100 mt-5" role="button">GENERAL</a>
                 <a href="./buildings.html" class="btn btn-info w-100 mt-3" role="button">EDIFICIOS</a>
                 <a href="./researches.html" class="btn btn-info w-100 mt-3" role="button">INVESTIGACION</a>
                 <a href="./troups.html" class="btn btn-info w-100 mt-3" role="button">TROPAS</a>
                 <a href="./movements.html" class="btn btn-info w-100 mt-3" role="button">MOVIMIENTOS</a>
                 <a href="./radar.html" class="btn btn-info w-100 mt-3" role="button">RADAR</a>
-                <a href="./ranking.html" class="btn btn-info w-100 mt-3" role="button">CLASIFICACION</a>
+                <a href="./ranking.html" class="btn btn-info buttonActive w-100 mt-3" role="button">CLASIFICACION</a>
                 <a href="./index.html" class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
             </div>
             <div id="backgroundMainSection" class="container col-7 mt-5">
-                <div id="infoSection" class="row justify-content-end align-items-end">
-                    <div id="infoGroup" class="col-5 mb-2 mr-2">
-                        <div class="row align-items-center">
-                            <div class="col-12 p-3">
-                                <div class="row justify-content-between m-1">
-                                    <div class="col6">Temperatura:</div>
-                                    <div class="col6">de 30ª a 50ª</div>
-                                </div>
-                                <div class="row justify-content-between m-1">
-                                    <div class="col6">Ubicacion:</div>
-                                    <div class="col6">1:1:5</div>
-                                </div>
-                                <div class="row justify-content-between m-1">
-                                    <div class="col6">Puntos:</div>
-                                    <div class="col6">0</div>
-                                </div>
-                                <div class="row justify-content-between m-1">
-                                    <div class="col6">Honor:</div>
-                                    <div class="col6">0</div>
-                                </div>
-                            </div>
-                        </div>
+                <div id="rankingContainer" class="col-12 mt-2">
+                    <div class="row">
+                      <div id="totalAccess" class="col">
+                          <a href="#" onclick="showTotalSection()" style="text-decoration: none;color: var(--mainWhite);">P. Totales</a>
+                      </div>
+                      <div id="buildingAccess" class="col">
+                        <a href="#" onclick="showBuildingSection()" style="text-decoration: none;color: var(--mainWhite);">P. Edificacion</a>
+                      </div>
+                      <div id="researchAccess" class="col">
+                        <a href="#" onclick="showResearchSection()" style="text-decoration: none;color: var(--mainWhite);">P. Investigacion</a>
+                      </div>
+                      <div id="troupAccess" class="col">
+                        <a href="#" onclick="showTroupSection()" style="text-decoration: none;color: var(--mainWhite);">P. Tropas</a>
+                      </div>
+                      <div id="honorAccess" class="col">
+                        <a href="#" onclick="showHonorSection()" style="text-decoration: none;color: var(--mainWhite);">P. Honor</a>
+                      </div>
                     </div>
-                </div>
+                    <div id="registrosphp" class="row justify-content-center">
+                        
+                    </div>
+                  </div>
             </div>
             <div class="col-2">
                 <div class="row">
                     <div class="col">
                         <div class="row justify-content-center">
-                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento8.jpg"
-                                alt="Resource" onclick="changeSettlementGeneral(this)">
+                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento8.jpg" alt="Resource" onclick="changeSettlement(this)">
                         </div>
                         <div class="row justify-content-center">
                             <h5>ubicacion</h5>
@@ -123,8 +120,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="row justify-content-center">
-                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento9.jpg"
-                                alt="Resource" onclick="changeSettlementGeneral(this)">
+                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento9.jpg" alt="Resource" onclick="changeSettlement(this)">
                         </div>
                         <div class="row justify-content-center">
                             <h5>ubicacion</h5>
@@ -134,7 +130,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../static/jquery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../static/jquery/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>
