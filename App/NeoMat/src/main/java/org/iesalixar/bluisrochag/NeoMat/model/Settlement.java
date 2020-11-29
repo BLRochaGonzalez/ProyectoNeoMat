@@ -72,7 +72,7 @@ public class Settlement {
 	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 	
-	protected Settlement() {
+	public Settlement() {
 		super();
 	}
 

@@ -1,5 +1,7 @@
 package org.iesalixar.bluisrochag.neomat.repository;
 
+import java.util.Optional;
+
 import org.iesalixar.bluisrochag.neomat.model.Planet;
 import org.iesalixar.bluisrochag.neomat.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 		pl.getUsersId().add(u);
 		return;
 	}
+	
+	public Optional<User> findByEmail(String email);
+	
 }
