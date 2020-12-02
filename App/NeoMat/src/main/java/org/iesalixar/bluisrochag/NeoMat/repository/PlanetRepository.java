@@ -10,6 +10,8 @@ public interface PlanetRepository extends JpaRepository<Planet, Long>{
 	@SuppressWarnings("unchecked")
 	public Planet save(Planet p);
 	
-	public Planet findByName(String name);
+	public Planet findFirstByName(String name);
+	
+	public Planet findFirstById(Long id);
 	
 }

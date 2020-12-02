@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/admin.css">
+<script src="/js/myOwnJS.js"></script>
+<title>User_Settings</title>
+</head>
+
+<body>
+	<div id="mainContainer" class="container-fluid">
+		<div class="row justify-content-around">
+			<div class="col-2">
+				<a th:href="@{/admin/users}" class="btn btn-info w-75">Users
+					Settings</a>
+			</div>
+			<div class="col-2">
+				<a href="/" class="btn btn-danger w-75">Exit</a>
+			</div>
+		</div>
+		<div id="usersphp" class="row justify-content-center mt-5">
+			<div id="settingsContainer" class="col-8">
+				<div class="row justify-content-between">
+					<div id="gameAccess" class="col-3 h5" onclick="showGameSection()">
+						Game</div>
+					<div id="researchAccess" class="col-3 h5"
+						onclick="showResearchesSection()">Researches</div>
+					<div id="buildingAccess" class="col-3 h5"
+						onclick="showBuildingsSection()">Building</div>
+					<div id="troupAccess" class="col-3 h5"
+						onclick="showTroupsSection()">Troups</div>
+				</div>
+				<div class="row">
+					<div id="gameSection" class="col-12">
+						<table class="table mt-4">
+							<thead class="bg-info text-center">
+								<tr>
+									<th colspan="6">Game Settings</th>
+								</tr>
+								<tr>
+									<th scope="col">Variable:</th>
+									<th scope="col">Valor:</th>
+									<th scope="col">Modificar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td scope="col">Cantidad Continentes:</td>
+									<td th:text="${planetCont}"></td>
+									<td class="text-center">
+										<form th:action="@{/admin/game}" method=POST>
+											<input type="submit" class="btn btn-warning delete" disabled
+												value="Modificar">
+										</form>
+									</td>
+								</tr>
+								<tr>
+									<td scope="col">Cantidad Paises:</td>
+									<td th:text="${planetCoun}"></td>
+									<td class="text-center">
+										<form th:action="@{/admin/game}" method=POST>
+											<input type="submit" class="btn btn-warning delete" disabled
+												value="Modificar">
+										</form>
+									</td>
+								</tr>
+								<tr>
+									<td scope="col">Cantidad Regiones:</td>
+									<td th:text="${planetRegi}"></td>
+									<td class="text-center">
+										<form th:action="@{/admin/game}" method=POST>
+											<input type="submit" class="btn btn-warning delete" disabled
+												value="Modificar">
+										</form>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="researchSection" class="col-12">
+						<table class="table mt-4">
+							<thead class="bg-info text-center">
+								<tr>
+									<th colspan="6">Researches Settings</th>
+								</tr>
+								<tr>
+									<th scope="col">Investigacion:</th>
+									<th scope="col">Factores Aumentos:</th>
+									<th scope="col">Modificar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<div th:each="research:${listResearch}">
+									<tr>
+										<td th:text="${research.name}"></td>
+										<td scope="col">1.4</td>
+										<td class="text-center">
+											<form th:action="@{/admin/game}" method=POST>
+												<input type="submit" class="btn btn-warning delete" disabled
+													value="Modificar">
+											</form>
+										</td>
+									</tr>
+								</div>
+							</tbody>
+						</table>
+						<div th:if="${researchTotalPages > 1}">
+							<div class="row">
+								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-6">
+									<span th:each="i: ${#numbers.sequence(1, researchTotalPages)}">
+										<a th:if="${researchCurrentPage !=i}" th:href="@{'/page/research/' + ${i}}">[[${i}]]</a>
+										<span th:unless="${researchCurrentPage != i}">[[${i}]]</span> &nbsp;
+										&nbsp;
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="buildingSection" class="col-12">
+						<table class="table mt-4">
+							<thead class="bg-info text-center">
+								<tr>
+									<th colspan="6">Buildings Settings</th>
+								</tr>
+								<tr>
+									<th scope="col">Edificio:</th>
+									<th scope="col">Factor Costes:</th>
+									<th scope="col">Factor Produccion:</th>
+									<th scope="col">Modificar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<div th:each="building:${listBuilding}">
+									<tr>
+										<td th:text="${building.name}"></td>
+										<td scope="col">1.2</td>
+										<td scope="col">1.5</td>
+										<td class="text-center">
+											<form th:action="@{/admin/game}" method=POST>
+												<input type="submit" class="btn btn-warning delete" disabled
+													value="Modificar">
+											</form>
+										</td>
+									</tr>
+								</div>
+							</tbody>
+						</table>
+						<div th:if="${buildingTotalPages > 1}">
+							<div class="row">
+								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-6">
+									<span th:each="i: ${#numbers.sequence(1, buildingTotalPages)}">
+										<a th:if="${buildingCurrentPage !=i}" th:href="@{'/page/building/' + ${i}}">[[${i}]]</a>
+										<span th:unless="${buildingCurrentPage != i}">[[${i}]]</span> &nbsp;
+										&nbsp;
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="troupSection" class="col-12">
+						<table class="table mt-4">
+							<thead class="bg-info text-center">
+								<tr>
+									<th colspan="6">Troups Settings</th>
+								</tr>
+								<tr>
+									<th scope="col">Tropa:</th>
+									<th scope="col">Tiempo Creacion</th>
+									<th scope="col">Defensivo?</th>
+									<th scope="col">Modificar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<div th:each="troup:${listTroup}">
+									<tr>
+										<td th:text="${troup.name}"></td>
+										<td th:text="${troup.createTime}"></td>
+										<td th:text="${troup.isDef}"></td>
+										<td class="text-center">
+											<form th:action="@{/admin/game}" method=POST>
+												<input type="submit" class="btn btn-warning delete" disabled
+													value="Borrar">
+											</form>
+										</td>
+									</tr>
+								</div>
+							</tbody>
+						</table>
+						<div th:if="${troupTotalPages > 1}">
+							<div class="row">
+								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-6">
+									<span th:each="i: ${#numbers.sequence(1, troupTotalPages)}">
+										<a th:if="${troupCurrentPage !=i}" th:href="@{'/page/tropas/' + ${i}}">[[${i}]]</a>
+										<span th:unless="${troupCurrentPage != i}">[[${i}]]</span> &nbsp;
+										&nbsp;
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

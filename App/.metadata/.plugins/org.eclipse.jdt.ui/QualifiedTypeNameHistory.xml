@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="javax.persistence.Temporal"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="java.sql.Time"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -29,13 +28,22 @@
     <fullyQualifiedTypeName name="java.text.ParseException"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.service.PlanetService"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Settlement"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.User"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Planet"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.PlanetRepository"/>
-    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.utils.Utils"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.UserRepository"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.utils.Utils"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.repository.LocationRepository"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.User"/>
+    <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.PagingAndSortingRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

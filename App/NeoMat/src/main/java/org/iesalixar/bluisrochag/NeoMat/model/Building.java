@@ -20,7 +20,7 @@ public class Building {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "buildingid")
-	private Long buildingId;
+	private Long id;
 	
 	@Column (name = "name", columnDefinition = "varchar(45)", nullable=false, unique=true)
 	private String name;
@@ -28,7 +28,7 @@ public class Building {
 	@Column (name = "description", columnDefinition = "longtext", nullable=false)
 	private String description;
 	
-	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
 
 	protected Building() {
@@ -65,6 +65,10 @@ public class Building {
 	public String toString() {
 		return "Building [name=" + name + ", description=" + description + ", settlementBuildingsIds="
 				+ settlementBuildingsIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 

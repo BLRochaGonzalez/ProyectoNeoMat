@@ -16,7 +16,7 @@ public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "locationid")
-	private Long locationId;
+	private Long id;
 
 	@Column(name = "continent", columnDefinition = "integer", nullable = false)
 	private Integer continent;
@@ -78,6 +78,10 @@ public class Location {
 	public String toString() {
 		return "Location [continent=" + continent + ", country=" + country + ", region=" + region + ", settlement="
 				+ settlement + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

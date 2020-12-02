@@ -6,6 +6,7 @@ import org.iesalixar.bluisrochag.neomat.model.Location;
 import org.iesalixar.bluisrochag.neomat.model.Planet;
 import org.iesalixar.bluisrochag.neomat.model.Settlement;
 import org.iesalixar.bluisrochag.neomat.model.User;
+import org.iesalixar.bluisrochag.neomat.repository.LocationRepository;
 import org.iesalixar.bluisrochag.neomat.repository.PlanetRepository;
 import org.iesalixar.bluisrochag.neomat.repository.UserRepository;
 import org.iesalixar.bluisrochag.neomat.service.LocationService;
@@ -30,12 +31,16 @@ public class UserController {
 
 	@Autowired
 	private LocationService locationService;
+	
+	@Autowired
+	private LocationRepository locationRepository;
 
 	@Autowired
 	private SettlementService settlementService;
 
 	@Autowired
 	private PlanetRepository planetRepository;
+	
 
 	@RequestMapping(value = { "/login" }, method = { RequestMethod.POST })
 	public String Register(@RequestParam(value = "inputLoginEmail") String email,
@@ -46,9 +51,9 @@ public class UserController {
 		if(em != null) {
 			if (em.getEmail().equals(email) && em.getPassword().equals(password)) {
 				if (em.getRole().equals("user")) {
-					res = "user/general";
+					res = "redirect:/general";
 				} else if (em.getRole().equals("admin")) {
-					res = "admin/game_settings";
+					res = "redirect:/admin/game";
 				}
 			}
 		}
@@ -66,9 +71,27 @@ public class UserController {
 		if(password.equals(reppassword)) {
 			if(us == null) {
 				User u = new User("Emperador NeoMat", nick, email, password, null, "user");
-				Planet p = planetRepository.findByName("Tierra");
-				Location l = new Location(1,1,4);
-//				Utils.generateLocation(l);
+				Planet p = planetRepository.findFirstByName("Tierra");
+
+				Location l = new Location();
+				for (Integer x = 1; x <= 5; x++) {
+					for (Integer y = 1; y <= 10; y++) {
+						for (Integer z = 1; z <= 25; z++) {
+							Location loc = locationRepository.findLocationFirstByContinentAndCountryAndRegion(x, y, z);
+							if (loc == null) {
+								l.setContinent(x);
+								l.setCountry(y);
+								l.setRegion(z);
+
+								z=26;
+								y=11;
+								x=6;
+							}
+						}
+					}
+				}
+				
+				
 				Settlement s = new Settlement("Asentamiento Principal");
 				p.setNumSettlements(p.getNumSettlements() + 1);
 				u.getSettlementsId().add(s);
@@ -88,5 +111,5 @@ public class UserController {
 		return "index";
 
 	}
-
+	
 }

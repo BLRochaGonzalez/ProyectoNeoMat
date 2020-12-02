@@ -23,7 +23,7 @@ public class Troup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "troupid")
-	private Long troupId;
+	private Long id;
 	
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
 	private String name;
@@ -62,7 +62,7 @@ public class Troup {
 	@Column(name = "buildsrequired")
 	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "troupIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "troupIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
 
 	protected Troup() {
@@ -189,6 +189,10 @@ public class Troup {
 				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", createTime=" + createTime
 				+ ", researchsRequired=" + researchsRequired + ", buildsRequired=" + buildsRequired
 				+ ", settlementTroupsIds=" + settlementTroupsIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	

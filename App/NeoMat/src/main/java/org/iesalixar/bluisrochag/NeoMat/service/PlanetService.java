@@ -9,10 +9,14 @@ import org.springframework.stereotype.Service;
 public class PlanetService {
 	
 	@Autowired
-	static
 	PlanetRepository planetRepository;
 
-	public Planet search(String name) {
-		return planetRepository.findByName(name);
+	public Planet searchById(Long id) {
+		return this.planetRepository.findFirstById(id);
 	}
+	
+	public Planet updatePlanet(Planet planet) {
+		return this.planetRepository.save(planet);
+	}
+
 }

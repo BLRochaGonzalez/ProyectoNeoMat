@@ -22,7 +22,7 @@ public class Planet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "planetid")
-	private Long planetId;
+	private Long id;
 	
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
 	private String name;
@@ -37,7 +37,7 @@ public class Planet {
 	@Column(name = "numSettlements", columnDefinition = "integer", nullable=false)
 	private Integer numSettlements;
 	
-	@OneToMany(mappedBy = "planet", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "planet", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<User> usersId = new ArrayList<>();
 
 	public Planet() {
@@ -92,6 +92,10 @@ public class Planet {
 	public String toString() {
 		return "Planet [name=" + name + ", launchDate=" + launchDate + ", numPlayers=" + numPlayers
 				+ ", numSettlements=" + numSettlements + ", usersId=" + usersId + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

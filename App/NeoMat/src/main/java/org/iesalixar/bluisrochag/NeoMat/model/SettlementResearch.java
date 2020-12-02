@@ -18,7 +18,7 @@ public class SettlementResearch {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "settlementresearchid")
-	private Long settlementResearchId;
+	private Long id;
 	
 	@Column (name = "researchlevel", columnDefinition = "integer")
 	private Integer researchLevel;
@@ -41,11 +41,11 @@ public class SettlementResearch {
 	@Column(name = "researchtime", columnDefinition = "integer", nullable = false)
 	private Integer researchTime;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "settlement")
 	private Settlement settlementIds;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "research")
 	private Research researchIds;
 
@@ -143,6 +143,10 @@ public class SettlementResearch {
 				+ ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity=" + reqSQuantity
 				+ ", reqRadQuantity=" + reqRadQuantity + ", researchTime=" + researchTime + ", settlementIds="
 				+ settlementIds + ", researchIds=" + researchIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

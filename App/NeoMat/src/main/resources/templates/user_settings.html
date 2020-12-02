@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/admin.css">
+<script src="/js/myOwnJS.js"></script>
+<title>User_Settings</title>
+</head>
+
+<body>
+	<div id="mainContainer" class="container-fluid">
+		<div class="row justify-content-around">
+			<div class="col-2">
+				<a th:href="@{/admin/game}" class="btn btn-info w-75">Game
+					Settings</a>
+			</div>
+			<div class="col-2">
+				<a href="/" class="btn btn-danger w-75">Exit</a>
+			</div>
+		</div>
+		<div id="usersphp" class="row justify-content-center">
+			<div class="col-8">
+				<table class="table mt-4">
+					<thead class="bg-info text-center">
+						<tr>
+							<th colspan="6">Usuarios</th>
+						</tr>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Nick</th>
+							<th scope="col">Email</th>
+							<th scope="col">Telefono</th>
+							<th scope="col">Borrar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<div th:each="user:${listUser}">
+							<tr>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.nick}"></td>
+								<td th:text="${user.email}"></td>
+								<td th:text="${user.phone}"></td>
+								<td class="text-center">
+									<form th:action="@{/admin/deleteUser}" method=POST>
+										<input name="id" th:value="${user.id}" type="hidden">
+										<input type="submit" class="btn btn-warning delete"
+											value="Borrar" th:disabled="${user.role == 'admin'}">
+									</form>
+								</td>
+							</tr>
+						</div>
+					</tbody>
+				</table>
+				<div th:if="${totalPages > 1}">
+					<div class="row">
+						<div class="col-2">Total Rows: [[${totalItems}]]</div>
+						<div class="col-6">
+							<span th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
+								th:if="${currentPage !=i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+								<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp;
+								&nbsp;
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

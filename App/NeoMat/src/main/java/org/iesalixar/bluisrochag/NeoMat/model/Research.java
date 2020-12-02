@@ -23,7 +23,7 @@ public class Research {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "researchid")
-	private Long researchId;
+	private Long id;
 
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
 	private String name;
@@ -36,7 +36,7 @@ public class Research {
 	@Column(name = "buildsrequired")
 	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "researchIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "researchIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 
 	protected Research() {
@@ -82,6 +82,10 @@ public class Research {
 	public String toString() {
 		return "Research [name=" + name + ", description=" + description + ", buildsRequired=" + buildsRequired
 				+ ", settlementResearchsIds=" + settlementResearchsIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

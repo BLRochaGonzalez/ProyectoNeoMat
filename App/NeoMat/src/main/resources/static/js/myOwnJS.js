@@ -189,3 +189,31 @@ function changeLocation(comp) {
     }
     
 }
+
+function showGameSection() {
+    document.getElementById("researchSection").style.display = "none";
+    document.getElementById("buildingSection").style.display = "none";
+    document.getElementById("troupSection").style.display = "none";
+    document.getElementById("gameSection").style.display = "block";
+}
+
+function showResearchesSection() {
+    document.getElementById("gameSection").style.display = "none";
+    document.getElementById("troupSection").style.display = "none";
+    document.getElementById("buildingSection").style.display = "none";
+    document.getElementById("researchSection").style.display = "block";
+}
+
+function showBuildingsSection() {
+    document.getElementById("gameSection").style.display = "none";
+    document.getElementById("troupSection").style.display = "none";
+    document.getElementById("researchSection").style.display = "none";
+    document.getElementById("buildingSection").style.display = "block";
+}
+
+function showTroupsSection() {
+    document.getElementById("gameSection").style.display = "none";
+    document.getElementById("buildingSection").style.display = "none";
+    document.getElementById("researchSection").style.display = "none";
+    document.getElementById("troupSection").style.display = "block";
+}

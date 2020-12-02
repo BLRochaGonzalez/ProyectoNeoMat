@@ -22,7 +22,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "userid")
-	private Long userId;
+	private Long id;
 	
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false)
 	private String name;
@@ -42,11 +42,11 @@ public class User {
 	@Column(name = "role", columnDefinition = "varchar(10)", nullable = false)
 	private String role;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "planet")
 	private Planet planet;
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<Settlement> settlementsId = new ArrayList<>();
 
 	protected User() {
@@ -63,6 +63,10 @@ public class User {
 		this.role = role;
 	}
 
+	public Long getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -132,5 +136,6 @@ public class User {
 		return "User [name=" + name + ", nick=" + nick + ", email=" + email + ", password=" + password + ", phone="
 				+ phone + ", role=" + role + ", planet=" + planet + ", settlementsId=" + settlementsId + "]";
 	}
+
 }
 	

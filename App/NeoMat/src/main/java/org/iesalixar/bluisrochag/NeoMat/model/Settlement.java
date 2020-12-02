@@ -23,7 +23,7 @@ public class Settlement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "settlementid")
-	private Long settlementId;
+	private Long id;
 
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false)
 	private String name;
@@ -56,20 +56,20 @@ public class Settlement {
 	@Column(name = "lastconnection", columnDefinition = "bigint")
     private Long lastConnection;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user")
 	private User user;
 	
-	@OneToOne(mappedBy = "settlement", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "settlement", cascade = CascadeType.PERSIST)
     private Location location;
 	
-	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 	
 	public Settlement() {
@@ -187,6 +187,10 @@ public class Settlement {
 				+ ", lastConnection=" + lastConnection + ", user=" + user + ", location=" + location
 				+ ", settlementTroupsIds=" + settlementTroupsIds + ", settlementBuildingsIds=" + settlementBuildingsIds
 				+ ", settlementResearchsIds=" + settlementResearchsIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	

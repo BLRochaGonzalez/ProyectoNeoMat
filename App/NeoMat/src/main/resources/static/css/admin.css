@@ -17,18 +17,45 @@
     --mainButtonColor: var(--mainWhite);
 }
 
+*{
+	color: var(--mainWhite);
+}
+
 body{
     background-image:url("../assets/researches/investigacion_bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    color: var(--mainWhite);
 }
 
 #mainContainer{
-    color: var(--mainWhite);
     padding: 2%;
     padding-top: 2%;
     background-color: var(--mainBlack-0-70);
     height: 100vh;
+}
+
+#gameAccess, #researchAccess, #buildingAccess, #troupAccess{
+	text-align: center;
+	background-color: var(--mainBlack);
+}
+
+#gameSection{
+    background-color: var(--mainBlack-0-40);
+    display: block;
+}
+
+#researchSection{
+    background-color: var(--mainBlack-0-40);
+    display: none;
+}
+
+#buildingSection{
+    background-color: var(--mainBlack-0-40);
+    display: none;
+}
+
+#troupSection{
+    background-color: var(--mainBlack-0-40);
+    display: none;
 }

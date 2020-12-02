@@ -7,4 +7,5 @@ public interface TroupRepository extends JpaRepository<Troup, Long>{
 
 	@SuppressWarnings("unchecked")
 	public Troup save(Troup s);
+	
 }

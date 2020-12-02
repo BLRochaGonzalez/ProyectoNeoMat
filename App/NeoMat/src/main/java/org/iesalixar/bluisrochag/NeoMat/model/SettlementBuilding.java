@@ -18,7 +18,7 @@ public class SettlementBuilding {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "settlementbuildingid")
-	private Long settlementBuildingId;
+	private Long id;
 	
 	@Column (name = "buildlevel", columnDefinition = "integer")
 	private Integer buildLevel;
@@ -47,11 +47,11 @@ public class SettlementBuilding {
 	@Column (name = "resourcequantity", columnDefinition = "integer", nullable=false)
 	private Integer resourceQuantity;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "settlement")
 	private Settlement settlementId;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "building")
 	private Building buildingIds;
 
@@ -169,6 +169,10 @@ public class SettlementBuilding {
 				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", buildTime=" + buildTime
 				+ ", resourceQuantity=" + resourceQuantity + ", settlementId=" + settlementId + ", buildingIds="
 				+ buildingIds + "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	

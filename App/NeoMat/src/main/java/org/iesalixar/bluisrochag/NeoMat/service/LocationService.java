@@ -14,4 +14,12 @@ public class LocationService {
 	public Location createLocation(Location location) {
 		return locationRepository.save(location);
 	}
+
+	public void deleteLocation(Long locationId) {
+		this.locationRepository.deleteById(locationId);
+	}
+
+	public Location searchById(Long locationId) {
+		return this.locationRepository.findFirstById(locationId);
+	}
 }

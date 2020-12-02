@@ -18,16 +18,16 @@ public class SettlementTroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "settlementtroupid")
-	private Long settlementTroupId;
+	private Long id;
 
 	@Column(name = "quantity", columnDefinition = "integer")
 	private Integer quantity;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "settlement")
 	private Settlement settlementIds;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "troup")
 	private Troup troupIds;
 
@@ -64,6 +64,10 @@ public class SettlementTroup {
 	public String toString() {
 		return "SettlementTroup [quantity=" + quantity + ", settlementIds=" + settlementIds + ", troupIds=" + troupIds
 				+ "]";
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	
