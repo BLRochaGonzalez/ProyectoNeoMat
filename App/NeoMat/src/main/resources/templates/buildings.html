@@ -1,206 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/buildings.css">
-    <script src="/js/myOwnJS.js"></script>
-    <title>Neo Material / General</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/buildings.css">
+<script type="text/javascript" th:src="@{/js/myOwnJS.js}"></script>
+<title>Neo Material / General</title>
 </head>
 
 <body>
-    <div id="mainContainer" class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/wolframio.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/grafeno.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/carbino.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/acero.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/radiacion.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-            <div class="col-1 recourceContainer">
-                <div class="row">
-                    <img class="imgResource" src="../static/assets/resources/solar.jpg" alt="Resource">
-                </div>
-                <div class="row justify-content-center">
-                    <h5>cantidadRecurso</h5>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-between mt-3">
-            <div class="col-2">
-                <a href="profile.html" style="margin-left: 25%;">
-                    <svg width="7em" height="7em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="var(--mainWhite)"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
-                        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+	<div id="mainContainer" class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/wolframio.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${w}"></h5>
+				</div>
+			</div>
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/grafeno.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${g}"></h5>
+				</div>
+			</div>
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/carbino.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${c}"></h5>
+				</div>
+			</div>
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/acero.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${s}"></h5>
+				</div>
+			</div>
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/radiacion.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${r}"></h5>
+				</div>
+			</div>
+			<div class="col-1 recourceContainer">
+				<div class="row">
+					<img class="imgResource" src="/assets/resources/solar.jpg"
+						alt="Resource">
+				</div>
+				<div class="row justify-content-center">
+					<h5 th:text="${e}"></h5>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-between mt-3">
+			<div class="col-2">
+				<a href="/user/profile" style="margin-left: 25%;"> <svg
+						width="7em" height="7em" viewBox="0 0 16 16"
+						class="bi bi-person-circle" fill="var(--mainWhite)"
+						xmlns="http://www.w3.org/2000/svg">
+                        <path
+							d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                        <path fill-rule="evenodd"
+							d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path fill-rule="evenodd"
+							d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
                     </svg>
-                </a>                
-                <a href="./general.html" class="btn btn-info w-100 mt-5" role="button">GENERAL</a>
-                <a href="./buildings.html" class="btn btn-info buttonActive w-100 mt-3" role="button">EDIFICIOS</a>
-                <a href="./researches.html" class="btn btn-info w-100 mt-3" role="button">INVESTIGACION</a>
-                <a href="./troups.html" class="btn btn-info w-100 mt-3" role="button">TROPAS</a>
-                <a href="./movements.html" class="btn btn-info w-100 mt-3" role="button">MOVIMIENTOS</a>
-                <a href="./radar.html" class="btn btn-info w-100 mt-3" role="button">RADAR</a>
-                <a href="./ranking.html" class="btn btn-info w-100 mt-3" role="button">CLASIFICACION</a>
-                <a href="./index.html" class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
-            </div>
-            <div class="container col-7 mt-5">
-                <div class="row">
-                    <div id="backgroundMainSection" class="col-12 p-2">
-                        <div id="selectorChosen" style="display: none;">
-                            <div class="row">
-                                <div class="col-5">
-                                    <img id="selectorImgChosen" src="../static/assets/buildings/edificio_wolframio.jpg" alt="">
-                                </div>
-                                <div class="col-7">
-                                    <div class="row justify-content-center">
-                                        <h3 id="buildingName">Mina de Wolframio</h3>
-                                    </div>
-                                    <div class="row p-4">
-                                        <form class="row justify-content-between">
-                                            <div class="col-8">
-                                                <div class="form-group row">
-                                                    <div class="col-8">
-                                                        <label>Tiempo:</label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <label id="prodTimer">0 s</label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col-8">
-                                                        <label>Energia:</label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <label id="energyReq">0</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <button type="submit" class="btn btn-success">Mejorar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row mx-4"><img src="../static/assets/icono_discord.png" alt="">Info</div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-2">
-                                            <img id="selectorImgChosenMini" src="../static/assets/resources/wolframio.jpg" alt="">
-                                            <p id="selectorReqChosen1">300</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <img id="selectorImgChosenMini" src="../static/assets/resources/grafeno.jpg" alt="">
-                                            <p id="selectorReqChosen2">30</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <img id="selectorImgChosenMini" src="../static/assets/resources/carbino.jpg" alt="">
-                                            <p id="selectorReqChosen3">30</p>
-                                        </div>
-                                        <div class="col-2">
-                                            <img id="selectorImgChosenMini" src="../static/assets/resources/acero.jpg" alt="">
-                                            <p id="selectorReqChosen4">30</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="selectorsMainSection" class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg" src="../static/assets/buildings/edificio_wolframio.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg2" src="../static/assets/buildings/edificio_carbino.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg3" src="../static/assets/buildings/edificio_radiacion.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg4" src="../static/assets/buildings/edificio_hangar.png" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg5" src="../static/assets/buildings/edificio_grafeno.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg6" src="../static/assets/buildings/edificio_acero.png" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg7" src="../static/assets/buildings/edificio_solar.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                            <div class="col-3 selectorDiv">
-                                <img id="selectorImg8" src="../static/assets/buildings/edificio_investicagion.jpg" onclick="buildingDeploy(this)" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="row">
-                    <div class="col">
-                        <div class="row justify-content-center">
-                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento8.jpg" alt="Resource" onclick="changeSettlement(this)">
-                        </div>
-                        <div class="row justify-content-center">
-                            <h5>ubicacion</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="row justify-content-center">
-                            <img class="imgSettlement" src="../static/assets/settlements/asentamiento9.jpg" alt="Resource" onclick="changeSettlement(this)">
-                        </div>
-                        <div class="row justify-content-center">
-                            <h5>ubicacion</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
+				</a> <a href="/user/general" class="btn btn-info w-100 mt-5"
+					role="button">GENERAL</a> <a href="/user/buildings"
+					class="btn btn-info buttonActive w-100 mt-3" role="button">EDIFICIOS</a>
+				<a href="/user/researches" class="btn btn-info w-100 mt-3"
+					role="button">INVESTIGACION</a> <a href="/user/troups"
+					class="btn btn-info w-100 mt-3" role="button">TROPAS</a> <a
+					href="/user/movements" class="btn btn-info w-100 mt-3"
+					role="button">MOVIMIENTOS</a> <a href="/user/radar"
+					class="btn btn-info w-100 mt-3" role="button">RADAR</a> <a
+					href="/user/ranking" class="btn btn-info w-100 mt-3" role="button">CLASIFICACION</a>
+				<a href="/" class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
+			</div>
+			<div class="container col-7 mt-5">
+				<div class="row">
+					<div id="backgroundMainSection" class="col-12 p-2">
+						<div th:each="sb: ${sbList}">
+							<div th:id="'selectorChosen' + ${sb.buildingIds.id}"
+								style="display: none;">
+								<div class="row">
+									<div class="col-5">
+										<img id="selectorImgChosen"
+											th:src="'/assets/buildings/'+ ${sb.buildingIds.id} +'.jpg'"
+											alt="">
+									</div>
+									<div class="col-7">
+										<div class="row justify-content-center">
+											<h3 id="buildingName" th:text="${sb.buildingIds.name}"></h3>
+										</div>
+										<div class="row p-4">
+											<form class="row justify-content-between"
+												action="/user/preUpgradeBuilding" method=POST>
+												<div class="col-8">
+													<div class="form-group row">
+														<div class="col-8">
+															<label>Tiempo:</label>
+														</div>
+														<div class="col-4">
+															<label id="prodTimer" th:text="${sb.buildTime}"></label>
+														</div>
+													</div>
+													<div class="form-group row">
+														<div class="col-8">
+															<label>Energia:</label>
+														</div>
+														<div class="col-4">
+															<label id="energyReq" th:text="${sb.reqEQuantity}"></label>
+														</div>
+													</div>
+													<input id="sbId" name="sbId" type="hidden"
+														th:value="${sb.id}" />
+
+												</div>
+												<div class="col-3">
+													<button type="submit" class="btn btn-success" onClick="alert('Pasado el tiempo de Construccion, se efectuarán visualmente los cambios en el nivel y los recursos')">Mejorar</button>
+												</div>
+											</form>
+										</div>
+										<div class="row mx-4">
+											<img src="/assets/icono_discord.png" alt="">Info
+										</div>
+										<div class="row justify-content-center">
+											<div class="col-2">
+												<img id="selectorImgChosenMini"
+													src="/assets/resources/wolframio.jpg" alt="">
+												<p id="selectorReqChosen1" th:text="${sb.reqWQuantity}"></p>
+											</div>
+											<div class="col-2">
+												<img id="selectorImgChosenMini"
+													src="/assets/resources/grafeno.jpg" alt="">
+												<p id="selectorReqChosen2" th:text="${sb.reqGQuantity}"></p>
+											</div>
+											<div class="col-2">
+												<img id="selectorImgChosenMini"
+													src="/assets/resources/carbino.jpg" alt="">
+												<p id="selectorReqChosen3" th:text="${sb.reqCQuantity}"></p>
+											</div>
+											<div class="col-2">
+												<img id="selectorImgChosenMini"
+													src="/assets/resources/acero.jpg" alt="">
+												<p id="selectorReqChosen4" th:text="${sb.reqSQuantity}"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div id="selectorsMainSection" class="col-12 mt-3">
+						<div class="row">
+							<div class="col-3 selectorDiv mb-4" th:each="sb: ${sbList}">
+								<img th:id="'selectorImg' + ${sb.buildingIds.id}"
+									th:src="'/assets/buildings/'+ ${sb.buildingIds.id} +'.jpg'"
+									onclick="buildingDeploy(this)" alt="">
+								<div id="buildLevel">
+									<h5 th:text="${sb.buildLevel}"></h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="row">
+					<div class="col">
+						<div class="row justify-content-center">
+							<img class="imgSettlement"
+								src="/assets/settlements/asentamiento8.jpg" alt="Resource"
+								onclick="changeSettlement(this)">
+						</div>
+						<div class="row justify-content-center">
+							<h5 th:text="${continent} + ':' + ${country} + ':' + ${region}"></h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 </body>
 
 </html>

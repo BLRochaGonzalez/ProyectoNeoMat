@@ -34,23 +34,23 @@ public class Settlement {
 	 * milisegundos, para calcular la cantidad que tendrá cuando vuelva a
 	 * reconectarse
 	 */
-	@Column(name = "wquantity", columnDefinition = "integer", nullable = false)
-	private Integer wQuantity;
+	@Column(name = "wquantity", columnDefinition = "double", nullable = false)
+	private Double wQuantity;
 
-	@Column(name = "gquantity", columnDefinition = "integer", nullable = false)
-	private Integer gQuantity;
+	@Column(name = "gquantity", columnDefinition = "double", nullable = false)
+	private Double gQuantity;
 
-	@Column(name = "cquantity", columnDefinition = "integer", nullable = false)
-	private Integer cQuantity;
+	@Column(name = "cquantity", columnDefinition = "double", nullable = false)
+	private Double cQuantity;
 
-	@Column(name = "squantity", columnDefinition = "integer", nullable = false)
-	private Integer sQuantity;
+	@Column(name = "squantity", columnDefinition = "double", nullable = false)
+	private Double sQuantity;
 
-	@Column(name = "rquantity", columnDefinition = "integer", nullable = false)
-	private Integer rQuantity;
+	@Column(name = "rquantity", columnDefinition = "double", nullable = false)
+	private Double rQuantity;
 
-	@Column(name = "equantity", columnDefinition = "integer", nullable = false)
-	private Integer eQuantity;
+	@Column(name = "equantity", columnDefinition = "double", nullable = false)
+	private Double eQuantity;
 	
 	//tiempo de ejemplo para sobrescribir luego con el real
 	@Column(name = "lastconnection", columnDefinition = "bigint")
@@ -63,14 +63,14 @@ public class Settlement {
 	@OneToOne(mappedBy = "settlement", cascade = CascadeType.PERSIST)
     private Location location;
 	
-	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
+	@OneToMany(mappedBy = "settlementId", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SettlementTroup> settlementTroupsId = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
+	@OneToMany(mappedBy = "buildingId", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SettlementBuilding> settlementBuildingsId = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "settlementIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
+	@OneToMany(mappedBy = "settlementId", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SettlementResearch> settlementResearchsId = new ArrayList<>();
 	
 	public Settlement() {
 		super();
@@ -79,12 +79,12 @@ public class Settlement {
 	public Settlement(String name) {
 		super();
 		this.name = name;
-		this.wQuantity = 50;
-		this.gQuantity = 50;
-		this.cQuantity = 50;
-		this.sQuantity = 50;
-		this.rQuantity = 0;
-		this.eQuantity = 0;
+		this.wQuantity = 100.0;
+		this.gQuantity = 100.0;
+		this.cQuantity = 100.0;
+		this.sQuantity = 100.0;
+		this.rQuantity = 0.0;
+		this.eQuantity = 0.0;
 		this.lastConnection = 0L;
 	}
 
@@ -96,51 +96,51 @@ public class Settlement {
 		this.name = name;
 	}
 
-	public Integer getwQuantity() {
+	public Double getwQuantity() {
 		return wQuantity;
 	}
 
-	public void setwQuantity(Integer wQuantity) {
-		this.wQuantity = wQuantity;
+	public void setwQuantity(Double d) {
+		this.wQuantity = d;
 	}
 
-	public Integer getgQuantity() {
+	public Double getgQuantity() {
 		return gQuantity;
 	}
 
-	public void setgQuantity(Integer gQuantity) {
+	public void setgQuantity(Double gQuantity) {
 		this.gQuantity = gQuantity;
 	}
 
-	public Integer getcQuantity() {
+	public Double getcQuantity() {
 		return cQuantity;
 	}
 
-	public void setcQuantity(Integer cQuantity) {
+	public void setcQuantity(Double cQuantity) {
 		this.cQuantity = cQuantity;
 	}
 
-	public Integer getsQuantity() {
+	public Double getsQuantity() {
 		return sQuantity;
 	}
 
-	public void setsQuantity(Integer sQuantity) {
+	public void setsQuantity(Double sQuantity) {
 		this.sQuantity = sQuantity;
 	}
 
-	public Integer getrQuantity() {
+	public Double getrQuantity() {
 		return rQuantity;
 	}
 
-	public void setrQuantity(Integer rQuantity) {
+	public void setrQuantity(Double rQuantity) {
 		this.rQuantity = rQuantity;
 	}
 
-	public Integer geteQuantity() {
+	public Double geteQuantity() {
 		return eQuantity;
 	}
 
-	public void seteQuantity(Integer eQuantity) {
+	public void seteQuantity(Double eQuantity) {
 		this.eQuantity = eQuantity;
 	}
 
@@ -169,15 +169,15 @@ public class Settlement {
 	}
 
 	public void setSettlementTroupsIds(List<SettlementTroup> settlementTroupsIds) {
-		this.settlementTroupsIds = settlementTroupsIds;
+		this.settlementTroupsId = settlementTroupsIds;
 	}
 
 	public void setSettlementBuildingsIds(List<SettlementBuilding> settlementBuildingsIds) {
-		this.settlementBuildingsIds = settlementBuildingsIds;
+		this.settlementBuildingsId = settlementBuildingsIds;
 	}
 
 	public void setSettlementResearchsIds(List<SettlementResearch> settlementResearchsIds) {
-		this.settlementResearchsIds = settlementResearchsIds;
+		this.settlementResearchsId = settlementResearchsIds;
 	}
 
 	@Override
@@ -185,12 +185,24 @@ public class Settlement {
 		return "Settlement [name=" + name + ", wQuantity=" + wQuantity + ", gQuantity=" + gQuantity + ", cQuantity="
 				+ cQuantity + ", sQuantity=" + sQuantity + ", rQuantity=" + rQuantity + ", eQuantity=" + eQuantity
 				+ ", lastConnection=" + lastConnection + ", user=" + user + ", location=" + location
-				+ ", settlementTroupsIds=" + settlementTroupsIds + ", settlementBuildingsIds=" + settlementBuildingsIds
-				+ ", settlementResearchsIds=" + settlementResearchsIds + "]";
+				+ ", settlementTroupsIds=" + settlementTroupsId + ", settlementBuildingsIds=" + settlementBuildingsId
+				+ ", settlementResearchsIds=" + settlementResearchsId + "]";
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<SettlementTroup> getSettlementTroupsIds() {
+		return settlementTroupsId;
+	}
+
+	public List<SettlementBuilding> getSettlementBuildingsIds() {
+		return settlementBuildingsId;
+	}
+
+	public List<SettlementResearch> getSettlementResearchsIds() {
+		return settlementResearchsId;
 	}
 
 	

@@ -1,10 +1,13 @@
 package org.iesalixar.bluisrochag.neomat;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-public class NeoMatApplication /*implements CommandLineRunner*/ {
+@EnableAsync
+public class NeoMatApplication /*implements CommandLineRunner */{
 
 //	@Autowired
 //	PlanetRepository planetRepository;
@@ -25,8 +28,9 @@ public class NeoMatApplication /*implements CommandLineRunner*/ {
 		SpringApplication.run(NeoMatApplication.class, args);
 	}
 
+
 //	public void run(String... args) throws Exception {
-//
+
 //		// ---------- Deleting all Database ----------
 //		planetRepository.deleteAll();
 //		userRepository.deleteAll();
@@ -36,27 +40,9 @@ public class NeoMatApplication /*implements CommandLineRunner*/ {
 //		researchRepository.deleteAll();
 //		troupRepository.deleteAll();
 //
-//		// ---------- Implementations ----------
-//		// ---------- Planets ----------
+		// ---------- Implementations ----------
+		// ---------- Planets ----------
 //		Planet p = new Planet("Tierra", LocalDate.now());
-//		// ---------- Users ----------
-//		User u1 = new User("Blas", "VikingoRM", "blasrochagonzalez@gmail.com", "severa2011", "620215579", "admin");
-//		User u2 = new User("Angel", "Kraptor14", "arochag200@gmail.com", "blackmagic", "615872980", "user");
-//		User u3 = new User("Esther", "Virgesther", "virgesther@gmail.com", "12345", "", "user");
-//		@SuppressWarnings({ "unchecked", "rawtypes" })
-//		List<User> usersList = new ArrayList();
-//		usersList.add(u1);
-//		usersList.add(u2);
-//		usersList.add(u3);
-//		// ---------- Settlements ----------
-//		Settlement s1 = new Settlement("Asentamiento Principal");
-//		Settlement s2 = new Settlement("Asentamiento Principal");
-//		Settlement s3 = new Settlement("Asentamiento Principal");
-//		@SuppressWarnings({ "unchecked", "rawtypes" })
-//		List<Settlement> settlementsList = new ArrayList();
-//		settlementsList.add(s1);
-//		settlementsList.add(s2);
-//		settlementsList.add(s3);
 //		// ---------- Buildings ----------
 //		Building b1 = new Building("Mina de Wolframio", "Mina utilizada para la recolección de Wolframio");
 //		Building b2 = new Building("Mina de Grafeno", "Mina utilizada para la recolección de Grafeno");
@@ -257,58 +243,8 @@ public class NeoMatApplication /*implements CommandLineRunner*/ {
 //		t21.getResearchsRequired().add("Tecnologia Armamentística/5");
 //
 //		// ---------- Persisting Instances ----------
-//		// ---------- Users ----------
-//
-//		// ---------- Settlements && Locations ----------
-//		@SuppressWarnings({ "unchecked", "rawtypes" })
-//		List<Location> locationsList = new ArrayList();
-//		for (int u = 0; u < usersList.size(); u++) {
-//			Location l = new Location();
-//			for (Integer x = 1; x <= 5; x++) {
-//				for (Integer y = 1; y <= 10; y++) {
-//					for (Integer z = 1; z <= 25; z++) {
-//						Location loc = locationRepository.findLocationFirstByContinentAndCountryAndRegion(x, y, z);
-//						if (loc == null) {
-//							for (int m = 0; m < locationsList.size(); m++) {
-//								if (x != locationsList.get(m).getContinent()
-//										|| y != locationsList.get(m).getCountry()
-//										|| z != locationsList.get(m).getRegion()) {
-//									l.setContinent(x);
-//									l.setCountry(y);
-//									l.setRegion(z);
-//									locationsList.add(l);
-//
-//									z = 26;
-//									y = 11;
-//									x = 6;
-//
-//									p.setNumSettlements(p.getNumSettlements() + 1);
-//									usersList.get(u).getSettlementsId().add(settlementsList.get(u));
-//									settlementsList.get(u).setLocation(l);
-//									l.setSettlement(settlementsList.get(u));
-//									settlementsList.get(u).setUser(usersList.get(u));
-//									usersList.get(u).setPlanet(p);
-//									p.setNumPlayers(p.getNumPlayers() + 1);
-//									p.getUsersId().add(usersList.get(u));
-//								}
-//							}
-//						}
-//					}
-//				}
-//			}
-//
-//		}
-//
+//		// ---------- Planet ----------
 //		planetRepository.save(p);
-
-//		for (int a = 0; a <= settlementsList.size(); a++) {
-//			settlementRepository.save(settlementsList.get(a));
-//			locationRepository.save(locationsList.get(a));
-//		}
-//		// ---------- Users ----------
-//		userRepository.save(u1);
-//		userRepository.save(u2);
-//		userRepository.save(u3);
 //		// ---------- Buildings ----------
 //		buildingRepository.save(b1);
 //		buildingRepository.save(b2);

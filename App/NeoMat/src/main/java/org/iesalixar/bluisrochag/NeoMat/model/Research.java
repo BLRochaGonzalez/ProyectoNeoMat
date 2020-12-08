@@ -36,7 +36,7 @@ public class Research {
 	@Column(name = "buildsrequired")
 	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "researchIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "researchId", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementResearch> settlementResearchsIds = new ArrayList<>();
 
 	protected Research() {

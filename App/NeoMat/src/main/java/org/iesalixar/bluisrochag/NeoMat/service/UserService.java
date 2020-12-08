@@ -2,8 +2,6 @@ package org.iesalixar.bluisrochag.neomat.service;
 
 import java.util.List;
 
-import org.iesalixar.bluisrochag.neomat.model.Building;
-import org.iesalixar.bluisrochag.neomat.model.Settlement;
 import org.iesalixar.bluisrochag.neomat.model.User;
 import org.iesalixar.bluisrochag.neomat.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,42 +11,60 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
-	
+public class UserService /*implements UserDetailsService */{
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	SettlementService settlementService;
-	
-	public User createUser(User user) {
+
+	public org.iesalixar.bluisrochag.neomat.model.User createUser(org.iesalixar.bluisrochag.neomat.model.User user) {
 		return userRepository.save(user);
 	}
-	
+
 	public User search(String email) {
 		return this.userRepository.findByEmail(email);
 	}
-	
-	public User searchById(Long id) {
+
+	public org.iesalixar.bluisrochag.neomat.model.User searchById(Long id) {
 		return this.userRepository.findFirstById(id);
-		
+
 	}
-	
+
 	public void deleteUser(Long id) {
 		this.userRepository.deleteById(id);
 	}
-	
-	public User updateUser (User user) {
+
+	public org.iesalixar.bluisrochag.neomat.model.User updateUser(org.iesalixar.bluisrochag.neomat.model.User user) {
 		return this.userRepository.save(user);
 	}
 
-	public List<User> listUsers() {
+	public List<org.iesalixar.bluisrochag.neomat.model.User> listUsers() {
 		return this.userRepository.findAllByRole("user");
 	}
-	
-	public Page<User> findPaginated(int numPage, int pageSize){
-		Pageable pageable = PageRequest.of(numPage-1, pageSize);
+
+	public Page<org.iesalixar.bluisrochag.neomat.model.User> findPaginated(int numPage, int pageSize) {
+		Pageable pageable = PageRequest.of(numPage - 1, pageSize);
 		return this.userRepository.findAll(pageable);
 	}
+
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//
+//		org.iesalixar.bluisrochag.neomat.model.User appUser = userRepository.findByEmail(email)
+//				.orElseThrow(() -> new UsernameNotFoundException("No existe usuario"));
+//
+//		@SuppressWarnings("rawtypes")
+//		List grantList = new ArrayList();
+//		for (Role authority : appUser.getRole()) {
+//			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getName());
+//			grantList.add(grantedAuthority);
+//		}
+//
+//		UserDetails user = (UserDetails) new User(appUser.getEmail(), appUser.getPassword(), grantList);
+//		return user;
+//	}
 
 }

@@ -1,5 +1,5 @@
-package org.iesalixar.bluisrochag.neomat.security;
-
+//package org.iesalixar.bluisrochag.neomat.security;
+//
 //import java.io.IOException;
 //import java.util.Collection;
 //
@@ -11,8 +11,10 @@ package org.iesalixar.bluisrochag.neomat.security;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.web.DefaultRedirectStrategy;
 //import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+//import org.springframework.stereotype.Component;
 //
-//public class SuccessHandler implements AuthenticationSuccessHandler {
+//@Component
+//public class OwnSuccessHandler implements AuthenticationSuccessHandler {
 //
 //    @Override
 //    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,

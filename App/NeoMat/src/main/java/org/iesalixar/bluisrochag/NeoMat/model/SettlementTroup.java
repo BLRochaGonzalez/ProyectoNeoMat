@@ -23,13 +23,13 @@ public class SettlementTroup {
 	@Column(name = "quantity", columnDefinition = "integer")
 	private Integer quantity;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "settlement")
-	private Settlement settlementIds;
+	private Settlement settlementId;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "troup")
-	private Troup troupIds;
+	private Troup troupId;
 
 	public SettlementTroup() {
 		super();
@@ -45,24 +45,24 @@ public class SettlementTroup {
 	}
 
 	public Settlement getSettlementIds() {
-		return settlementIds;
+		return settlementId;
 	}
 
 	public void setSettlementIds(Settlement settlementIds) {
-		this.settlementIds = settlementIds;
+		this.settlementId = settlementIds;
 	}
 
 	public Troup getTroupIds() {
-		return troupIds;
+		return troupId;
 	}
 
 	public void setTroupIds(Troup troupIds) {
-		this.troupIds = troupIds;
+		this.troupId = troupIds;
 	}
 
 	@Override
 	public String toString() {
-		return "SettlementTroup [quantity=" + quantity + ", settlementIds=" + settlementIds + ", troupIds=" + troupIds
+		return "SettlementTroup [quantity=" + quantity + ", settlementIds=" + settlementId + ", troupIds=" + troupId
 				+ "]";
 	}
 

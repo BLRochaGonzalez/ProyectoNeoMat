@@ -24,4 +24,16 @@ public class TroupService {
 		Pageable pageable = PageRequest.of(numPage-1, pageSize);
 		return this.troupRepository.findAll(pageable);
 	}
+
+	public Troup findFirstById(Long id) {
+		return this.troupRepository.findFirstById(id);
+	}
+
+	public List<Troup> findAll() {
+		return this.troupRepository.findAll();
+	}
+
+	public void save(Troup tr) {
+		this.troupRepository.save(tr);
+	}
 }

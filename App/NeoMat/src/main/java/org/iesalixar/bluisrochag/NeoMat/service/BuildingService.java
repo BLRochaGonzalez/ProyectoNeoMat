@@ -24,4 +24,8 @@ public class BuildingService {
 		Pageable pageable = PageRequest.of(numPage-1, pageSize);
 		return this.buildingRepository.findAll(pageable);
 	}
+
+	public Building findFirstById(Long id) {
+		return this.buildingRepository.findFirstById(id);
+	}
 }

@@ -28,7 +28,7 @@ public class Building {
 	@Column (name = "description", columnDefinition = "longtext", nullable=false)
 	private String description;
 	
-	@OneToMany(mappedBy = "buildingIds", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "buildingId", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementBuilding> settlementBuildingsIds = new ArrayList<>();
 
 	protected Building() {

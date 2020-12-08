@@ -2,7 +2,9 @@ package org.iesalixar.bluisrochag.neomat.repository;
 
 import org.iesalixar.bluisrochag.neomat.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface LocationRepository extends JpaRepository<Location, Long>{
 
 	@SuppressWarnings("unchecked")

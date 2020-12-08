@@ -1,12 +1,13 @@
 :root{
     /*Constants Colours*/
-    --mainRed: rgba(114, 13, 13);
+    --mainRed: rgb(114, 13, 13);
     --mainRed-0-75:  rgba(114, 13, 13, 0.75);
     --mainLightRed: rgb(209, 72, 72);
     --mainBlue: rgb(65, 161, 225);
     --mainBlue-0-75: rgba(65, 161, 225, 0.75);
     --mainLightBlue: rgb(113, 188, 238);
     --mainWhite: rgb(243, 231, 223);
+    --mainBlack: rgb(15, 15, 15);
     --mainBlack-0-40: rgba(15, 15, 15, 0.40);
 
     /*Constants Buttons*/
@@ -15,7 +16,7 @@
     --mainColor: var(--mainWhite);
 }
 body{
-    background-image:url("../assets/settlements/asentamiento9.jpg");
+    background-image:url("../assets/settlements/asentamiento8.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -71,7 +72,7 @@ h5{
 }
 
 
-#selectorImg, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8{
+#selectorImg1, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8{
     height: 14vh;
     width: 100%;
     border: var(--mainBorder);
@@ -79,7 +80,7 @@ h5{
     margin-top: 5px;
 }
 
-#selectorChosen{
+#selectorChosen1, #selectorChosen2, #selectorChosen3, #selectorChosen4, #selectorChosen5, #selectorChosen6, #selectorChosen7, #selectorChosen8{
     height: 100%;
     background-color: var(--mainBlack-0-40);
     border-radius: var(--mainRadius);
@@ -104,4 +105,9 @@ h5{
 
 #selectorReqChosen1, #selectorReqChosen2, #selectorReqChosen3, #selectorReqChosen4{
     text-align: center;
+}
+
+#buildLevel{
+	margin-top: -3vh;
+    margin-left: 5px;
 }

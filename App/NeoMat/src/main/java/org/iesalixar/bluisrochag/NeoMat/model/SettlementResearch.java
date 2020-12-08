@@ -23,38 +23,38 @@ public class SettlementResearch {
 	@Column (name = "researchlevel", columnDefinition = "integer")
 	private Integer researchLevel;
 
-	@Column(name = "reqwquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqWQuantity;
+	@Column(name = "reqwquantity", columnDefinition = "double", nullable = false)
+	private Double reqWQuantity;
 
-	@Column(name = "reqgquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqGQuantity;
+	@Column(name = "reqgquantity", columnDefinition = "double", nullable = false)
+	private Double reqGQuantity;
 
-	@Column(name = "reqcquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqCQuantity;
+	@Column(name = "reqcquantity", columnDefinition = "double", nullable = false)
+	private Double reqCQuantity;
 
-	@Column(name = "reqsquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqSQuantity;
+	@Column(name = "reqsquantity", columnDefinition = "double", nullable = false)
+	private Double reqSQuantity;
 
-	@Column(name = "reqrquantity", columnDefinition = "integer")
-	private Integer reqRadQuantity;
+	@Column(name = "reqrquantity", columnDefinition = "double")
+	private Double reqRadQuantity;
 
 	@Column(name = "researchtime", columnDefinition = "integer", nullable = false)
 	private Integer researchTime;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "settlement")
-	private Settlement settlementIds;
+	private Settlement settlementId;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "research")
-	private Research researchIds;
+	private Research researchId;
 
 	protected SettlementResearch() {
 		super();
 	}
 
-	public SettlementResearch(Integer researchLevel, Integer reqWQuantity, Integer reqGQuantity, Integer reqCQuantity,
-			Integer reqSQuantity, Integer reqRadQuantity, Integer researchTime) {
+	public SettlementResearch(Integer researchLevel, Double reqWQuantity, Double reqGQuantity, Double reqCQuantity,
+			Double reqSQuantity, Double reqRadQuantity, Integer researchTime) {
 		super();
 		this.researchLevel = researchLevel;
 		this.reqWQuantity = reqWQuantity;
@@ -73,43 +73,43 @@ public class SettlementResearch {
 		this.researchLevel = researchLevel;
 	}
 
-	public Integer getReqWQuantity() {
+	public Double getReqWQuantity() {
 		return reqWQuantity;
 	}
 
-	public void setReqWQuantity(Integer reqWQuantity) {
+	public void setReqWQuantity(Double reqWQuantity) {
 		this.reqWQuantity = reqWQuantity;
 	}
 
-	public Integer getReqGQuantity() {
+	public Double getReqGQuantity() {
 		return reqGQuantity;
 	}
 
-	public void setReqGQuantity(Integer reqGQuantity) {
+	public void setReqGQuantity(Double reqGQuantity) {
 		this.reqGQuantity = reqGQuantity;
 	}
 
-	public Integer getReqCQuantity() {
+	public Double getReqCQuantity() {
 		return reqCQuantity;
 	}
 
-	public void setReqCQuantity(Integer reqCQuantity) {
+	public void setReqCQuantity(Double reqCQuantity) {
 		this.reqCQuantity = reqCQuantity;
 	}
 
-	public Integer getReqSQuantity() {
+	public Double getReqSQuantity() {
 		return reqSQuantity;
 	}
 
-	public void setReqSQuantity(Integer reqSQuantity) {
+	public void setReqSQuantity(Double reqSQuantity) {
 		this.reqSQuantity = reqSQuantity;
 	}
 
-	public Integer getReqRadQuantity() {
+	public Double getReqRadQuantity() {
 		return reqRadQuantity;
 	}
 
-	public void setReqRadQuantity(Integer reqRadQuantity) {
+	public void setReqRadQuantity(Double reqRadQuantity) {
 		this.reqRadQuantity = reqRadQuantity;
 	}
 
@@ -122,19 +122,19 @@ public class SettlementResearch {
 	}
 
 	public Settlement getSettlementIds() {
-		return settlementIds;
+		return settlementId;
 	}
 
 	public void setSettlementIds(Settlement settlementIds) {
-		this.settlementIds = settlementIds;
+		this.settlementId = settlementIds;
 	}
 
 	public Research getResearchIds() {
-		return researchIds;
+		return researchId;
 	}
 
 	public void setResearchIds(Research researchIds) {
-		this.researchIds = researchIds;
+		this.researchId = researchIds;
 	}
 
 	@Override
@@ -142,7 +142,7 @@ public class SettlementResearch {
 		return "SettlementResearch [researchLevel=" + researchLevel + ", reqWQuantity=" + reqWQuantity
 				+ ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity=" + reqSQuantity
 				+ ", reqRadQuantity=" + reqRadQuantity + ", researchTime=" + researchTime + ", settlementIds="
-				+ settlementIds + ", researchIds=" + researchIds + "]";
+				+ settlementId + ", researchIds=" + researchId + "]";
 	}
 
 	public Long getId() {

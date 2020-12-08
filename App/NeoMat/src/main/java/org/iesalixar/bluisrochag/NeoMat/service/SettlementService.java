@@ -36,4 +36,25 @@ public class SettlementService {
 	public Settlement searchById(Long settlementId) {
 		return this.settlementRepository.findFirstById(settlementId);
 	}
+
+	public List<Settlement> findAll() {
+		return this.settlementRepository.findAll();
+	}
+
+	public void save(Settlement s) {
+		this.settlementRepository.save(s);
+		
+	}
+
+	public Settlement findFirstById(Long l) {
+		return this.settlementRepository.findFirstById(l);
+	}
+
+	public Settlement findFirstByName(String string) {
+		return this.settlementRepository.findFirstByName(string);
+	}
+
+	public Settlement findFirstByUser(User authUser) {
+		return this.settlementRepository.findFirstByUser(authUser);
+	}
 }

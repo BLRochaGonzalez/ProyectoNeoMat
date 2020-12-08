@@ -9,6 +9,7 @@ import org.iesalixar.bluisrochag.neomat.service.BuildingService;
 import org.iesalixar.bluisrochag.neomat.service.ResearchService;
 import org.iesalixar.bluisrochag.neomat.service.TroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
+@Scope("session")
 public class GamesettingsController {
 	
 	@Autowired

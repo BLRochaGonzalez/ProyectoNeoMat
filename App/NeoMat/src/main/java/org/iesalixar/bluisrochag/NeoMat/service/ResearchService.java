@@ -24,4 +24,12 @@ public class ResearchService {
 		Pageable pageable = PageRequest.of(numPage-1, pageSize);
 		return this.researchRepository.findAll(pageable);
 	}
+
+	public Research findFirstById(Long id) {
+		return this.researchRepository.findFirstById(id);
+	}
+
+	public List<Research> findAll() {
+		return this.researchRepository.findAll();
+	}
 }

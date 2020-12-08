@@ -39,8 +39,23 @@ public class User {
 	@Column(name = "phone", columnDefinition = "varchar(30)")
 	private String phone;
 	
-	@Column(name = "role", columnDefinition = "varchar(10)", nullable = false)
+//	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    @JoinTable(name = "roleusers", joinColumns = @JoinColumn(name = "usuarioId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+//    private Set<Role> role;
+	@Column(name = "role", columnDefinition = "varchar(30)")
 	private String role;
+	
+	@Column(name="points", columnDefinition = "double", nullable=false)
+	private Integer points;
+	
+	@Column(name="tpoints", columnDefinition = "double", nullable=false)
+	private Integer troupPoints;
+	
+	@Column(name="bpoints", columnDefinition = "double", nullable=false)
+	private Integer buildingPoints;
+	
+	@Column(name="rpoints", columnDefinition = "double", nullable=false)
+	private Integer researchPoints;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "planet")
@@ -49,7 +64,7 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<Settlement> settlementsId = new ArrayList<>();
 
-	protected User() {
+	public User() {
 		super();
 	}
 
@@ -61,6 +76,10 @@ public class User {
 		this.password = password;
 		this.phone = phone;
 		this.role = role;
+		this.points = 0;
+		this.buildingPoints = 0;
+		this.researchPoints = 0;
+		this.troupPoints = 0;
 	}
 
 	public Long getId() {
@@ -107,13 +126,13 @@ public class User {
 		this.phone = phone;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
+//	public Set<Role> getRole() {
+//		return role;
+//	}
+//
+//	public void setRole(Set<Role> role) {
+//		this.role = role;
+//	}
 
 	public Planet getPlanet() {
 		return planet;
@@ -130,11 +149,27 @@ public class User {
 	public void setSettlementsId(List<Settlement> settlementsId) {
 		this.settlementsId = settlementsId;
 	}
+	
+	public Integer getPoints() {
+		return points;
+	}
+
+	public void setPoints(Integer points) {
+		this.points = points;
+	}
 
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", nick=" + nick + ", email=" + email + ", password=" + password + ", phone="
 				+ phone + ", role=" + role + ", planet=" + planet + ", settlementsId=" + settlementsId + "]";
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getRole() {
+		return role;
 	}
 
 }

@@ -1,6 +1,6 @@
 :root{
     /*Constants Colours*/
-    --mainBlack: rgba(15, 15, 15);
+    --mainBlack: rgb(15, 15, 15);
     --mainBlack-0-40: rgba(15, 15, 15, 0.40);
     --mainWhite: rgb(243, 231, 223);
 
@@ -54,7 +54,7 @@ h5{
 }
 
 #backgroundMainSection{
-    background-image:url("../assets/settlements/asentamiento9.jpg");
+    background-image:url("../assets/settlements/asentamiento8.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

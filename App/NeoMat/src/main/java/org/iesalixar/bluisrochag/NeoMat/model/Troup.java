@@ -34,20 +34,20 @@ public class Troup {
 	@Column(name = "isdef", columnDefinition = "boolean", nullable = false)
 	private Boolean isDef;
 	
-	@Column(name = "reqwquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqWQuantity;
+	@Column(name = "reqwquantity", columnDefinition = "double", nullable = false)
+	private Double reqWQuantity;
 
-	@Column(name = "reqgquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqGQuantity;
+	@Column(name = "reqgquantity", columnDefinition = "double", nullable = false)
+	private Double reqGQuantity;
 
-	@Column(name = "reqcquantity", columnDefinition = "integer", nullable = false)
-	private Integer reqCQuantity;
+	@Column(name = "reqcquantity", columnDefinition = "double", nullable = false)
+	private Double reqCQuantity;
 
-	@Column(name = "reqsquantity", columnDefinition = "integer", nullable=false)
-	private Integer reqSQuantity;
+	@Column(name = "reqsquantity", columnDefinition = "double", nullable=false)
+	private Double reqSQuantity;
 
-	@Column(name = "reqrquantity", columnDefinition = "integer")
-	private Integer reqRadQuantity;
+	@Column(name = "reqrquantity", columnDefinition = "double")
+	private Double reqRadQuantity;
 	
 	@Column(name = "createtime", columnDefinition = "integer")
 	private Integer createTime;
@@ -62,15 +62,15 @@ public class Troup {
 	@Column(name = "buildsrequired")
 	private List<String> buildsRequired = new ArrayList<String>();
 	
-	@OneToMany(mappedBy = "troupIds", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
-	private List<SettlementTroup> settlementTroupsIds = new ArrayList<>();
+	@OneToMany(mappedBy = "troupId", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SettlementTroup> settlementTroupsId = new ArrayList<>();
 
 	protected Troup() {
 		super();
 	}
 
-	public Troup(String name, String description, Boolean isDef, Integer reqWQuantity,
-			Integer reqGQuantity, Integer reqCQuantity, Integer reqSQuantity, Integer reqRadQuantity,
+	public Troup(String name, String description, Boolean isDef, Double reqWQuantity,
+			Double reqGQuantity, Double reqCQuantity, Double reqSQuantity, Double reqRadQuantity,
 			Integer createTime, List<String> researchsRequired, List<String> buildsRequired) {
 		super();
 		this.name = name;
@@ -84,6 +84,10 @@ public class Troup {
 		this.createTime = createTime;
 		this.researchsRequired = researchsRequired;
 		this.buildsRequired = buildsRequired;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -110,43 +114,43 @@ public class Troup {
 		this.isDef = isDef;
 	}
 
-	public Integer getReqWQuantity() {
+	public Double getReqWQuantity() {
 		return reqWQuantity;
 	}
 
-	public void setReqWQuantity(Integer reqWQuantity) {
+	public void setReqWQuantity(Double reqWQuantity) {
 		this.reqWQuantity = reqWQuantity;
 	}
 
-	public Integer getReqGQuantity() {
+	public Double getReqGQuantity() {
 		return reqGQuantity;
 	}
 
-	public void setReqGQuantity(Integer reqGQuantity) {
+	public void setReqGQuantity(Double reqGQuantity) {
 		this.reqGQuantity = reqGQuantity;
 	}
 
-	public Integer getReqCQuantity() {
+	public Double getReqCQuantity() {
 		return reqCQuantity;
 	}
 
-	public void setReqCQuantity(Integer reqCQuantity) {
+	public void setReqCQuantity(Double reqCQuantity) {
 		this.reqCQuantity = reqCQuantity;
 	}
 
-	public Integer getReqSQuantity() {
+	public Double getReqSQuantity() {
 		return reqSQuantity;
 	}
 
-	public void setReqSQuantity(Integer reqSQuantity) {
+	public void setReqSQuantity(Double reqSQuantity) {
 		this.reqSQuantity = reqSQuantity;
 	}
 
-	public Integer getReqRadQuantity() {
+	public Double getReqRadQuantity() {
 		return reqRadQuantity;
 	}
 
-	public void setReqRadQuantity(Integer reqRadQuantity) {
+	public void setReqRadQuantity(Double reqRadQuantity) {
 		this.reqRadQuantity = reqRadQuantity;
 	}
 
@@ -175,11 +179,11 @@ public class Troup {
 	}
 
 	public List<SettlementTroup> getSettlementTroupsIds() {
-		return settlementTroupsIds;
+		return settlementTroupsId;
 	}
 
 	public void setSettlementTroupsIds(List<SettlementTroup> settlementTroupsIds) {
-		this.settlementTroupsIds = settlementTroupsIds;
+		this.settlementTroupsId = settlementTroupsIds;
 	}
 
 	@Override
@@ -188,12 +192,9 @@ public class Troup {
 				+ reqWQuantity + ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity="
 				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", createTime=" + createTime
 				+ ", researchsRequired=" + researchsRequired + ", buildsRequired=" + buildsRequired
-				+ ", settlementTroupsIds=" + settlementTroupsIds + "]";
+				+ ", settlementTroupsIds=" + settlementTroupsId + "]";
 	}
 
-	public Long getId() {
-		return id;
-	}
 
 	
 }
