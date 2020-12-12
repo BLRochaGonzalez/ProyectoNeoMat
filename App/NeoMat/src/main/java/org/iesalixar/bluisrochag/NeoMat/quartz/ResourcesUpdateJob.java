@@ -38,23 +38,23 @@ public class ResourcesUpdateJob implements Job {
 				e += sb.getReqEQuantity();
 				switch ((sb.getBuildingIds().getId()).intValue()) {
 				case 1:
-					s.setwQuantity(s.getwQuantity() + sb.getResourceQuantity() / 240);
+					s.setwQuantity(s.getwQuantity() + sb.getResourceQuantity() / 720);
 					this.settlementService.save(s);
 					break;
 				case 2:
-					s.setgQuantity(s.getgQuantity() + sb.getResourceQuantity() / 240);
+					s.setgQuantity(s.getgQuantity() + sb.getResourceQuantity() / 720);
 					this.settlementService.save(s);
 					break;
 				case 3:
-					s.setcQuantity(s.getcQuantity() + sb.getResourceQuantity() / 240);
+					s.setcQuantity(s.getcQuantity() + sb.getResourceQuantity() / 720);
 					this.settlementService.save(s);
 					break;
 				case 4:
-					s.setsQuantity(s.getsQuantity() + sb.getResourceQuantity() / 240);
+					s.setsQuantity(s.getsQuantity() + sb.getResourceQuantity() / 720);
 					this.settlementService.save(s);
 					break;
 				case 5:
-					s.setrQuantity(s.getrQuantity() + sb.getResourceQuantity() / 240);
+					s.setrQuantity(s.getrQuantity() + sb.getResourceQuantity() / 720);
 					this.settlementService.save(s);
 					break;
 				case 6:

@@ -12,12 +12,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SettlementTroupService {
-	
+
 	@Autowired
 	SettlementTroupRepository settlementTroupRepository;
-	
-	@Autowired
-	SettlementService settlementService;
 
 	public void createSettlementTroup(SettlementTroup st) {
 		this.settlementTroupRepository.save(st);
@@ -32,27 +29,18 @@ public class SettlementTroupService {
 	}
 
 	@Async
-	public void createNewTroup(Settlement s, Troup t, SettlementTroup st, String quantity) throws InterruptedException {
-		Integer q = Integer.getInteger(quantity);
-		if (s.getwQuantity() >= t.getReqWQuantity()*q && s.getgQuantity() >= t.getReqGQuantity()*q
-				&& s.getcQuantity() >= t.getReqCQuantity()*q && s.getsQuantity() >= t.getReqSQuantity()*q
-				&& s.getrQuantity() >= t.getReqRadQuantity()*q) {
-			
-			Thread.sleep(t.getCreateTime()*q* 1000);
-			
-			s.setwQuantity(s.getwQuantity()-t.getReqWQuantity()*st.getQuantity());
-			s.setgQuantity(s.getgQuantity()-t.getReqGQuantity()*st.getQuantity());
-			s.setcQuantity(s.getcQuantity()-t.getReqCQuantity()*st.getQuantity());
-			s.setsQuantity(s.getsQuantity()-t.getReqSQuantity()*st.getQuantity());
-			s.setrQuantity(s.getrQuantity()-t.getReqRadQuantity()*st.getQuantity());
-			
-			st.setQuantity(st.getQuantity()+q);
-			
-			this.settlementService.createSettlement(s);
-			this.createSettlementTroup(st);
-			
-			
-			}
+	public void createNewTroup(Troup t, SettlementTroup st, Integer q) throws InterruptedException {
+
+		Thread.sleep(t.getCreateTime() * q * 1000);
+
+		st.setQuantity(st.getQuantity() + q);
+
+		this.createSettlementTroup(st);
+
+	}
+
+	public SettlementTroup findFirstBySettlementIdAndTroupId(Settlement s, Troup t) {
+		return this.settlementTroupRepository.findFirstBySettlementIdAndTroupId(s, t);
 	}
 
 }

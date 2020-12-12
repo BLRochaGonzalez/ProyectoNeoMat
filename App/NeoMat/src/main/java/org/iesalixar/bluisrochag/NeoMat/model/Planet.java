@@ -37,7 +37,7 @@ public class Planet {
 	@Column(name = "numSettlements", columnDefinition = "integer", nullable=false)
 	private Integer numSettlements;
 	
-	@OneToMany(mappedBy = "planet", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "planet", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<User> usersId = new ArrayList<>();
 
 	public Planet() {

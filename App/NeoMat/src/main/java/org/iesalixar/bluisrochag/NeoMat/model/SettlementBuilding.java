@@ -51,7 +51,7 @@ public class SettlementBuilding {
 	@JoinColumn(name = "settlement")
 	private Settlement settlementId;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "building")
 	private Building buildingId;
 

@@ -16,9 +16,6 @@ public class UserService /*implements UserDetailsService */{
 	@Autowired
 	UserRepository userRepository;
 
-	@Autowired
-	SettlementService settlementService;
-
 	public org.iesalixar.bluisrochag.neomat.model.User createUser(org.iesalixar.bluisrochag.neomat.model.User user) {
 		return userRepository.save(user);
 	}
@@ -47,6 +44,30 @@ public class UserService /*implements UserDetailsService */{
 	public Page<org.iesalixar.bluisrochag.neomat.model.User> findPaginated(int numPage, int pageSize) {
 		Pageable pageable = PageRequest.of(numPage - 1, pageSize);
 		return this.userRepository.findAll(pageable);
+	}
+
+	public void save(User authUser) {
+		this.userRepository.save(authUser);
+	}
+
+	public User findFirstById(Long id) {
+		return this.userRepository.findFirstById(id);
+	}
+
+	public List<User> findAllOrderByPoints() {
+		return this.userRepository.findAllByOrderByPointsDesc();
+	}
+
+	public List<User> findAllOrderByBuildingPoints() {
+		return this.userRepository.findAllByOrderByBuildingPointsDesc();
+	}
+
+	public List<User> findAllOrderByResearchPoints() {
+		return this.userRepository.findAllByOrderByResearchPointsDesc();
+	}
+
+	public List<User> findAllOrderByTroupPoints() {
+		return this.userRepository.findAllByOrderByTroupPointsDesc();
 	}
 
 //	@SuppressWarnings("unchecked")

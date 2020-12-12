@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.iesalixar.bluisrochag.neomat.model.Settlement;
 import org.iesalixar.bluisrochag.neomat.model.User;
-import org.iesalixar.bluisrochag.neomat.repository.LocationRepository;
 import org.iesalixar.bluisrochag.neomat.repository.SettlementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,6 @@ public class SettlementService {
 
 	@Autowired
 	SettlementRepository settlementRepository;
-	
-	@Autowired
-	LocationRepository locationRepository;
-	
-	@Autowired
-	LocationService locationService;
 
 	public Settlement createSettlement(Settlement settlement) {
 		return settlementRepository.save(settlement);
@@ -57,4 +50,5 @@ public class SettlementService {
 	public Settlement findFirstByUser(User authUser) {
 		return this.settlementRepository.findFirstByUser(authUser);
 	}
+
 }

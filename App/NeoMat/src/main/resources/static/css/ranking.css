@@ -11,6 +11,10 @@
     --mainColor: var(--mainWhite);
 }
 
+*{
+	color: var(--mainWhite);
+}
+
 body{
     background-image:url("../assets/settlements/asentamiento8.jpg");
     background-repeat: no-repeat;

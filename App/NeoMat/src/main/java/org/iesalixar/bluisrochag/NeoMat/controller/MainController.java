@@ -1,5 +1,7 @@
 package org.iesalixar.bluisrochag.neomat.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -16,5 +18,13 @@ public class MainController {
 	@GetMapping({"/"})
 	public String index(Model model) {
 		return "index";
+	}
+	
+	@GetMapping({"/logOut"})
+	public String logOut(Model model, HttpSession session) {
+		session.removeAttribute("user");
+		session.setMaxInactiveInterval(0);
+		session.invalidate();
+		return "redirect:/";
 	}
 }

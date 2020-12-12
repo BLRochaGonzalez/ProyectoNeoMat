@@ -90,7 +90,7 @@ h5{
     transform: scale(1.5); 
 }
 
-#selectorImg, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8, #selectorImg9, #selectorImg10, #selectorImg11, #selectorImg12, #selectorImg13, #selectorImg14, #selectorImg15, #selectorImg16, #selectorImg17, #selectorImg18, #selectorImg19, #selectorImg20, #selectorImg21{
+#selectorImg1, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8, #selectorImg9, #selectorImg10, #selectorImg11, #selectorImg12, #selectorImg13, #selectorImg14, #selectorImg15, #selectorImg16, #selectorImg17, #selectorImg18, #selectorImg19, #selectorImg20, #selectorImg21{
     height: 10vh;
     width: 75%;
     border: var(--mainBorder);

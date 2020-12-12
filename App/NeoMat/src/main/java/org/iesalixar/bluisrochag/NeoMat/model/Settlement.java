@@ -56,7 +56,7 @@ public class Settlement {
 	@Column(name = "lastconnection", columnDefinition = "bigint")
     private Long lastConnection;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user")
 	private User user;
 	

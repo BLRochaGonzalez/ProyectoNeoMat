@@ -4,36 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "troup")
 public class Troup {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "troupid")
 	private Long id;
-	
+
 	@Column(name = "name", columnDefinition = "varchar(45)", nullable = false, unique = true)
 	private String name;
 
 	@Column(name = "description", columnDefinition = "longtext", nullable = false)
 	private String description;
-	
+
 	@Column(name = "isdef", columnDefinition = "boolean", nullable = false)
 	private Boolean isDef;
-	
+
 	@Column(name = "reqwquantity", columnDefinition = "double", nullable = false)
 	private Double reqWQuantity;
 
@@ -43,25 +40,24 @@ public class Troup {
 	@Column(name = "reqcquantity", columnDefinition = "double", nullable = false)
 	private Double reqCQuantity;
 
-	@Column(name = "reqsquantity", columnDefinition = "double", nullable=false)
+	@Column(name = "reqsquantity", columnDefinition = "double", nullable = false)
 	private Double reqSQuantity;
 
 	@Column(name = "reqrquantity", columnDefinition = "double")
 	private Double reqRadQuantity;
-	
+
 	@Column(name = "createtime", columnDefinition = "integer")
 	private Integer createTime;
 	
-	@ElementCollection
-	@CollectionTable(name = "researchtroupsrequired", joinColumns = @JoinColumn(name = "troupid"))
-	@Column(name = "researchsrequired")
-	private List<String> researchsRequired = new ArrayList<String>();
+	@Column(name = "damage", columnDefinition = "double")
+	private Double damage;
 	
-	@ElementCollection
-	@CollectionTable(name = "buildstroupsrequired", joinColumns = @JoinColumn(name = "troupid"))
-	@Column(name = "buildsrequired")
-	private List<String> buildsRequired = new ArrayList<String>();
+	@Column(name = "life", columnDefinition = "double")
+	private Double life;
 	
+	@Column(name = "shield", columnDefinition = "double")
+	private Double shield;
+
 	@OneToMany(mappedBy = "troupId", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<SettlementTroup> settlementTroupsId = new ArrayList<>();
 
@@ -69,9 +65,8 @@ public class Troup {
 		super();
 	}
 
-	public Troup(String name, String description, Boolean isDef, Double reqWQuantity,
-			Double reqGQuantity, Double reqCQuantity, Double reqSQuantity, Double reqRadQuantity,
-			Integer createTime, List<String> researchsRequired, List<String> buildsRequired) {
+	public Troup(String name, String description, Boolean isDef, Double reqWQuantity, Double reqGQuantity,
+			Double reqCQuantity, Double reqSQuantity, Double reqRadQuantity, Integer createTime, Double damage, Double shield, Double life) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -82,10 +77,11 @@ public class Troup {
 		this.reqSQuantity = reqSQuantity;
 		this.reqRadQuantity = reqRadQuantity;
 		this.createTime = createTime;
-		this.researchsRequired = researchsRequired;
-		this.buildsRequired = buildsRequired;
+		this.damage = damage;
+		this.shield = shield;
+		this.life = life;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -162,22 +158,6 @@ public class Troup {
 		this.createTime = createTime;
 	}
 
-	public List<String> getResearchsRequired() {
-		return researchsRequired;
-	}
-
-	public void setResearchsRequired(List<String> researchsRequired) {
-		this.researchsRequired = researchsRequired;
-	}
-
-	public List<String> getBuildsRequired() {
-		return buildsRequired;
-	}
-
-	public void setBuildsRequired(List<String> buildsRequired) {
-		this.buildsRequired = buildsRequired;
-	}
-
 	public List<SettlementTroup> getSettlementTroupsIds() {
 		return settlementTroupsId;
 	}
@@ -186,15 +166,45 @@ public class Troup {
 		this.settlementTroupsId = settlementTroupsIds;
 	}
 
+	public Double getDamage() {
+		return damage;
+	}
+
+	public void setDamage(Double damage) {
+		this.damage = damage;
+	}
+
+	public Double getLife() {
+		return life;
+	}
+
+	public void setLife(Double life) {
+		this.life = life;
+	}
+
+	public Double getShield() {
+		return shield;
+	}
+
+	public void setShield(Double shield) {
+		this.shield = shield;
+	}
+
+	public List<SettlementTroup> getSettlementTroupsId() {
+		return settlementTroupsId;
+	}
+
+	public void setSettlementTroupsId(List<SettlementTroup> settlementTroupsId) {
+		this.settlementTroupsId = settlementTroupsId;
+	}
+
 	@Override
 	public String toString() {
 		return "Troup [name=" + name + ", description=" + description + ", isDef=" + isDef + ", reqWQuantity="
 				+ reqWQuantity + ", reqGQuantity=" + reqGQuantity + ", reqCQuantity=" + reqCQuantity + ", reqSQuantity="
-				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", createTime=" + createTime
-				+ ", researchsRequired=" + researchsRequired + ", buildsRequired=" + buildsRequired
-				+ ", settlementTroupsIds=" + settlementTroupsId + "]";
+				+ reqSQuantity + ", reqRadQuantity=" + reqRadQuantity + ", createTime=" + createTime + ", damage="
+				+ damage + ", life=" + life + ", shield=" + shield + ", settlementTroupsId=" + settlementTroupsId + "]";
 	}
 
 
-	
 }

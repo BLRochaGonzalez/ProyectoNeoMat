@@ -1,13 +1,12 @@
 package org.iesalixar.bluisrochag.neomat;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableAsync
-public class NeoMatApplication /*implements CommandLineRunner */{
+public class NeoMatApplication  /* implements CommandLineRunner */ {
 
 //	@Autowired
 //	PlanetRepository planetRepository;
@@ -28,9 +27,8 @@ public class NeoMatApplication /*implements CommandLineRunner */{
 		SpringApplication.run(NeoMatApplication.class, args);
 	}
 
-
 //	public void run(String... args) throws Exception {
-
+//
 //		// ---------- Deleting all Database ----------
 //		planetRepository.deleteAll();
 //		userRepository.deleteAll();
@@ -40,8 +38,8 @@ public class NeoMatApplication /*implements CommandLineRunner */{
 //		researchRepository.deleteAll();
 //		troupRepository.deleteAll();
 //
-		// ---------- Implementations ----------
-		// ---------- Planets ----------
+//	// ---------- Implementations ----------
+//	// ---------- Planets ----------
 //		Planet p = new Planet("Tierra", LocalDate.now());
 //		// ---------- Buildings ----------
 //		Building b1 = new Building("Mina de Wolframio", "Mina utilizada para la recolección de Wolframio");
@@ -53,194 +51,70 @@ public class NeoMatApplication /*implements CommandLineRunner */{
 //		Building b6 = new Building("Planta de Energia Solar", "Edificio dedicado a la generacion de energia");
 //		Building b7 = new Building("Hangar",
 //				"Se encarga de la creacion de nuevas tropas, el aumento de su nivel hará que se creen mas rápidas");
-//		Building b8 = new Building("Laboratorio de Investigación", "Encargado de investigar nuevas tecnologias");
+//		Building b8 = new Building("Laboratorio de Investigación", "Encargado de investigar nuevas tecnologias, el aumento de su nivel hará que se investiguen mas rápido");
 //		// ---------- Researches ----------
 //		Research r1 = new Research("Tecnologia de Energia",
-//				"Tecnologia encargada del aumento de recoleccion de recursos", new ArrayList<String>());
-//		r1.getBuildsRequired().add("Laboratorio de Investigación/1");
+//				"Tecnologia encargada del aumento de recoleccion de recursos");
 //		Research r2 = new Research("Tecnologia de IA",
-//				"Tecnologia que introduce nuevos algoritmos y patrones para acelerar los tiempos de construccion de edificios",
-//				new ArrayList<String>());
-//		r2.getBuildsRequired().add("Laboratorio de Investigación/5");
+//				"Tecnologia que introduce nuevos algoritmos y patrones para acelerar los tiempos de construccion de edificios");
 //		Research r3 = new Research("Tecnologia de Espionaje",
-//				"Tecnologia que aumenta la capacidad de espionaje así como la capacidad de hacer expediciones satisfactoriamente",
-//				new ArrayList<String>());
-//		r3.getBuildsRequired().add("Laboratorio de Investigación/3");
+//				"Tecnologia que aumenta la capacidad de espionaje así como la capacidad de hacer expediciones satisfactoriamente");
 //		Research r4 = new Research("Tecnologia Militar",
-//				"Tecnologia que permite crear nuevos tipos de tropas conforma mas alto sea su nivel",
-//				new ArrayList<String>());
-//		r4.getBuildsRequired().add("Laboratorio de Investigación/5");
+//				"Tecnologia que permite aumentar los puntos de estructura de las tropas conforme mas alto sea su nivel");
 //		Research r5 = new Research("Tecnologia de Blindaje",
-//				"Tecnologia encargada de mejorar el blindaje de las tropas, proporcionando mas puntos de estructuras cuanto mayor sea su nivel",
-//				new ArrayList<String>());
-//		r5.getBuildsRequired().add("Laboratorio de Investigación/6");
+//				"Tecnologia encargada de mejorar el blindaje de las tropas, proporcionando mas puntos de escudo cuanto mayor sea su nivel");
 //		Research r6 = new Research("Tecnologia Armamentística",
-//				"Tecnologia encargada de mejorar la capacidad ofensiva de las tropas, aumentando el daño ocasionado cuanto mayor nivel tenga la investigacion",
-//				new ArrayList<String>());
-//		r6.getBuildsRequired().add("Laboratorio de Investigación/6");
+//				"Tecnologia encargada de mejorar la capacidad ofensiva de las tropas, aumentando el daño ocasionado cuanto mayor nivel tenga la investigacion");
 //		// ---------- Troups ----------
-//		Troup t1 = new Troup("Espía", "Vehiculo ultra ligero casi indetectable para las defensas enemigas", false, 800,
-//				1000, 900, 1000, 50, 20, new ArrayList<String>(), new ArrayList<String>());
-//		t1.getBuildsRequired().add("Hangar/3");
-//		t1.getBuildsRequired().add("Laboratorio de Investigación/3");
-//		t1.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t1.getResearchsRequired().add("Tecnologia de Espionaje/1");
+//		Troup t1 = new Troup("Espía", "Vehiculo ultra ligero casi indetectable para las defensas enemigas", false, 800.0,
+//				1000.0, 900.0, 1000.0, 50.0, 20, 0.0, 10.0, 800.0);
 //		Troup t2 = new Troup("Avispa", "Vehiculo ágil desarrollado para incursiones tras las fronteras enemigas", false,
-//				1500, 1250, 1200, 1500, 200, 50, new ArrayList<String>(), new ArrayList<String>());
-//		t2.getBuildsRequired().add("Hangar/3");
-//		t2.getBuildsRequired().add("Laboratorio de Investigación/3");
-//		t2.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t2.getResearchsRequired().add("Tecnologia Militar/1");
+//				1500.0, 1250.0, 1200.0, 1500.0, 200.0, 50, 80.0, 50.0, 3200.0);
 //		Troup t3 = new Troup("Cazador Ligero",
-//				"Vehiculo básico de ataque, usdo como primera linea de fuego en los combates", false, 2500, 2000, 2500,
-//				3000, 220, 75, new ArrayList<String>(), new ArrayList<String>());
-//		t3.getBuildsRequired().add("Hangar/5");
-//		t3.getBuildsRequired().add("Laboratorio de Investigación/4");
-//		t3.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t3.getResearchsRequired().add("Tecnologia Militar/2");
-//		Troup t4 = new Troup("Cazador Pesado", "Vehiculo de ataque mas robusto que su predecesor", false, 5600, 3400,
-//				3200, 6000, 260, 160, new ArrayList<String>(), new ArrayList<String>());
-//		t4.getBuildsRequired().add("Hangar/7");
-//		t4.getBuildsRequired().add("Laboratorio de Investigación/6");
-//		t4.getResearchsRequired().add("Tecnologia de Energia/3");
-//		t4.getResearchsRequired().add("Tecnologia Militar/3");
-//		t4.getResearchsRequired().add("Tecnologia de Blindaje/1");
-//		t4.getResearchsRequired().add("Tecnologia Armamentistica/1");
-//		Troup t5 = new Troup("Nave Pequeña de Carga", "Vehiculo de carga que transporta recursos", false, 8000, 5000,
-//				4300, 2000, 300, 75, new ArrayList<String>(), new ArrayList<String>());
-//		t5.getBuildsRequired().add("Hangar/5");
-//		t5.getBuildsRequired().add("Laboratorio de Investigación/5");
-//		t5.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t5.getResearchsRequired().add("Tecnologia Militar/2");
-//		t5.getResearchsRequired().add("Tecnologia de Blindaje/2");
+//				"Vehiculo básico de ataque, usdo como primera linea de fuego en los combates", false, 2500.0, 2000.0, 2500.0,
+//				3000.0, 220.0, 75, 240.0, 100.0, 6000.0);
+//		Troup t4 = new Troup("Cazador Pesado", "Vehiculo de ataque mas robusto que su predecesor", false, 5600.0, 3400.0,
+//				3200.0, 6000.0, 260.0, 160, 500.0, 250.0, 8000.0);
+//		Troup t5 = new Troup("Nave Pequeña de Carga", "Vehiculo de carga que transporta recursos", false, 8000.0, 5000.0,
+//				4300.0, 2000.0, 300.0, 75, 10.0, 6000.0, 5000.0);
 //		Troup t6 = new Troup("Nave Grande de Carga", "Vehiculo pesado con gran capacidad para el transporte", false,
-//				12000, 7500, 6700, 6000, 350, 160, new ArrayList<String>(), new ArrayList<String>());
-//		t6.getBuildsRequired().add("Hangar/7");
-//		t6.getBuildsRequired().add("Laboratorio de Investigación/6");
-//		t6.getResearchsRequired().add("Tecnologia de Energia/3");
-//		t6.getResearchsRequired().add("Tecnologia Militar/3");
-//		t6.getResearchsRequired().add("Tecnologia de Blindaje/4");
-//		Troup t7 = new Troup("Escolta", "Vehiculo blindado que sirve de escudo ante el enemigo", false, 10000, 6500,
-//				5000, 17000, 500, 190, new ArrayList<String>(), new ArrayList<String>());
-//		t7.getBuildsRequired().add("Hangar/8");
-//		t7.getBuildsRequired().add("Laboratorio de Investigación/6");
-//		t7.getResearchsRequired().add("Tecnologia de Energia/5");
-//		t7.getResearchsRequired().add("Tecnologia Militar/4");
-//		t7.getResearchsRequired().add("Tecnologia de Blindaje/6");
-//		t7.getResearchsRequired().add("Tecnologia Armamentistica/1");
-//		Troup t8 = new Troup("Asaltador Ligero", "vehiculo que usa rayos laser a modo de ataque", false, 15000, 10000,
-//				7500, 12000, 1000, 250, new ArrayList<String>(), new ArrayList<String>());
-//		t8.getBuildsRequired().add("Hangar/8");
-//		t8.getBuildsRequired().add("Laboratorio de Investigación/6");
-//		t8.getResearchsRequired().add("Tecnologia de Energia/3");
-//		t8.getResearchsRequired().add("Tecnologia Militar/5");
-//		t8.getResearchsRequired().add("Tecnologia de Blindaje/2");
-//		t8.getResearchsRequired().add("Tecnologia Armamentistica/3");
-//		Troup t9 = new Troup("Asaltador Pesado", "vehiculo de mayor tamaño que usa un cañon laser doble", false, 22500,
-//				18000, 12500, 15000, 1500, 280, new ArrayList<String>(), new ArrayList<String>());
-//		t9.getBuildsRequired().add("Hangar/9");
-//		t9.getBuildsRequired().add("Laboratorio de Investigación/7");
-//		t9.getResearchsRequired().add("Tecnologia de Energia/8");
-//		t9.getResearchsRequired().add("Tecnologia Militar/6");
-//		t9.getResearchsRequired().add("Tecnologia de Blindaje/3");
-//		t9.getResearchsRequired().add("Tecnologia Armamentistica/4");
+//				12000.0, 7500.0, 6700.0, 6000.0, 350.0, 100, 16015.0, 31000.0, 10000.0);
+//		Troup t7 = new Troup("Escolta", "Vehiculo blindado que sirve de escudo ante el enemigo", false, 10000.0, 6500.0,
+//				5000.0, 17000.0, 500.0, 190, 5.0, 500.0, 20000.0);
+//		Troup t8 = new Troup("Asaltador Ligero", "vehiculo que usa rayos laser a modo de ataque", false, 15000.0, 10000.0,
+//				7500.0, 12000.0, 1000.0, 250, 400.0, 250.0, 7000.0);
+//		Troup t9 = new Troup("Asaltador Pesado", "vehiculo de mayor tamaño que usa un cañon laser doble", false, 22500.0,
+//				18000.0, 12500.0, 15000.0, 1500.0, 280, 750.0, 400.0, 9000.0);
 //		Troup t10 = new Troup("Acorazado", "Vehiculo extremadamente blindado que ataca con impulsos electromagneticos",
-//				false, 31000, 20000, 28000, 60000, 3000, 300, new ArrayList<String>(), new ArrayList<String>());
-//		t10.getBuildsRequired().add("Hangar/11");
-//		t10.getBuildsRequired().add("Laboratorio de Investigación/8");
-//		t10.getResearchsRequired().add("Tecnologia de Energia/5");
-//		t10.getResearchsRequired().add("Tecnologia Militar/7");
-//		t10.getResearchsRequired().add("Tecnologia de Blindaje/7");
-//		t10.getResearchsRequired().add("Tecnologia Armamentistica/3");
-//		Troup t11 = new Troup("Bombardero", "Vehiculo diseñado para lanzar misiles de gran potencia", false, 40000,
-//				24000, 44000, 35000, 5000, 330, new ArrayList<String>(), new ArrayList<String>());
-//		t11.getBuildsRequired().add("Hangar/13");
-//		t11.getBuildsRequired().add("Laboratorio de Investigación/9");
-//		t11.getResearchsRequired().add("Tecnologia de Energia/6");
-//		t11.getResearchsRequired().add("Tecnologia Militar/8");
-//		t11.getResearchsRequired().add("Tecnologia de Blindaje/4");
-//		t11.getResearchsRequired().add("Tecnologia Armamentistica/6");
+//				false, 31000.0, 20000.0, 28000.0, 60000.0, 3000.0, 300, 900.0, 1000.0, 40000.0);
+//		Troup t11 = new Troup("Bombardero", "Vehiculo diseñado para lanzar misiles de gran potencia", false, 40000.0,
+//				24000.0, 44000.0, 35000.0, 5000.0, 330, 1500.0, 600.0, 15000.0);
 //		Troup t12 = new Troup("Destructor", "Vehiculo con un fuerte blindaje y gran daño con su cañon laser", false,
-//				50000, 30000, 60000, 40000, 7500, 350, new ArrayList<String>(), new ArrayList<String>());
-//		t12.getBuildsRequired().add("Hangar/15");
-//		t12.getBuildsRequired().add("Laboratorio de Investigación/10");
-//		t12.getResearchsRequired().add("Tecnologia de Energia/7");
-//		t12.getResearchsRequired().add("Tecnologia Militar/9");
-//		t12.getResearchsRequired().add("Tecnologia de Blindaje/5");
-//		t12.getResearchsRequired().add("Tecnologia Armamentistica/7");
+//				50000.0, 30000.0, 60000.0, 40000.0, 7500.0, 350, 1200.0, 750.0, 20000.0);
 //		Troup t13 = new Troup("Gran Wick",
-//				"Vehiculo de dimensiones masivas preparado para la guerra, su ataque es devastador", false, 300000,
-//				220000, 260000, 500000, 100000, 800, new ArrayList<String>(), new ArrayList<String>());
-//		t13.getBuildsRequired().add("Hangar/18");
-//		t13.getBuildsRequired().add("Laboratorio de Investigación/12");
-//		t13.getResearchsRequired().add("Tecnologia de Energia/8");
-//		t13.getResearchsRequired().add("Tecnologia Militar/10");
-//		t13.getResearchsRequired().add("Tecnologia de Blindaje/8");
-//		t13.getResearchsRequired().add("Tecnologia Armamentistica/10");
-//		Troup t14 = new Troup("El Muro", "Fortaleza que defiende la ciudad de el asedio de los atacantes", true, 45000,
-//				30000, 32000, 70000, 0, 600, new ArrayList<String>(), new ArrayList<String>());
-//		t14.getBuildsRequired().add("Hangar/5");
-//		t14.getBuildsRequired().add("Laboratorio de Investigación/5");
-//		t14.getResearchsRequired().add("Tecnologia de Energia/3");
-//		t14.getResearchsRequired().add("Tecnologia Militar/3");
-//		t14.getResearchsRequired().add("Tecnologia de Blindaje/12");
+//				"Vehiculo de dimensiones masivas preparado para la guerra, su ataque es devastador", false, 300000.0,
+//				220000.0, 260000.0, 500000.0, 100000.0, 800, 5000.0, 150000.0, 150000.0);
+//		Troup t14 = new Troup("El Muro", "Fortaleza que defiende la ciudad de el asedio de los atacantes", true, 45000.0,
+//				30000.0, 32000.0, 70000.0, 0.0, 600, 0.0, 0.0, 200000.0);
 //		Troup t15 = new Troup("Araña", "Robot de defensa de escasa durabilidad, dará su vida por defender a su pueblo",
-//				true, 500, 380, 300, 700, 0, 30, new ArrayList<String>(), new ArrayList<String>());
-//		t15.getBuildsRequired().add("Hangar/2");
-//		t15.getBuildsRequired().add("Laboratorio de Investigación/1");
-//		t15.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t15.getResearchsRequired().add("Tecnologia Militar/1");
-//		Troup t16 = new Troup("Lanzamisiles", "Robot estatico preparado para la defensa del asentamiento", true, 1500,
-//				700, 1700, 2000, 0, 60, new ArrayList<String>(), new ArrayList<String>());
-//		t16.getBuildsRequired().add("Hangar/3");
-//		t16.getBuildsRequired().add("Laboratorio de Investigación/2");
-//		t16.getResearchsRequired().add("Tecnologia de Energia/1");
-//		t16.getResearchsRequired().add("Tecnologia Militar/3");
+//				true, 500.0, 380.0, 300.0, 700.0, 0.0, 30, 50.0, 0.0, 4000.0);
+//		Troup t16 = new Troup("Lanzamisiles", "Robot estatico preparado para la defensa del asentamiento", true, 1500.0,
+//				700.0, 1700.0, 2000.0, 0.0, 60, 170.0, 0.0, 8000.0);
 //		Troup t17 = new Troup("Torre Cañón",
 //				"Cañón de gran envergadura, su ataque a traves de rayos laser son eficaces contra los ataques del exterior",
-//				true, 2750, 1500, 3000, 3800, 0, 120, new ArrayList<String>(), new ArrayList<String>());
-//		t17.getBuildsRequired().add("Hangar/5");
-//		t17.getBuildsRequired().add("Laboratorio de Investigación/4");
-//		t17.getResearchsRequired().add("Tecnologia de Energia/3");
-//		t17.getResearchsRequired().add("Tecnologia Militar/5");
-//		t17.getResearchsRequired().add("Tecnologia de Blindaje/2");
-//		t17.getResearchsRequired().add("Tecnologia Armamentística/1");
+//				true, 2750.0, 1500.0, 3000.0, 3800.0, 0.0, 120, 340.0, 0.0, 9750.0);
 //		Troup t18 = new Troup("Defensor",
 //				"Robot que reconoce al enemigo a traves de su sistema de rayos infrarojos y despues aniquila lo que se ponga delante",
-//				true, 5750, 3000, 4500, 4900, 0, 150, new ArrayList<String>(), new ArrayList<String>());
-//		t18.getBuildsRequired().add("Hangar/7");
-//		t18.getBuildsRequired().add("Laboratorio de Investigación/5");
-//		t18.getResearchsRequired().add("Tecnologia de Energia/4");
-//		t18.getResearchsRequired().add("Tecnologia Militar/5");
-//		t18.getResearchsRequired().add("Tecnologia de Blindaje/3");
-//		t18.getResearchsRequired().add("Tecnologia Armamentística/2");
+//				true, 5750.0, 3000.0, 4500.0, 4900.0, 0.0, 150, 875.0, 0.0, 15000.0);
 //		Troup t19 = new Troup("Anti Asedio",
-//				"Robot masivo de defensa, eficaz en la defensa y con mayor armamento para su labor", true, 9500, 6000,
-//				7800, 12500, 0, 160, new ArrayList<String>(), new ArrayList<String>());
-//		t19.getBuildsRequired().add("Hangar/8");
-//		t19.getBuildsRequired().add("Laboratorio de Investigación/12");
-//		t19.getResearchsRequired().add("Tecnologia de Energia/5");
-//		t19.getResearchsRequired().add("Tecnologia Militar/6");
-//		t19.getResearchsRequired().add("Tecnologia de Blindaje/4");
-//		t19.getResearchsRequired().add("Tecnologia Armamentística/3");
+//				"Robot masivo de defensa, eficaz en la defensa y con mayor armamento para su labor", true, 9500.0, 6000.0,
+//				7800.0, 12500.0, 0.0, 160, 1050.0, 0.0, 23000.0);
 //		Troup t20 = new Troup("Tron-X",
 //				"Maquina de guerra destinada a la defensa a traves de misiles, balas, sierras cuerpo a cuerpo... es el robot perfecto de defensa... o casi",
-//				true, 18000, 14000, 17000, 30000, 0, 190, new ArrayList<String>(), new ArrayList<String>());
-//		t20.getBuildsRequired().add("Hangar/9");
-//		t20.getBuildsRequired().add("Laboratorio de Investigación/6");
-//		t20.getResearchsRequired().add("Tecnologia de Energia/5");
-//		t20.getResearchsRequired().add("Tecnologia Militar/7");
-//		t20.getResearchsRequired().add("Tecnologia de Blindaje/5");
-//		t20.getResearchsRequired().add("Tecnologia Armamentística/4");
+//				true, 18000.0, 14000.0, 17000.0, 30000.0, 0.0, 190, 1400.0, 0.0, 30000.0);
 //		Troup t21 = new Troup("Laser Dog",
 //				"Robot mega masivo altamente veloz y sigiloso, el daño de sus cañónes laseres a poca distancia son letales para aquel que se le ponga en frente",
-//				true, 30000, 22000, 26000, 50000, 0, 250, new ArrayList<String>(), new ArrayList<String>());
-//		t21.getBuildsRequired().add("Hangar/10");
-//		t21.getBuildsRequired().add("Laboratorio de Investigación/8");
-//		t21.getResearchsRequired().add("Tecnologia de Energia/6");
-//		t21.getResearchsRequired().add("Tecnologia Militar/9");
-//		t21.getResearchsRequired().add("Tecnologia de Blindaje/6");
-//		t21.getResearchsRequired().add("Tecnologia Armamentística/5");
+//				true, 30000.0, 22000.0, 26000.0, 50000.0, 0.0, 250, 3200.0, 0.0, 35000.0);
 //
 //		// ---------- Persisting Instances ----------
 //		// ---------- Planet ----------

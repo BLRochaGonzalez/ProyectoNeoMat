@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/movements.css">
+<link rel="stylesheet" href="/css/radar.css">
 <script src="/js/myOwnJS.js"></script>
 <title>Neo Material / General</title>
 </head>
 
-<body id="body" onload="showTime()">
+<body>
 	<div id="mainContainer" class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-1 recourceContainer">
@@ -87,95 +87,51 @@
 					href="/user/researches" class="btn btn-info w-100 mt-3"
 					role="button">INVESTIGACION</a> <a href="/user/troups"
 					class="btn btn-info w-100 mt-3" role="button">TROPAS</a> <a
-					href="/user/movements" class="btn btn-info buttonActive w-100 mt-3"
+					href="/user/movements" class="btn btn-info w-100 mt-3"
 					role="button">MOVIMIENTOS</a> <a href="/user/radar"
-					class="btn btn-info w-100 mt-3" role="button">RADAR</a> <a
-					href="/user/ranking" class="btn btn-info w-100 mt-3" role="button">CLASIFICACION</a>
-				<a href="/logOut" class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
+					class="btn btn-info buttonActive w-100 mt-3" role="button">RADAR</a>
+				<a href="/user/ranking" class="btn btn-info w-100 mt-3"
+					role="button">CLASIFICACION</a> <a href="/logOut"
+					class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
 			</div>
-			<div class="container col-7 mt-5">
-				<div id="imgMovementChosen" class="row ml-1"
-					style="background-image: url('/assets/tropas/defensas_bg.png');">
-					<div id="infoSection"
-						class="row justify-content-center align-items-center">
-						<div id="infoGroup" class="col-12 mb-2">
-							<div class="row align-items-center ml-3"
-								style="background-color: var(- -mainBlack-0-40);">
-								<div class="col-12">
-									<div class="row justify-content-between m-1">
-										<label class="mr-5" for="">Tropas:</label>
-										<h4 id="totTroups">0</h4>
-									</div>
-									<div class="row justify-content-between m-1">
-										<label class="mr-5" for="">Continente:</label> <label
-											th:if="${cont}" id="continent" th:text="${cont}"></label> <label
-											th:if="${cont} == null" id="continent"></label>
-									</div>
-									<div class="row justify-content-between m-1">
-										<label class="mr-5" for="">Pais:</label> <label
-											th:if="${pais}" id="country" th:text="${pais}"></label> <label
-											th:if="${pais} == null" id="country"></label>
-									</div>
-									<div class="row justify-content-between m-1">
-										<label class="mr-5" for="">Region:</label> <label
-											th:if="${regi}" id="region" th:text="${regi}"></label> <label
-											th:if="${regi} == null" id="region"></label>
-									</div>
-								</div>
-							</div>
+			<div id="backgroundMainSection" class="container col-7 mt-5">
+				<table class="table table-dark mt-2">
+					<thead>
+						<tr>
+							<th scope="col">Continente</th>
+							<th scope="col">Pais</th>
+							<th scope="col">Region</th>
+							<th scope="col">Nombre Asentamiento</th>
+						</tr>
+					</thead>
+					<tbody>
+						<div th:each="location:${lList}">
+							<tr th:if="${location.settlement.user.role != 'admin'}">
+								<td th:text="${location.continent}"></td>
+								<td th:text="${location.country}"></td>
+								<td th:text="${location.region}"></td>
+								<td th:text="${location.settlement.name}"></td>
+								<td>
+									<form class="form-inline" th:action="@{/user/settlement/attack}" method=POST>
+										<div class="form-group mx-sm-3">
+											<input type="hidden" class="form-control" id="inputCont" name="inputCont" th:value="${location.continent}">
+										</div>
+										<div class="form-group mx-sm-3">
+											<input type="hidden" class="form-control" id="inputPais" name="inputPais" th:value="${location.country}">
+										</div>
+										<div class="form-group mx-sm-3">
+											<input type="hidden" class="form-control" id="inputRegi" name="inputRegi" th:value="${location.region}">
+										</div>
+										<button th:if="${location.continent} == ${continent} and ${location.country} == ${country} and ${location.region} == ${region}" type="submit" class="btn btn-danger" disabled>Atacar</button>
+										<button th:if="${location.continent} != ${continent} or ${location.country} != ${country} or ${location.region} != ${region}" type="submit" class="btn btn-danger">Atacar</button>
+									</form>
+								</td>
+							</tr>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div id="selectorsMainSection" class="col-12 mt-3">
-						<div class="row">
-							<div class="col-2 selectorDiv mb-4" th:each="st: ${stList}">
-								<div th:if="${!st.troupIds.isDef}">
-									<img th:id="'selectorImg' + ${st.troupIds.id}"
-										th:src="'/assets/tropas/'+ ${st.troupIds.id} +'.jpg'" alt="">
-									<div id="troupQuantity">
-										<input th:id="${st.troupIds.id}" type="text"
-											style="width: 6vw" onblur="asignarTropas(this)">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-6">
-						<div class="row mt-4 justify-content-center">
-							<div class="col-5">
-								<label for="">Ubicac.</label>
-							</div>
-							<div class="col-2">
-								<input th:if="${cont}" id="locationContinent" type="text" style="width: 20px;"
-									onchange="changeLocation(this)" disabled> 
-								<input th:if="${cont} == null" id="locationContinent" type="text" style="width: 20px;"
-									onchange="changeLocation(this)">
-							</div>
-							<div class="col-2">
-								<input th:if="${pais}" id="locationCountry" type="text" style="width: 20px;"
-									onchange="changeLocation(this)" disabled> 
-								<input th:if="${pais} == null" id="locationCountry" type="text" style="width: 20px;"
-									onchange="changeLocation(this)">
-							</div>
-							<div class="col-2">
-								<input th:if="${regi}" id="locationRegion" type="text" style="width: 20px;"
-									onchange="changeLocation(this)" disabled> 
-								<input th:if="${regi} == null" id="locationRegion" type="text" style="width: 20px;"
-									onchange="changeLocation(this)">
-							</div>
-						</div>
-					</div>
-					<div class="col-2">
-						<div class="row m-4 justify-content-center">
-							<div class="col">
-								<a href="/" class="btn btn-success" role="button">Enviar</a>
-							</div>
-						</div>
-					</div>
-				</div>
+
+					</tbody>
+				</table>
+
 			</div>
 			<div class="col-2">
 				<div class="row">

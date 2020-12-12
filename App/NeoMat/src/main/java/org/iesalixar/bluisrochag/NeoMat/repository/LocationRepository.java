@@ -1,5 +1,7 @@
 package org.iesalixar.bluisrochag.neomat.repository;
 
+import java.util.List;
+
 import org.iesalixar.bluisrochag.neomat.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,5 +17,7 @@ public interface LocationRepository extends JpaRepository<Location, Long>{
 	public Location searchBySettlement(Long settlementId);
 
 	public Location findFirstById(Long locationId);
+
+	public List<Location> findAllByContinentAndCountry(Integer c, Integer p);
 
 }

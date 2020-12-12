@@ -46,22 +46,22 @@ public class User {
 	private String role;
 	
 	@Column(name="points", columnDefinition = "double", nullable=false)
-	private Integer points;
+	private Double points;
 	
 	@Column(name="tpoints", columnDefinition = "double", nullable=false)
-	private Integer troupPoints;
+	private Double troupPoints;
 	
 	@Column(name="bpoints", columnDefinition = "double", nullable=false)
-	private Integer buildingPoints;
+	private Double buildingPoints;
 	
 	@Column(name="rpoints", columnDefinition = "double", nullable=false)
-	private Integer researchPoints;
+	private Double researchPoints;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "planet")
 	private Planet planet;
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<Settlement> settlementsId = new ArrayList<>();
 
 	public User() {
@@ -76,14 +76,38 @@ public class User {
 		this.password = password;
 		this.phone = phone;
 		this.role = role;
-		this.points = 0;
-		this.buildingPoints = 0;
-		this.researchPoints = 0;
-		this.troupPoints = 0;
+		this.points = 0.0;
+		this.buildingPoints = 0.0;
+		this.researchPoints = 0.0;
+		this.troupPoints = 0.0;
 	}
 
 	public Long getId() {
 		return id;
+	}
+	
+	public Double getTroupPoints() {
+		return troupPoints;
+	}
+
+	public void setTroupPoints(Double troupPoints) {
+		this.troupPoints = troupPoints;
+	}
+
+	public Double getBuildingPoints() {
+		return buildingPoints;
+	}
+
+	public void setBuildingPoints(Double buildingPoints) {
+		this.buildingPoints = buildingPoints;
+	}
+
+	public Double getResearchPoints() {
+		return researchPoints;
+	}
+
+	public void setResearchPoints(Double researchPoints) {
+		this.researchPoints = researchPoints;
 	}
 	
 	public String getName() {
@@ -150,18 +174,20 @@ public class User {
 		this.settlementsId = settlementsId;
 	}
 	
-	public Integer getPoints() {
+	public Double getPoints() {
 		return points;
 	}
 
-	public void setPoints(Integer points) {
+	public void setPoints(Double points) {
 		this.points = points;
 	}
 
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", nick=" + nick + ", email=" + email + ", password=" + password + ", phone="
-				+ phone + ", role=" + role + ", planet=" + planet + ", settlementsId=" + settlementsId + "]";
+				+ phone + ", role=" + role + ", points=" + points + ", troupPoints=" + troupPoints + ", buildingPoints="
+				+ buildingPoints + ", researchPoints=" + researchPoints + ", planet=" + planet + ", settlementsId="
+				+ settlementsId + "]";
 	}
 
 	public void setRole(String role) {

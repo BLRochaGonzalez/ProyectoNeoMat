@@ -23,6 +23,6 @@ public class ConfigurationJob {
 	public Trigger jobATrigger(JobDetail jobADetails) {
 
 		return TriggerBuilder.newTrigger().forJob(jobADetails).withIdentity("resourcesUpdateTrigger")
-				.withSchedule(CronScheduleBuilder.cronSchedule("0/15 * * * * ?")).build();
+				.withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?")).build();
 	}
 }
