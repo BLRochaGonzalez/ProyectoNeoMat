@@ -33,7 +33,6 @@
     <fullyQualifiedTypeName name="org.springframework.security.crypto.argon2.Argon2PasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.server.Session"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.Location"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.model.SettlementBuilding"/>
     <fullyQualifiedTypeName name="org.iesalixar.bluisrochag.neomat.service.SettlementBuildingService"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
