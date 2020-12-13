@@ -2,11 +2,13 @@ package org.iesalixar.bluisrochag.neomat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableAsync
-public class NeoMatApplication  /* implements CommandLineRunner */ {
+public class NeoMatApplication  /* implements CommandLineRunner */ extends SpringBootServletInitializer{
 
 //	@Autowired
 //	PlanetRepository planetRepository;
@@ -26,6 +28,11 @@ public class NeoMatApplication  /* implements CommandLineRunner */ {
 	public static void main(String[] args) {
 		SpringApplication.run(NeoMatApplication.class, args);
 	}
+	
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(NeoMatApplication.class);
+    }
 
 //	public void run(String... args) throws Exception {
 //
