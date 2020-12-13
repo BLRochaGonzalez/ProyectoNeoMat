@@ -7,48 +7,43 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/admin.css">
 <script src="/js/myOwnJS.js"></script>
-<title>User_Settings</title>
+<title th:text="#{gamesettings.title}"></title>
 </head>
 
 <body>
-	<div id="mainContainer" class="container-fluid">
+	<div id="mainContainer" class="container-fluid d-none d-lg-block">
 		<div class="row justify-content-around">
 			<div class="col-2">
-				<a th:href="@{/admin/users}" class="btn btn-info w-75">Users
-					Settings</a>
+				<a th:href="@{/admin/users}" class="btn btn-info w-75" th:text="#{gamesettings.btn.users}"></a>
 			</div>
 			<div class="col-2">
-				<a href="/logOut" class="btn btn-danger w-75">Exit</a>
+				<a href="/logOut" class="btn btn-danger w-75" th:text="#{nav.exit}"></a>
 			</div>
 		</div>
 		<div id="usersphp" class="row justify-content-center mt-5">
 			<div id="settingsContainer" class="col-8">
 				<div class="row justify-content-between">
-					<div id="gameAccess" class="col-3 h5" onclick="showGameSection()">
-						Game</div>
-					<div id="researchAccess" class="col-3 h5"
-						onclick="showResearchesSection()">Researches</div>
-					<div id="buildingAccess" class="col-3 h5"
-						onclick="showBuildingsSection()">Building</div>
-					<div id="troupAccess" class="col-3 h5"
-						onclick="showTroupsSection()">Troups</div>
+					<div id="gameAccess" class="col-3 h5"><a href="#" onclick="showGameSection();return false;" th:text="#{gamesettings.sub.game}"></a></div>
+					<div id="researchAccess" class="col-3 h5"><a href="#" onclick="showResearchesSection();return false;" th:text="#{gamesettings.sub.research}"></a></div>
+					<div id="buildingAccess" class="col-3 h5"><a href="#" onclick="showBuildingsSection();return false;" th:text="#{gamesettings.sub.building}"></a></div>
+					<div id="troupAccess" class="col-3 h5"><a href="#" onclick="showTroupsSection();return false;" th:text="#{gamesettings.sub.troup}"></a></div>
 				</div>
 				<div class="row">
 					<div id="gameSection" class="col-12">
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Game Settings</th>
+									<th colspan="6" th:text="#{gamesettings.tab.game}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Variable:</th>
-									<th scope="col">Valor:</th>
-									<th scope="col">Modificar</th>
+									<th scope="col" th:text="#{gamesettings.tab.var}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.val}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.mod}"></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td scope="col">Cantidad Continentes:</td>
+									<td scope="col" th:text="#{gamesettings.tab.cquantity}"></td>
 									<td th:text="${planetCont}"></td>
 									<td class="text-center">
 										<form th:action="@{/admin/game}" method=POST>
@@ -58,7 +53,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td scope="col">Cantidad Paises:</td>
+									<td scope="col" th:text="#{gamesettings.tab.pquantity}"></td>
 									<td th:text="${planetCoun}"></td>
 									<td class="text-center">
 										<form th:action="@{/admin/game}" method=POST>
@@ -68,7 +63,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td scope="col">Cantidad Regiones:</td>
+									<td scope="col" th:text="#{gamesettings.tab.rquantity}"></td>
 									<td th:text="${planetRegi}"></td>
 									<td class="text-center">
 										<form th:action="@{/admin/game}" method=POST>
@@ -84,12 +79,12 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Researches Settings</th>
+									<th colspan="6" th:text="#{gamesettings.tab.research}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Investigacion:</th>
-									<th scope="col">Factores Aumentos:</th>
-									<th scope="col">Modificar</th>
+									<th scope="col" th:text="#{gamesettings.tab.res}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.afact}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.mod}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -109,7 +104,7 @@
 						</table>
 						<div th:if="${researchTotalPages > 1}">
 							<div class="row">
-								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-2"><span th:text="#{gamesettings.tab.rows}"></span> [[${totalItems}]]</div>
 								<div class="col-6">
 									<span th:each="i: ${#numbers.sequence(1, researchTotalPages)}">
 										<a th:if="${researchCurrentPage !=i}" th:href="@{'/page/research/' + ${i}}">[[${i}]]</a>
@@ -124,13 +119,13 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Buildings Settings</th>
+									<th colspan="6" th:text="#{gamesettings.tab.game}">Buildings Settings</th>
 								</tr>
 								<tr>
-									<th scope="col">Edificio:</th>
-									<th scope="col">Factor Costes:</th>
-									<th scope="col">Factor Produccion:</th>
-									<th scope="col">Modificar</th>
+									<th scope="col" th:text="#{gamesettings.tab.building}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.cfact}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.pfact}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.mod}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -151,7 +146,7 @@
 						</table>
 						<div th:if="${buildingTotalPages > 1}">
 							<div class="row">
-								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-2"><span th:text="#{gamesettings.tab.rows}"></span> [[${totalItems}]]</div>
 								<div class="col-6">
 									<span th:each="i: ${#numbers.sequence(1, buildingTotalPages)}">
 										<a th:if="${buildingCurrentPage !=i}" th:href="@{'/page/building/' + ${i}}">[[${i}]]</a>
@@ -166,13 +161,13 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Troups Settings</th>
+									<th colspan="6" th:text="#{gamesettings.tab.troup}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Tropa:</th>
-									<th scope="col">Tiempo Creacion</th>
-									<th scope="col">Defensivo?</th>
-									<th scope="col">Modificar</th>
+									<th scope="col" th:text="#{gamesettings.tab.name}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.time}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.def}"></th>
+									<th scope="col" th:text="#{gamesettings.tab.mod}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -193,7 +188,7 @@
 						</table>
 						<div th:if="${troupTotalPages > 1}">
 							<div class="row">
-								<div class="col-2">Total Rows: [[${totalItems}]]</div>
+								<div class="col-2"><span th:text="#{gamesettings.tab.rows}"></span> [[${totalItems}]]</div>
 								<div class="col-6">
 									<span th:each="i: ${#numbers.sequence(1, troupTotalPages)}">
 										<a th:if="${troupCurrentPage !=i}" th:href="@{'/page/tropas/' + ${i}}">[[${i}]]</a>
@@ -205,6 +200,19 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="mainContainer" class="container-fluid d-lg-none">
+		<div class="alert alert-warning" role="alert" th:text="#{responsive.alert}"></div>
+		<div class="row justify-content-around">
+			<div id="infoContainer" class="col-10">
+				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
 			</div>
 		</div>
 	</div>

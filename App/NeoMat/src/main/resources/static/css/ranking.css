@@ -72,3 +72,9 @@ h5{
     border: var(--mainBorder);
     border-color: var(--mainColor);
 }
+
+@media (max-width: 1200px) { 
+	#totalAccess, #buildingAccess, #researchAccess, #troupAccess, #honorAccess{
+		font-size:0.8em;
+	}
+}

@@ -7,18 +7,17 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/admin.css">
 <script src="/js/myOwnJS.js"></script>
-<title>User_Settings</title>
+<title th:text="#{usersettings.title}"></title>
 </head>
 
 <body>
-	<div id="mainContainer" class="container-fluid">
+	<div id="mainContainer" class="container-fluid d-none d-lg-block">
 		<div class="row justify-content-around">
 			<div class="col-2">
-				<a th:href="@{/admin/game}" class="btn btn-info w-75">Game
-					Settings</a>
+				<a th:href="@{/admin/game}" class="btn btn-info w-75" th:text="#{usersettings.btn.game}"></a>
 			</div>
 			<div class="col-2">
-				<a href="/logOut" class="btn btn-danger w-75">Exit</a>
+				<a href="/logOut" class="btn btn-danger w-75" th:text="#{nav.exit}">Exit</a>
 			</div>
 		</div>
 		<div id="usersphp" class="row justify-content-center">
@@ -26,14 +25,14 @@
 				<table class="table mt-4">
 					<thead class="bg-info text-center">
 						<tr>
-							<th colspan="6">Usuarios</th>
+							<th colspan="6" th:text="#{usersettings.tab.users}"></th>
 						</tr>
 						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Nick</th>
-							<th scope="col">Email</th>
-							<th scope="col">Telefono</th>
-							<th scope="col">Borrar</th>
+							<th scope="col" th:text="#{usersettings.tab.name}"></th>
+							<th scope="col" th:text="#{usersettings.tab.nick}"></th>
+							<th scope="col" th:text="#{usersettings.tab.email}"></th>
+							<th scope="col" th:text="#{usersettings.tab.phone}"></th>
+							<th scope="col" th:text="#{usersettings.tab.delete}"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -56,7 +55,7 @@
 				</table>
 				<div th:if="${totalPages > 1}">
 					<div class="row">
-						<div class="col-2">Total Rows: [[${totalItems}]]</div>
+						<div class="col-2"><span th:text="#{usersettings.tab.rows}"></span> [[${totalItems}]]</div>
 						<div class="col-6">
 							<span th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
 								th:if="${currentPage !=i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
@@ -66,6 +65,20 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="mainContainer" class="container-fluid d-lg-none">
+		<div class="alert alert-warning" role="alert"
+			th:text="#{responsive.alert}"></div>
+		<div class="row justify-content-around">
+			<div id="infoContainer" class="col-10">
+				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
 			</div>
 		</div>
 	</div>

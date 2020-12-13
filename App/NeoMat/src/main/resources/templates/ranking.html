@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/ranking.css">
 <script src="/js/myOwnJS.js"></script>
-<title>Neo Material / General</title>
+<title th:text="#{ranking.title}"></title>
 </head>
 
-<body onload="showTime()">
-	<div id="mainContainer" class="container-fluid">
+<body onload="showTime(), reloj()">
+	<div id="mainContainer" class="container-fluid d-none d-lg-block">
 		<div class="row justify-content-center">
 			<div class="col-1 recourceContainer">
 				<div class="row">
@@ -82,40 +82,40 @@
 							d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
                     </svg>
 				</a> <a href="/user/general" class="btn btn-info w-100 mt-5"
-					role="button">GENERAL</a> <a href="/user/buildings"
-					class="btn btn-info w-100 mt-3" role="button">EDIFICIOS</a> <a
+					role="button" th:text="#{nav.general}"></a> <a
+					href="/user/buildings" class="btn btn-info buttonActive w-100 mt-3"
+					role="button" th:text="#{nav.building}"></a> <a
 					href="/user/researches" class="btn btn-info w-100 mt-3"
-					role="button">INVESTIGACION</a> <a href="/user/troups"
-					class="btn btn-info w-100 mt-3" role="button">TROPAS</a> <a
-					href="/user/movements" class="btn btn-info w-100 mt-3"
-					role="button">MOVIMIENTOS</a> <a href="/user/radar"
-					class="btn btn-info w-100 mt-3" role="button">RADAR</a> <a
-					href="/user/ranking" class="btn btn-info buttonActive w-100 mt-3"
-					role="button">CLASIFICACION</a> <a href="/logOut"
-					class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
+					role="button" th:text="#{nav.research}"></a> <a href="/user/troups"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.troup}"></a> <a href="/user/movements"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.movement}"></a> <a href="/user/radar"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.radar}"></a> <a href="/user/ranking"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.ranking}"></a> <a href="/logOut"
+					class="btn btn-danger w-100 mt-5" role="button"
+					th:text="#{nav.exit}"></a>
 			</div>
 			<div id="backgroundMainSection" class="container col-7 mt-5">
 				<div id="rankingContainer" class="col-12 mt-2">
 					<div class="row">
 						<div id="totalAccess" class="col">
 							<a href="#" onclick="showTotalSection()"
-								style="text-decoration: none; color: var(- -mainWhite);">P.
-								Totales</a>
+								style="text-decoration: none; color: var(--mainWhite);" th:text="#{ranking.tot}"></a>
 						</div>
 						<div id="buildingAccess" class="col">
 							<a href="#" onclick="showBuildingSection()"
-								style="text-decoration: none; color: var(- -mainWhite);">P.
-								Edificacion</a>
+								style="text-decoration: none; color: var(--mainWhite);" th:text="#{ranking.build}"></a>
 						</div>
 						<div id="researchAccess" class="col">
 							<a href="#" onclick="showResearchSection()"
-								style="text-decoration: none; color: var(- -mainWhite);">P.
-								Investigacion</a>
+								style="text-decoration: none; color: var(--mainWhite);" th:text="#{ranking.res}"></a>
 						</div>
 						<div id="troupAccess" class="col">
 							<a href="#" onclick="showTroupSection()"
-								style="text-decoration: none; color: var(- -mainWhite);">P.
-								Tropas</a>
+								style="text-decoration: none; color: var(--mainWhite);" th:text="#{ranking.troup}"></a>
 						</div>
 					</div>
 					<div id="userByPoints" class="row justify-content-center"
@@ -123,12 +123,12 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Ranking By Points</th>
+									<th colspan="6" th:text="#{ranking.tab.ptitle}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Nick</th>
-									<th scope="col">Name</th>
-									<th scope="col">Points</th>
+									<th scope="col" th:text="#{ranking.tab.nick}"></th>
+									<th scope="col" th:text="#{ranking.tab.name}"></th>
+									<th scope="col" th:text="#{ranking.tab.points}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -147,12 +147,12 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Ranking By Building Points</th>
+									<th colspan="6" th:text="#{ranking.tab.btitle}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Nick</th>
-									<th scope="col">Name</th>
-									<th scope="col">Points</th>
+									<th scope="col" th:text="#{ranking.tab.nick}"></th>
+									<th scope="col" th:text="#{ranking.tab.name}"></th>
+									<th scope="col" th:text="#{ranking.tab.points}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -171,12 +171,12 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Ranking By Research Points</th>
+									<th colspan="6" th:text="#{ranking.tab.rtitle}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Nick</th>
-									<th scope="col">Name</th>
-									<th scope="col">Points</th>
+									<th scope="col" th:text="#{ranking.tab.nick}"></th>
+									<th scope="col" th:text="#{ranking.tab.name}"></th>
+									<th scope="col" th:text="#{ranking.tab.points}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -195,12 +195,12 @@
 						<table class="table mt-4">
 							<thead class="bg-info text-center">
 								<tr>
-									<th colspan="6">Ranking By Troup Points</th>
+									<th colspan="6" th:text="#{ranking.tab.ttitle}"></th>
 								</tr>
 								<tr>
-									<th scope="col">Nick</th>
-									<th scope="col">Name</th>
-									<th scope="col">Points</th>
+									<th scope="col" th:text="#{ranking.tab.nick}"></th>
+									<th scope="col" th:text="#{ranking.tab.name}"></th>
+									<th scope="col" th:text="#{ranking.tab.points}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -227,6 +227,22 @@
 						<div class="row justify-content-center">
 							<h5 th:text="${continent} + ':' + ${country} + ':' + ${region}"></h5>
 						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4" src="/assets/buildings/edificios_bg.jpg">
+							<h5 id="timerContainer"></h5>
+						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4" src="/assets/researches/investigacion_bg.jpg">
+							<h5 id="timerContainerR"></h5>
+						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4" src="/assets/tropas/defensas_bg.png">
+							<h5 id="timerContainerT"></h5>
+						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4" src="/assets/movements/ataque_bg.jpg">
+							<h5 id="timerContainerAttack"></h5>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -234,6 +250,20 @@
 		<div class="row justify-content-start">
 			<h2 id="clock"
 				style="position: fixed; bottom: 5px; background-color: var(- -mainBlack-0-40);"></h2>
+		</div>
+	</div>
+	
+	<div id="mainContainer" class="container-fluid d-lg-none">
+		<div class="alert alert-warning" role="alert"
+			th:text="#{responsive.alert}"></div>
+		<div class="row justify-content-around">
+			<div id="infoContainer" class="col-10">
+				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>

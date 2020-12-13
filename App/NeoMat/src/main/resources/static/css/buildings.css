@@ -111,3 +111,13 @@ h5{
 	margin-top: -3vh;
     margin-left: 5px;
 }
+
+@media (max-width: 1200px) { 
+	#selectorImgChosenMini{
+    height: 5vh;
+}
+
+	#selectorReqChosen1, #selectorReqChosen2, #selectorReqChosen3, #selectorReqChosen4{
+		font-size:0.75em;
+	}
+}

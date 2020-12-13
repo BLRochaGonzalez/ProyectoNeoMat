@@ -1,18 +1,124 @@
+
+
 function ck() {
-console.log(document.getElementById("product"));
-	var timeleft = document.getElementById("product").innerText;
-	console.log(timeleft);
+if (document.getElementById("crono")!=null){
+	console.log(document.getElementById("crono"));
+	var timeleft = document.getElementById("crono").innerText;
+	localStorage.setItem("inicio", timeleft);
+	relojE();
+}	
+}
+
+function ckT() {
+if (document.getElementById("cronoT")!=null){
+	console.log(document.getElementById("cronoT"));
+	var timeleft = document.getElementById("cronoT").innerText;
+	localStorage.setItem("inicioT", timeleft);
+	relojT();
+}	
+}
+
+function ckR() {
+if (document.getElementById("cronoR")!=null){
+	console.log(document.getElementById("cronoR"));
+	var timeleft = document.getElementById("cronoR").innerText;
+	localStorage.setItem("inicioR", timeleft);
+	relojR();
+}	
+}
+
+function ckAttack() {
+if (document.getElementById("cronoAttack")!=null && document.getElementById("cronoAttack")!=0){
+	console.log(document.getElementById("cronoAttack"));
+	var timeleft = document.getElementById("cronoAttack").innerText;
+	localStorage.setItem("inicioAttack", timeleft);
+	relojAttack();
+}	
+}
+
+function reloj(){
+	relojE();
+	relojR();
+	relojT();
+	relojAttack();
+}
+
+function relojE(){
+var remaining = localStorage.getItem("inicio");
 	var downloadTimer = setInterval(function() {
-		if (timeleft <= 0) {
+	
+		if (remaining <= 0) {
 			clearInterval(downloadTimer);
-			document.getElementById("timerContainer").innerHTML = "Finished";
+				document.getElementById("timerContainer").innerHTML = "Sin Edificios en Construccion";
+			localStorage.removeItem("inicio");
+			remaining=0;
 		} else {
-			console.log(timeleft);
-			document.getElementById("timerContainer").innerHTML = timeleft + " seconds remaining";
+			document.getElementById("timerContainer").innerHTML = "Edificio: " + remaining + "'' restantes";
 		}
-		timeleft -= 1;
+		remaining -= 1;
+		localStorage.setItem("inicio", remaining);
+		console.log(localStorage.getItem("inicio"));
 	}, 1000);
 }
+
+function relojT(){
+var remaining = localStorage.getItem("inicioT");
+	var downloadTimerT = setInterval(function() {
+	
+		if (remaining <= 0) {
+			clearInterval(downloadTimerT);
+				document.getElementById("timerContainerT").innerHTML = "Sin Tropas en Construccion";
+			localStorage.removeItem("inicioT");
+			remaining=0;
+		} else {
+			document.getElementById("timerContainerT").innerHTML = "Tropa: " + remaining + "'' restantes";
+		}
+		remaining -= 1;
+		localStorage.setItem("inicioT", remaining);
+		console.log(localStorage.getItem("inicioT"));
+	}, 1000);
+}
+
+function relojR(){
+var remaining = localStorage.getItem("inicioR");
+	var downloadTimerR = setInterval(function() {
+	
+		if (remaining <= 0) {
+			clearInterval(downloadTimerR);
+				document.getElementById("timerContainerR").innerHTML = "Sin Investigaciones en Construccion";
+			localStorage.removeItem("inicioR");
+			remaining=0;
+		} else {
+			document.getElementById("timerContainerR").innerHTML = "Investigacion: " + remaining + "'' restantes";
+		}
+		remaining -= 1;
+		localStorage.setItem("inicioR", remaining);
+		console.log(localStorage.getItem("inicioR"));
+	}, 1000);
+}
+
+function relojAttack(){
+var remaining = localStorage.getItem("inicioAttack");
+	var downloadTimerAttack = setInterval(function() {
+	
+		if (remaining <= 0) {
+			clearInterval(downloadTimerAttack);
+				document.getElementById("timerContainerAttack").innerHTML = "Sin Envio de Tropas";
+			localStorage.removeItem("inicioAttack");
+			remaining = 0;
+		} else {
+			document.getElementById("timerContainerAttack").innerHTML = "Ataque: " + remaining + "'' restantes";
+		}
+		remaining -= 1;
+		
+	if(remaining==0){
+	alert("El ataque ha finalizado, las tropas supervivientes están volviendo al asentamiento");}
+		localStorage.setItem("inicioAttack", remaining);
+		console.log(localStorage.getItem("inicioAttack"));
+	}, 1000);
+	
+}
+
 
 
 function showRegisterSection() {
@@ -720,8 +826,8 @@ function showTime() {
 
 	document.getElementById("clock").innerText = "Hora Servidor: " + hours + ":" + minutes + ":" + seconds;
 	setTimeout("showTime()", 1000);
-	
-	if(sessionStorage.getItem('timer')!=null){
+
+	if (sessionStorage.getItem('timer') != null) {
 		ck();
 	}
 }
@@ -763,13 +869,14 @@ function showTroupSection() {
 }
 
 function asignarTropas(comp) {
-	var id = comp.id;
-	var q = comp.value * 1;
-	var tot = document.getElementById("totTroups").innerText * 1;
-	tot = tot + q;
-	document.getElementById("totTroups").innerText = tot;
-	console.log(q);
-	console.log(tot * 1);
+	var tot = 0*1;
+	var lista = new Array();
+	lista = document.getElementsByClassName("atkT");
+	for(var x = 0;x <= lista.length;x++){
+	
+		tot=tot+(lista[x].value)*1;
+		document.getElementById("totTroups").innerText = tot;
+	}
 }
 
 function showCont1() {

@@ -28,4 +28,8 @@ public class LocationService {
 	public List<Location> findAllByContinentAndCountry(Integer c, Integer p) {
 		return this.locationRepository.findAllByContinentAndCountry(c,p);
 	}
+
+	public Location findFirstByContinentAndCountryAndRegion(Integer cont, Integer pais, Integer regi) {
+		return this.locationRepository.findLocationFirstByContinentAndCountryAndRegion(cont,pais,regi);
+	}
 }

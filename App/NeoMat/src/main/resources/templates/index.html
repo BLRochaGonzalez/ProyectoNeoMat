@@ -7,31 +7,27 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/index.css">
 <script src="/js/myOwnJS.js"></script>
-<title>Neo Material / Index</title>
+<title th:text="#{index.title}"></title>
 </head>
 
 <body>
-	<div id="mainContainer" class="container-fluid">
+	<div id="mainContainer" class="container-fluid d-none d-lg-block">
 		<div class="row justify-content-around">
 			<div id="infoContainer" class="col-6 col-xl-4">
 				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
-					role="button">Acceso a Wiki</a>
-				<h2>NeoMat es un videojuego multijugador masivo en linea de
-					estrategia en tiempo real.</h2>
-				<h2>Ponte a los mandos de un asentamiento de supervivientes en
-					este nuevo mundo devastado por la guerra, lideralos y conviertete
-					en el nuevo gobernador del planeta con mano de hierro contra tus
-					enemigos.</h2>
-				<h2>La gloria y la victoria te esperan general.</h2>
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
 			</div>
 			<div id="loginContainer" class="col-4">
 				<div class="row justify-content-between">
 					<div id="loginAccess" class="col-5" onclick="showLoginSection()">
-						<h5>Login</h5>
+						<h5 th:text="#{index.btn.login}"></h5>
 					</div>
 					<div id="registerAccess" class="col-5"
 						onclick="showRegisterSection()">
-						<h5>Register</h5>
+						<h5 th:text="#{index.btn.register}"></h5>
 					</div>
 				</div>
 				<div class="row">
@@ -39,17 +35,16 @@
 						<form th:action="@{/login}" method=POST>
 							<div class="form-row justify-content-center">
 								<div class="form-group col-12">
-									<label for="inputLoginEmail">Email: <input type="email"
+									<label for="inputLoginEmail" th:text="#{index.email}"></label> <input type="email"
 										class="form-control" id="inputLoginEmail"
-										name="inputLoginEmail" placeholder="Email"></label>
+										name="inputLoginEmail" placeholder="Email">
 								</div>
 								<div class="form-group col-12">
-									<label for="inputLoginPassword">Contraseña:<input
+									<label for="inputLoginPassword" th:text="#{index.pass}"></label><input
 										type="password" class="form-control" id="inputLoginPassword"
-										name="inputLoginPassword" placeholder="Contraseña"></label>
+										name="inputLoginPassword" placeholder="Contraseña">
 								</div>
-								<button id="loginBtn" type="submit" class="btn btn-danger">Log
-									In</button>
+								<button id="loginBtn" type="submit" class="btn btn-danger" th:text="#{index.btn.login}"></button>
 							</div>
 						</form>
 					</div>
@@ -57,30 +52,29 @@
 						<form th:action="@{/register}" method=POST>
 							<div class="form-row justify-content-center">
 								<div class="form-group col-12">
-									<label for="inputRegisterNick">Nick: <input type="text"
+									<label for="inputRegisterNick" th:text="#{index.nick}"></label><input type="text"
 										class="form-control" id="inputRegisterNick"
-										name="inputRegisterNick" placeholder="Nick"></label>
+										name="inputRegisterNick" placeholder="Nick">
 								</div>
 								<div class="form-group col-12">
-									<label for="inputRegisterEmail">Email: <input
+									<label for="inputRegisterEmail" th:text="#{index.email}"></label><input
 										type="email" class="form-control" id="inputRegisterEmail"
 										name="inputRegisterEmail" placeholder="Email">
-									</label>
+									
 								</div>
 								<div class="form-group col-12">
-									<label for="inputRegisterPassword">Contraseña: <input
+									<label for="inputRegisterPassword" th:text="#{index.pass}"></label> <input
 										type="password" class="form-control"
 										id="inputRegisterPassword" name="inputRegisterPassword"
 										placeholder="Contraseña">
-									</label>
+									
 								</div>
 								<div class="form-group col-12">
-									<label for="inputRegisterRepeatPassword">Repetir
-										Contraseña:</label> <input type="password" class="form-control"
+									<label for="inputRegisterRepeatPassword" th:text="#{index.repass}"></label> <input type="password" class="form-control"
 										id="inputRegisterRepeatPassword"
 										name="inputRegisterRepeatPassword" placeholder="Contraseña">
 								</div>
-								<button id="registerBtn" type="submit" class="btn btn-info">Register</button>
+								<button id="registerBtn" type="submit" class="btn btn-info" th:text="#{index.btn.register}"></button>
 							</div>
 						</form>
 					</div>
@@ -88,8 +82,20 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="mainContainer" class="container-fluid d-lg-none">
+		<div class="alert alert-warning" role="alert" th:text="#{responsive.alert}"></div>
+		<div class="row justify-content-around">
+			<div id="infoContainer" class="col-10">
+				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 </body>
-
 </html>

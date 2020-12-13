@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/wiki.css">
 <script src="/js/myOwnJS.js"></script>
-<title>Neo Material / Wiki</title>
+<title th:text="#{wiki.title}"></title>
 </head>
 
 <body>
@@ -17,85 +17,27 @@
 				<div class="row">
 					<div class="col-4"></div>
 					<div class="col-4">
-						<h2>NEO MATERIAL</h2>
+						<h2 th:text="#{wiki.name}"></h2>
 					</div>
 					<div class="col-4">
-						<a href="/" id="btnWiki" class="btn btn-info" role="button">Vuelta
-							a Index</a>
+						<a href="/" id="btnWiki" class="btn btn-info" role="button"
+							th:text="#{wiki.btn}"></a>
 					</div>
 				</div>
 				<div class="row">
-					<h3 id="prologueTitle">PROLOGO</h3>
+					<h3 id="prologueTitle" th:text="#{wiki.prologue}"></h3>
 				</div>
 				<div id="prologueInfo" class="row p-5">
-					<p>Año 473 tras la gran guerra, países destruidos,
-						civilizaciones enfrentadas entre sí bajo el manejo de un tirano.
-
-						La gran guerra trajo al mundo muerte destrucción y casi la
-						aniquilación al completo de la raza humana, solo se pudieron
-						salvar algunos grupos de personas a lo largo y ancho de el
-						planeta. Todo empezó en 2035, año en el que el presidente Ruso
-						falleció dejándole el cargo a su Vicepresidente, Ivanov, ese sería
-						el principio del fin, Ivanov era una persona sumamente agresiva y
-						desquiciada, era un joven sin escrúpulos que quería una sola cosa
-						en el mundo, la Supremacía Rusa sobre todas las naciones, y por un
-						momento lo logró, en un intento de ofensiva sobre Estados Unidos
-						llegó a destruir gran parte del país pero a cambio de un precio
-						demasiado alto. Ivanov lanzó 5 misiles nucleares sobre EEUU, los
-						estados seleccionados por Ivanov fueron: New York, Washington
-						D.C., California, Michigan y New Jersey. Por otro lado, en Estados
-						Unidos se enteraron de los malévolos planes que tenia Ivanov y
-						decidieron contraatacar antes de que llegasen los misiles, decidió
-						el presidente que era hora de lanzar todo lo que tenían,pero no
-						solo dieron en Rusia, los misiles lanzados por EEUU como
-						represalia contra Rusia también impactaron en prácticamente todos
-						los países. En menos de 2 días había pasado de ser un planeta
-						“pacifico” a un planeta con las horas contadas, el potencial de
-						destrucción de los dos países era tan alto que en el momento que
-						se atacasen mutuamente el planeta Tierra tal y como lo conocíamos
-						podía desaparecer, y así lo hizo, ambos países se atacaron, eso
-						conllevó a la muerte automática de los dos países casi por
-						completo, solo se pudieron salvar algunas familias en búnkeres
-						comunitarios y privados, tanto Rusia como Estados Unidos habían
-						sido borrados del mapa, ya no existían. Poco a poco las
-						consecuencias de los ataques se vio reflejada en el resto del
-						mundo, la radiación mató al 85% de la población en cuestión de
-						horas, al otro 15% no les fue mejor, a los que no mató los dejo
-						gravemente heridos, de ese 15% restante en cuestión de 3 meses
-						solamente quedaron vivos un 0,05% de la población mundial,
-						únicamente 3.5 millones de personas alrededor del mundo
-						sobrevivieron. Ivanov fue uno de ellos, consiguió la hegemonía
-						sobre todo el mundo a costa de la destrucción de este, no obstante
-						aunque sobrevivió no duraría mucho tiempo ya que por la radiación
-						tan fuerte a la que estaban todos expuestos no eran raras las
-						muertes por enfermedades desconocidas, y esto fue lo que se llevo
-						por fin de una vez por todas a Ivanov, los supervivientes dejaron
-						escritos que hoy en día se siguen recordando. “La Paz nos une tras
-						la Guerra que nos separa, la Vida resurge cuando la Muerte nos
-						ataca”. Es nuestro nuevo lema aun así las hostilidades vuelven a
-						la carga, el mundo está dividido por regiones y ciudades, cada uno
-						mira por sí mismo y son capaces de hacer lo que sea por tal de
-						conseguir sobrevivir, después de 2 años, de esos 3.5 millones de
-						personas solamente quedaban poco mas de 2, la radiación seguía su
-						curso y continuaba el trabajo que Ivanov empezó, al final
-						encontramos la forma de poder vivir sin miedo a la radiación,
-						conseguimos hacer capsulas burbuja en las cuales poder vivir en
-						paz por fin, o eso creíamos...</p>
+					<p th:text="#{wiki.prologue.info}"></p>
 				</div>
 				<div class="row">
-					<h3 id="resourcesTitle">RECURSOS</h3>
+					<h3 id="resourcesTitle" th:text="#{wiki.resources}"></h3>
 				</div>
 				<div id="resourcesInfo" class="row p-5">
 					<div class="row pb-4">
 						<div class="col-12">
-							<h5>NEOMATERIA</h5>
-							<p>La Neomateria es la principal fuente de vida del nuevo
-								mundo, tras las bombas nucleares encontramos una nueva materia
-								super inestable pero que tenía todo lo necesario para la
-								construcción tanto de nuevas civilizaciones como de un nuevo
-								mundo ya que es un compuesto entre Wolframio, Grafeno, Carbino y
-								Acero, sacamos la neomateria y la procesamos en las fabricas
-								específicas de cada compuesto.</p>
+							<h5 th:text="#{wiki.resource.neomat}"></h5>
+							<p th:text="#{wiki.resource.neomat.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
@@ -103,30 +45,14 @@
 							<img src="/assets/resources/radiacion.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>RADIACION</h5>
-							<p>Tras años de investigación encontramos la forma de usar la
-								radiación como combustible para nuestros vehículos y ciudades,
-								en las cupulas tenemos instalados recopiladores de
-								nanopartículas que se encuentran en la radiación que tras
-								procesos de modificación nanotecnológicas pudimos usarlo como
-								combustible desechable.</p>
-
+							<h5 th:text="#{wiki.resource.radiation}"></h5>
+							<p th:text="#{wiki.resource.radiation.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>ENERGIA SOLAR</h5>
-							<p>Tras la guerra la naturaleza y mas concretamente la
-								atmosfera cambió drásticamente, el aire se hacía casi
-								irrespirable, y una capa espesa de radiación y nubes cubren el
-								100% del cielo del mundo por lo tanto es imposible que la
-								energía solar la podamos recibir con facilidad, creamos unas
-								cometas con paneles solares de grafeno para sobrepasar la capa
-								de radiación y poder obtener energía solar, no sabíamos si
-								funcionaria pero en el momento que las echamos a volar nos
-								percatamos que la propia capa de radiación las mantenía en vuelo
-								por encima de ella como si las congelase en el aire y no las
-								dejase caer.</p>
+							<h5 th:text="#{wiki.resource.energy}"></h5>
+							<p th:text="#{wiki.resource.energy.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/resources/solar.jpg" class="img-fluid" />
@@ -134,7 +60,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<h3 id="prologueTitle">EDIFICIOS</h3>
+					<h3 id="prologueTitle" th:text="#{wiki.buildings}"></h3>
 				</div>
 				<div id="prologueInfo" class="row p-5">
 					<div class="row pb-4">
@@ -142,30 +68,14 @@
 							<img src="/assets/buildings/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>MINA DE WOLFRAMIO</h5>
-							<p>Este edificio se creó para separar el Wolframio de la masa
-								homogenea a la que le dimos el nombre de NeoMateria. Dicho
-								material, también conocido como Tungsteno es un metal escaso, de
-								color gris acerado, muy duro y denso y su elevado punto de
-								fusión nos obligó a crear altos hornos capaces de alcanzar cotas
-								de temperatura nunca antes imaginadas para poder hacer uso de
-								este material. Su uso es muy variado, desde aleaciones con acero
-								hasta objetos como las resistencias y filamentos para
-								iluminacion y electricidad</p>
-
+							<h5 th:text="#{wiki.building.1}"></h5>
+							<p th:text="#{wiki.building.1.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>MINA DE GRAFENO</h5>
-							<p>este edificio se encarga de la recoleccion, manipulacion y
-								almacenaje del Grafeno, esta es una sustancia compuesta por
-								carbono puro. . Es un material casi transparente. sus
-								caracteristicas mas destacables serían su resistencia (unas 200
-								veces pas qeu el acero) y su ligereza (5 veces mas que el
-								aluminio). Gracias a este material pudimos crear pantallas
-								táctiles flexibles, telecomunicaciones de alta velocidad y
-								equipos opticos de alta resolución</p>
+							<h5 th:text="#{wiki.building.2}"></h5>
+							<p th:text="#{wiki.building.2.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/buildings/2.jpg" class="img-fluid" />
@@ -176,28 +86,14 @@
 							<img src="/assets/buildings/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>MINA DE CARBINO</h5>
-							<p>Este edificio diseñado específicamente por nuestros
-								equipos de investigadores cuyo proposito es la recolección del
-								carbono hayado en la NeoMateria, y su posterior procesado dando
-								como resultado el material mas resistente y maleable conocido
-								hasta ahora, y cuyas utilizaciones van desde la fabricacion de
-								otros objetos pero con una durabilidad mucho mayor, aplicaciones
-								en IA, como conductor y un aun desconocido largo etcétera</p>
-
+							<h5 th:text="#{wiki.building.3}"></h5>
+							<p th:text="#{wiki.building.3.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>MINA DE ACERO</h5>
-							<p>Con la ayuda de grandes imánes, esta fábrica recoge todo
-								tipo de metales, que luego funde y une en una masa homogénea que
-								tras enfriarse se le conoce como acero. Este material, que a
-								priori no es mas que una aleacion fabricada para la construccion
-								y edificacion, forma parte de mas del 90% de nuestra
-								civilizacion actal tal como la conocemos, y debido a su
-								necesidad en enormes cantidades, se ha vuelto un recurso muy
-								preciado</p>
+							<h5 th:text="#{wiki.building.4}"></h5>
+							<p th:text="#{wiki.building.4.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/buildings/4.jpg" class="img-fluid" />
@@ -208,28 +104,14 @@
 							<img src="/assets/buildings/7.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>HANGAR</h5>
-							<p>Para poder alzarnos con el poder en el nuevo mundo ante un
-								clima devastador, y enemigos sangrientos y desesperados por
-								sobrevivir a toda costa, la construccion de este edificio es
-								vital, en el se llevan a cabo las creaciones de las tropas
-								autotripuladas gracias a los conocimientos en Inteligencia
-								Articifial que utilizaremos para arrasar los asentamientos
-								rivales con el fin de apoderarnos de sus recursos, destruir sus
-								tropas y evitar asi que en el futuro puedan llegar a ser una
-								amenaza para nuestro asentamiento.</p>
-
+							<h5 th:text="#{wiki.building.7}"></h5>
+							<p th:text="#{wiki.building.7.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>LABORATORIO DE INVESTIGACION</h5>
-							<p>La base de toda civilizacion, el conocimiento sobre lo
-								desconocido, y los avances tecnologicos de ultima generacion se
-								llevan a cabo en este recinto, con el desarrollo y crecimiento
-								de este edificio reduciras los tiempos de investigacion
-								necesarios para adquirir nuevos o mejores conocimientos sobre
-								las distintas ramas</p>
+							<h5 th:text="#{wiki.building.8}"></h5>
+							<p th:text="#{wiki.building.8.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/buildings/8.jpg" class="img-fluid" />
@@ -237,7 +119,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<h3 id="resourcesTitle">INVESTIGACIONES</h3>
+					<h3 id="resourcesTitle" th:text="#{wiki.researches}"></h3>
 				</div>
 				<div id="resourcesInfo" class="row p-5">
 					<div class="row pb-4">
@@ -245,22 +127,14 @@
 							<img src="/assets/invest/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>TECNOLOGIA DE ENERGIA</h5>
-							<p>Gracias al conocimiento sobre la energia, nuestros equipos
-								cientificos son capaces de mejorar las cadenas de recoleccion
-								provocando así un aumento en la produccion de recursos en los
-								asentamientos, cada nivel de aumento de esta energia aporta un
-								porcentaje mas alto de recoleccion de recursos.</p>
-
+							<h5 th:text="#{wiki.research.1}"></h5>
+							<p th:text="#{wiki.research.1.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>TECNOLOGIA DE INTELIGENCIA ARTIFICIAL</h5>
-							<p>La mejora de esta investigacion conlleva una reduccion en
-								los tiempos de construccion de los edificios debido a la mejora
-								en los algoritmos y patrones usados en los procesos de
-								recoleccion y transformacion de los recursos obtenidos</p>
+							<h5 th:text="#{wiki.research.2}"></h5>
+							<p th:text="#{wiki.research.2.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/invest/2.jpg" class="img-fluid" />
@@ -271,21 +145,14 @@
 							<img src="/assets/invest/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>TECNOLOGIA DE ESPIONAJE</h5>
-							<p>Aun no se sabe mucho sobre esta tecnologia, ni sobre sus
-								futuras implementaciones, pero su mejora podría conllevar a
-								reducciones en los desplazamientos de las tropas gracias a un
-								mejor conocimiento del terreno que nos rodea, así como a la
-								creacion de nuevas rutas.</p>
-
+							<h5 th:text="#{wiki.research.3}"></h5>
+							<p th:text="#{wiki.research.3.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>TECNOLOGIA MILITAR</h5>
-							<p>Esta investigacion aporta una mejor estructura a nuestras
-								tropas, consiguiento que puedan permanecer mas tiempo en las
-								incursiones sin ser destruidas</p>
+							<h5 th:text="#{wiki.research.4}"></h5>
+							<p th:text="#{wiki.research.4.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/invest/4.jpg" class="img-fluid" />
@@ -296,22 +163,14 @@
 							<img src="/assets/invest/5.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>TECNOLOGIA DE BLINDAJE</h5>
-							<p>Gracias al conocimiento de esta tecnologia, nuestros
-								equipos de investigadores, comprendieron mejor las capacidades
-								de los materiales que utilizan, por lo que llevandolo a la
-								practica bélica, mejoran la solidez y los escudos de los
-								vehiculos.</p>
-
+							<h5 th:text="#{wiki.research.5}"></h5>
+							<p th:text="#{wiki.research.5.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>TECNOLOGIA ARMAMENTISTICA</h5>
-							<p>El desarrollo de esta tecnologia permite mejorar tanto la
-								municion como las armas que se implementan en nuestros equipos
-								de asalto, consiguiendo con esllo que provoquen mas daño en sus
-								defensas</p>
+							<h5 th:text="#{wiki.research.6}"></h5>
+							<p th:text="#{wiki.research.6.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/invest/6.jpg" class="img-fluid" />
@@ -319,28 +178,23 @@
 					</div>
 				</div>
 				<div class="row">
-					<h3 id="prologueTitle">TROPAS</h3>
+					<h3 id="prologueTitle" th:text="#{wiki.troups}"></h3>
 				</div>
 				<div id="prologueInfo" class="row p-5">
-					<h4>ATAQUE</h4>
+					<h4 th:text="#{wiki.troups.attack}"></h4>
 					<div class="row pb-4">
 						<div class="col-3">
 							<img src="/assets/tropas/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>VEHICULO ESPIA</h5>
-							<p>Vehículo ultraligero casi indetectable para las defensas
-								enemigas, su función es recopilar información sobre los
-								enemigos.</p>
-
+							<h5 th:text="#{wiki.troups.attack.1}"></h5>
+							<p th:text="#{wiki.troups.attack.1.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>AVISPA</h5>
-							<p>Vehículo principal de ataque del asentamiento, cuyas
-								caracteristicas mas destacables son: su alta velocidad y ataque
-								moderado.</p>
+							<h5 th:text="#{wiki.troups.attack.2}"></h5>
+							<p th:text="#{wiki.troups.attack.2.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/2.jpg" class="img-fluid" />
@@ -351,19 +205,14 @@
 							<img src="/assets/tropas/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>CAZADOR LIGERO</h5>
-							<p>Vehiculo rudimentario que usan para saquear pueblos
-								vecinos, en los inicios de la era post-Ivanov era el vahiculo
-								más usado.</p>
-
+							<h5 th:text="#{wiki.troups.attack.3}"></h5>
+							<p th:text="#{wiki.troups.attack.3.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>CAZADOR PESADO</h5>
-							<p>Vehículo de asedio más moderno que su predecesor,
-								implementando mejoras notables tanto en blindaje como en
-								armamento.</p>
+							<h5 th:text="#{wiki.troups.attack.4}"></h5>
+							<p th:text="#{wiki.troups.attack.4.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/4.jpg" class="img-fluid" />
@@ -374,17 +223,14 @@
 							<img src="/assets/tropas/5.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>NAVE PEQUEÑA DE CARGA</h5>
-							<p>Vehículo blindado cuyo proposito en la batalla es de
-								recoges y transportar recursos.</p>
-
+							<h5 th:text="#{wiki.troups.attack.5}"></h5>
+							<p th:text="#{wiki.troups.attack.5.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>NAVE GRANDE DE CARGA</h5>
-							<p>Vehículo de gran tamaño con gran capacidad para
-								transportar y proteger los recursos que se adquieran en batalla.</p>
+							<h5 th:text="#{wiki.troups.attack.6}"></h5>
+							<p th:text="#{wiki.troups.attack.6.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/6.jpg" class="img-fluid" />
@@ -395,17 +241,14 @@
 							<img src="/assets/tropas/7.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>ESCOLTA</h5>
-							<p>Vehículo simple, cuyo blindaje y forma se asemeja a otras
-								tropas, sirve de señuelo ante las defensas enemigas.</p>
-
+							<h5 th:text="#{wiki.troups.attack.7}"></h5>
+							<p th:text="#{wiki.troups.attack.7.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>ASALTADOR PEQUEÑO</h5>
-							<p>Vehículo de ataque en el que se implementa el armamento
-								laser para aumentar drasticamente su poder en batalla.</p>
+							<h5 th:text="#{wiki.troups.attack.8}"></h5>
+							<p th:text="#{wiki.troups.attack.8.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/8.jpg" class="img-fluid" />
@@ -416,18 +259,14 @@
 							<img src="/assets/tropas/9.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>ASALTADOR GRANDE</h5>
-							<p>Vehículo de combate con cañon doble de plasma, su
-								letalidad es mayor de la esperada en el momento de su creación.</p>
-
+							<h5 th:text="#{wiki.troups.attack.9}"></h5>
+							<p th:text="#{wiki.troups.attack.9.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>ACORAZADO</h5>
-							<p>Vehículo que combina su gran capacidad de aguantar ataques
-								enemigos a corta distancia con su forma de ataque por pulsos
-								electromagneticos.</p>
+							<h5 th:text="#{wiki.troups.attack.10}"></h5>
+							<p th:text="#{wiki.troups.attack.10.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/10.jpg" class="img-fluid" />
@@ -438,19 +277,14 @@
 							<img src="/assets/tropas/11.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>BOMBARDERO</h5>
-							<p>Vehículo diseñado para estar en la parte trasera de la
-								linea ofensiva debido a que su forma de ataque es lanzar misiles
-								de alta potecia sobre las defensas enemigas.</p>
-
+							<h5 th:text="#{wiki.troups.attack.11}"></h5>
+							<p th:text="#{wiki.troups.attack.11.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>DESTRUCTOR</h5>
-							<p>Vehículo de grandes prestaciones ofensivas debido a su
-								potente cañon laser y sublindaje casi inpenetrable. Hablamos de
-								la maquina de guera "casi" perfecta.</p>
+							<h5 th:text="#{wiki.troups.attack.12}"></h5>
+							<p th:text="#{wiki.troups.attack.12.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/12.jpg" class="img-fluid" />
@@ -461,22 +295,15 @@
 							<img src="/assets/tropas/13.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>GRAN WICK</h5>
-							<p>Si tienes la mala suerte de encontrarte con un Gran Wick
-								de frente tienes las horas contadas, es la maquina de batalla
-								más mortifera jamas creada.</p>
-
+							<h5 th:text="#{wiki.troups.attack.13}"></h5>
+							<p th:text="#{wiki.troups.attack.13.info}"></p>
 						</div>
 					</div>
-
-					<h4>DEFENSA</h4>
+					<h4 th:text="#{wiki.troups.defend}"></h4>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>EL MURO</h5>
-							<p>Desde hace mucho tiempo los asentamientos pensaron la
-								forma mas segura de protegerse, El Muro es la solucion perfecta,
-								una pared casi increbrantable destinada a la defensa de todo el
-								asentamiento evitando que el enemigo se adentrase en su terreno.</p>
+							<h5 th:text="#{wiki.troups.defend.1}"></h5>
+							<p th:text="#{wiki.troups.defend.1.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/14.jpg" class="img-fluid" />
@@ -487,19 +314,14 @@
 							<img src="/assets/tropas/15.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>ARAÑA</h5>
-							<p>Robot de defensa destinado a la proteccion de todos y cada
-								uno de los ciudadanos del asentamiento, solo tienen un deber,
-								proteger incluso si eso le cuesta su propia vida.</p>
-
+							<h5 th:text="#{wiki.troups.defend.2}"></h5>
+							<p th:text="#{wiki.troups.defend.2.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>LANZAMISILES</h5>
-							<p>Robot estático de defensa, su poder de combate al estar
-								armado con lanzamisiles es bastante considerable, en cambio ser
-								estático le hace un blanco fácil.</p>
+							<h5 th:text="#{wiki.troups.defend.3}"></h5>
+							<p th:text="#{wiki.troups.defend.3.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/16.jpg" class="img-fluid" />
@@ -510,18 +332,14 @@
 							<img src="/assets/tropas/17.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>TORRE CAÑON</h5>
-							<p>Cañon de gran envergadura, su ataque a traves de rayos
-								laser son muy eficaces contra los ataques del exterior.</p>
-
+							<h5 th:text="#{wiki.troups.defend.4}"></h5>
+							<p th:text="#{wiki.troups.defend.4.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>DEFENSOR</h5>
-							<p>Robot que reconoce al enemigo a traves de un escaneo con
-								su sistema de rayos infrarojos, despues aniquila a lo que se le
-								ponga por delante.</p>
+							<h5 th:text="#{wiki.troups.defend.5}"></h5>
+							<p th:text="#{wiki.troups.defend.5.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/18.jpg" class="img-fluid" />
@@ -532,18 +350,14 @@
 							<img src="/assets/tropas/19.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>ANTI-ASEDIO</h5>
-							<p>Robot masivo de defensa, su creación es gran parte por la
-								necesidad de mejorar al Defensor, las mejoras en defensas y en
-								armamento lo hacen bastante mejor que el Defensor.</p>
-
+							<h5 th:text="#{wiki.troups.defend.6}"></h5>
+							<p th:text="#{wiki.troups.defend.6.info}"></p>
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-9">
-							<h5>TRON-X</h5>
-							<p>Maquina de guerra destinada a la defensa del asentamiento
-								a traves de laseres, balas, sierras cuerpo a cuerpo, etc...</p>
+							<h5 th:text="#{wiki.troups.defend.7}"></h5>
+							<p th:text="#{wiki.troups.defend.7.info}"></p>
 						</div>
 						<div class="col-3">
 							<img src="/assets/tropas/20.jpg" class="img-fluid" />
@@ -554,14 +368,10 @@
 							<img src="/assets/tropas/21.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
-							<h5>LASER-DOG</h5>
-							<p>Robot masivo altamente veloz y sigiloso, el daño de sus
-								cañones laseres combinado con su alta capacidad de camuflaje lo
-								hace letal para la mayoria de las tropas de ataque.</p>
-
+							<h5 th:text="#{wiki.troups.defend.8}"></h5>
+							<p th:text="#{wiki.troups.defend.8.info}"></p>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

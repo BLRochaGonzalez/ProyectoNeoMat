@@ -2,6 +2,8 @@ package org.iesalixar.bluisrochag.neomat.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.iesalixar.bluisrochag.neomat.model.Location;
 import org.iesalixar.bluisrochag.neomat.model.Planet;
 import org.iesalixar.bluisrochag.neomat.model.Settlement;
@@ -41,41 +43,57 @@ public class UsersettingsController {
 	
 	
 	@GetMapping(value = { "/admin/users" })
-	public String allUsersAdmin(Model model) {
+	public String allUsersAdmin(Model model, HttpSession session) {
 
-		return findPaginated(1, model);
+		return findPaginated(1, model, session);
 	}
 	
 	@RequestMapping(value = { "/admin/deleteUser" }, method = { RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
-	public String deletePatient(@RequestParam(value = "id") Long id, Model model) {
-		User u = this.userService.searchById(id);
-		Long pid = 1L;
-		Planet p = this.planetService.searchById(pid);
-		List<Settlement> settlements = this.settlementService.readAllSettlements(u);
-		for (Settlement settlement : settlements) {
-			Settlement s = this.settlementService.searchById(settlement.getId());
-			Location l =  this.locationService.searchById(s.getLocation().getId());
-			this.settlementService.deleteSettlement(s.getId());
-			this.locationService.deleteLocation(l.getId());
+	public String deletePatient(@RequestParam(value = "id") Long id, Model model, HttpSession session) {
+		User authUser = (User) session.getAttribute("user");
+		
+		if(authUser.getRole().equals("admin")) {
+			User u = this.userService.searchById(id);
+			Long pid = 1L;
+			Planet p = this.planetService.searchById(pid);
+			List<Settlement> settlements = this.settlementService.readAllSettlements(u);
+			for (Settlement settlement : settlements) {
+				Settlement s = this.settlementService.searchById(settlement.getId());
+				Location l =  this.locationService.searchById(s.getLocation().getId());
+				this.settlementService.deleteSettlement(s.getId());
+				this.locationService.deleteLocation(l.getId());
+			}
+			this.userService.deleteUser(u.getId());
+			p.setNumPlayers(p.getNumPlayers()-1);
+			p.setNumSettlements(p.getNumSettlements()-1);
+			this.planetService.updatePlanet(p);
+			return "redirect:/admin/users";
+		}else {
+			session.invalidate();
+			return "redirect:/";
 		}
-		this.userService.deleteUser(u.getId());
-		p.setNumPlayers(p.getNumPlayers()-1);
-		p.setNumSettlements(p.getNumSettlements()-1);
-		this.planetService.updatePlanet(p);
-		return "redirect:/admin/users";
+		
 	}
 	
 	@GetMapping("/page/{numPage}")
-	public String findPaginated(@PathVariable (value = "numPage") int numPage, Model model) {
-		int pageSize = 7;
-		Page<User> page = userService.findPaginated(numPage, pageSize);
-		List<User> listUser = page.getContent();
+	public String findPaginated(@PathVariable (value = "numPage") int numPage, Model model, HttpSession session) {
+		User authUser = (User) session.getAttribute("user");
 		
-		model.addAttribute("currentPage", numPage);
-		model.addAttribute("totalPages", page.getTotalPages());
-		model.addAttribute("totalItems", page.getTotalElements());
-		model.addAttribute("listUser", listUser);
+		if(authUser.getRole().equals("admin")) {
+			int pageSize = 7;
+			Page<User> page = userService.findPaginated(numPage, pageSize);
+			List<User> listUser = page.getContent();
+			
+			model.addAttribute("currentPage", numPage);
+			model.addAttribute("totalPages", page.getTotalPages());
+			model.addAttribute("totalItems", page.getTotalElements());
+			model.addAttribute("listUser", listUser);
+			
+			return "user_settings";
+		}else {
+			session.invalidate();
+			return "redirect:/";
+		}
 		
-		return "user_settings";
 	}
 }

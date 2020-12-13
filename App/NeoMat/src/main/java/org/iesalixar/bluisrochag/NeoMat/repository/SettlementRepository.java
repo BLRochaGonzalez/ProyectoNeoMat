@@ -21,5 +21,4 @@ public interface SettlementRepository extends JpaRepository<Settlement, Long>{
 
 	public Settlement findFirstByUser(User authUser);
 
-
 }

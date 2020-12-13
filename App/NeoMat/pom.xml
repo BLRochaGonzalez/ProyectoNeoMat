@@ -11,9 +11,11 @@
 	</parent>
 	<groupId>org.iesalixar.bluisrochag</groupId>
 	<artifactId>NeoMat</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<version>0.3.2</version>
 	<name>NeoMat</name>
 	<description>Blas Luis Rocha González project for Web Applications Development</description>
+
 
 	<properties>
 		<java.version>1.8</java.version>

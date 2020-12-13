@@ -20,4 +20,5 @@ public interface LocationRepository extends JpaRepository<Location, Long>{
 
 	public List<Location> findAllByContinentAndCountry(Integer c, Integer p);
 
+
 }

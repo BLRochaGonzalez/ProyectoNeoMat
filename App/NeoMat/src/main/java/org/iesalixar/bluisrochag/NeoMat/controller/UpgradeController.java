@@ -52,67 +52,82 @@ public class UpgradeController {
 	public String preBuildingUpgrade(@RequestParam(value = "sbId") String id, Model model, HttpSession session)
 			throws ParseException, InterruptedException {
 		User authUser = (User) session.getAttribute("user");
-		Settlement s = this.settlementService.findFirstByUser(authUser);
-		SettlementBuilding sb = this.settlementBuildingService.findFirstById(Long.parseLong(id));
-		session.setAttribute("timer", sb.getBuildTime());
-		logger.warn("upgradeBuilding");
+		
+		if(authUser.getRole().equals("user")) {
+			Settlement s = this.settlementService.findFirstByUser(authUser);
+			SettlementBuilding sb = this.settlementBuildingService.findFirstById(Long.parseLong(id));
+			logger.warn("upgradeBuilding");
 
-		if (s.getwQuantity() >= sb.getReqWQuantity() && s.getgQuantity() >= sb.getReqGQuantity()
-				&& s.getcQuantity() >= sb.getReqCQuantity() && s.getsQuantity() >= sb.getReqSQuantity()
-				&& s.getrQuantity() >= sb.getReqRadQuantity() && s.geteQuantity() >= sb.getReqEQuantity()) {
+			if (s.getwQuantity() >= sb.getReqWQuantity() && s.getgQuantity() >= sb.getReqGQuantity()
+					&& s.getcQuantity() >= sb.getReqCQuantity() && s.getsQuantity() >= sb.getReqSQuantity()
+					&& s.getrQuantity() >= sb.getReqRadQuantity() && s.geteQuantity() >= sb.getReqEQuantity()) {
 
-			s.setwQuantity(s.getwQuantity() - sb.getReqWQuantity());
-			s.setgQuantity(s.getgQuantity() - sb.getReqGQuantity());
-			s.setcQuantity(s.getcQuantity() - sb.getReqCQuantity());
-			s.setsQuantity(s.getsQuantity() - sb.getReqSQuantity());
-			s.setrQuantity(s.getrQuantity() - sb.getReqRadQuantity());
-			s.seteQuantity(s.geteQuantity() - sb.getReqEQuantity());
+				session.setAttribute("timer", sb.getBuildTime());
+				s.setwQuantity(s.getwQuantity() - sb.getReqWQuantity());
+				s.setgQuantity(s.getgQuantity() - sb.getReqGQuantity());
+				s.setcQuantity(s.getcQuantity() - sb.getReqCQuantity());
+				s.setsQuantity(s.getsQuantity() - sb.getReqSQuantity());
+				s.setrQuantity(s.getrQuantity() - sb.getReqRadQuantity());
+				s.seteQuantity(s.geteQuantity() - sb.getReqEQuantity());
 
-			Double puntos = 0.0;
+				Double puntos = 0.0;
 
-			puntos = ((Long) Math.round(sb.getReqWQuantity() + sb.getReqGQuantity() + sb.getReqCQuantity()
-					+ sb.getReqSQuantity() + sb.getReqRadQuantity())).doubleValue();
-			authUser.setBuildingPoints(authUser.getBuildingPoints()+puntos);
-			authUser.setPoints(authUser.getPoints()+puntos);
+				puntos = ((Long) Math.round(sb.getReqWQuantity() + sb.getReqGQuantity() + sb.getReqCQuantity()
+						+ sb.getReqSQuantity() + sb.getReqRadQuantity())).doubleValue();
+				authUser.setBuildingPoints(authUser.getBuildingPoints()+puntos);
+				authUser.setPoints(authUser.getPoints()+puntos);
 
-			this.userService.save(authUser);
-			this.settlementBuildingService.upgradeBuilding(sb);
-			this.settlementService.createSettlement(s);
+				this.userService.save(authUser);
+				this.settlementBuildingService.upgradeBuilding(sb);
+				this.settlementService.createSettlement(s);
+			}
+
+			return "redirect:/user/buildings";
+		}else {
+			session.invalidate();
+			return "redirect:/";
 		}
-
-		return "redirect:/user/buildings";
+		
 	}
 
 	@RequestMapping(value = { "/user/preUpgradeResearch" }, method = { RequestMethod.POST })
 	public String preResearchUpgrade(@RequestParam(value = "srId") String id, Model model, HttpSession session)
 			throws ParseException, InterruptedException {
 		User authUser = (User) session.getAttribute("user");
-		Settlement s = this.settlementService.findFirstByUser(authUser);
-		SettlementResearch sr = this.settlementResearchService.findFirstById(Long.parseLong(id));
-		logger.warn("upgradeResearch");
+		
+		if(authUser.getRole().equals("user")) {
+			Settlement s = this.settlementService.findFirstByUser(authUser);
+			SettlementResearch sr = this.settlementResearchService.findFirstById(Long.parseLong(id));
+			logger.warn("upgradeResearch");
 
-		if (s.getwQuantity() >= sr.getReqWQuantity() && s.getgQuantity() >= sr.getReqGQuantity()
-				&& s.getcQuantity() >= sr.getReqCQuantity() && s.getsQuantity() >= sr.getReqSQuantity()
-				&& s.getrQuantity() >= sr.getReqRadQuantity()) {
+			if (s.getwQuantity() >= sr.getReqWQuantity() && s.getgQuantity() >= sr.getReqGQuantity()
+					&& s.getcQuantity() >= sr.getReqCQuantity() && s.getsQuantity() >= sr.getReqSQuantity()
+					&& s.getrQuantity() >= sr.getReqRadQuantity()) {
 
-			s.setwQuantity(s.getwQuantity() - sr.getReqWQuantity());
-			s.setgQuantity(s.getgQuantity() - sr.getReqGQuantity());
-			s.setcQuantity(s.getcQuantity() - sr.getReqCQuantity());
-			s.setsQuantity(s.getsQuantity() - sr.getReqSQuantity());
-			s.setrQuantity(s.getrQuantity() - sr.getReqRadQuantity());
+				session.setAttribute("timerR", sr.getResearchTime());
+				s.setwQuantity(s.getwQuantity() - sr.getReqWQuantity());
+				s.setgQuantity(s.getgQuantity() - sr.getReqGQuantity());
+				s.setcQuantity(s.getcQuantity() - sr.getReqCQuantity());
+				s.setsQuantity(s.getsQuantity() - sr.getReqSQuantity());
+				s.setrQuantity(s.getrQuantity() - sr.getReqRadQuantity());
 
-			Double puntos = 0.0;
+				Double puntos = 0.0;
 
-			puntos = ((Long) Math.round(sr.getReqWQuantity() + sr.getReqGQuantity() + sr.getReqCQuantity()
-					+ sr.getReqSQuantity() + sr.getReqRadQuantity())).doubleValue();
-			authUser.setResearchPoints(authUser.getResearchPoints()+puntos);
-			authUser.setPoints(authUser.getPoints()+puntos);
+				puntos = ((Long) Math.round(sr.getReqWQuantity() + sr.getReqGQuantity() + sr.getReqCQuantity()
+						+ sr.getReqSQuantity() + sr.getReqRadQuantity())).doubleValue();
+				authUser.setResearchPoints(authUser.getResearchPoints()+puntos);
+				authUser.setPoints(authUser.getPoints()+puntos);
 
-			this.userService.save(authUser);
-			this.settlementResearchService.upgradeResearch(sr);
-			this.settlementService.createSettlement(s);
+				this.userService.save(authUser);
+				this.settlementResearchService.upgradeResearch(sr);
+				this.settlementService.createSettlement(s);
+			}
+			return "redirect:/user/researches";
+		}else {
+			session.invalidate();
+			return "redirect:/";
 		}
-		return "redirect:/user/researches";
+		
 	}
 
 	@RequestMapping(value = { "/user/preCreateTroup" }, method = { RequestMethod.POST })
@@ -120,35 +135,43 @@ public class UpgradeController {
 			@RequestParam(value = "stId") String id, Model model, HttpSession session)
 			throws ParseException, InterruptedException {
 		User authUser = (User) session.getAttribute("user");
-		Settlement s = this.settlementService.findFirstByUser(authUser);
-		Troup t = this.troupService.findFirstById(Long.parseLong(id));
-		SettlementTroup st = this.settlementTroupService.findFirstBySettlementIdAndTroupId(s, t);
+		
+		if(authUser.getRole().equals("user")) {
+			Settlement s = this.settlementService.findFirstByUser(authUser);
+			Troup t = this.troupService.findFirstById(Long.parseLong(id));
+			SettlementTroup st = this.settlementTroupService.findFirstBySettlementIdAndTroupId(s, t);
 
-		logger.warn("upgradeResearch");
+			logger.warn("upgradeTroup");
 
-		Integer q = Integer.parseInt(quantityTroup);
-		if (s.getwQuantity() >= t.getReqWQuantity() * q && s.getgQuantity() >= t.getReqGQuantity() * q
-				&& s.getcQuantity() >= t.getReqCQuantity() * q && s.getsQuantity() >= t.getReqSQuantity() * q
-				&& s.getrQuantity() >= t.getReqRadQuantity() * q) {
+			Integer q = Integer.parseInt(quantityTroup);
+			if (s.getwQuantity() >= t.getReqWQuantity() * q && s.getgQuantity() >= t.getReqGQuantity() * q
+					&& s.getcQuantity() >= t.getReqCQuantity() * q && s.getsQuantity() >= t.getReqSQuantity() * q
+					&& s.getrQuantity() >= t.getReqRadQuantity() * q) {
 
-			s.setwQuantity(s.getwQuantity() - t.getReqWQuantity() * q);
-			s.setgQuantity(s.getgQuantity() - t.getReqGQuantity() * q);
-			s.setcQuantity(s.getcQuantity() - t.getReqCQuantity() * q);
-			s.setsQuantity(s.getsQuantity() - t.getReqSQuantity() * q);
-			s.setrQuantity(s.getrQuantity() - t.getReqRadQuantity() * q);
+				session.setAttribute("timerT", t.getCreateTime()*q);
+				s.setwQuantity(s.getwQuantity() - t.getReqWQuantity() * q);
+				s.setgQuantity(s.getgQuantity() - t.getReqGQuantity() * q);
+				s.setcQuantity(s.getcQuantity() - t.getReqCQuantity() * q);
+				s.setsQuantity(s.getsQuantity() - t.getReqSQuantity() * q);
+				s.setrQuantity(s.getrQuantity() - t.getReqRadQuantity() * q);
 
-			Double puntos = 0.0;
+				Double puntos = 0.0;
 
-			puntos = ((Long) Math.round(t.getReqWQuantity() + t.getReqGQuantity() + t.getReqCQuantity()
-					+ t.getReqSQuantity() + t.getReqRadQuantity())).doubleValue()*q;
-			authUser.setTroupPoints(authUser.getTroupPoints()+puntos);
-			authUser.setPoints(authUser.getPoints()+puntos);
+				puntos = ((Long) Math.round(t.getReqWQuantity() + t.getReqGQuantity() + t.getReqCQuantity()
+						+ t.getReqSQuantity() + t.getReqRadQuantity())).doubleValue()*q;
+				authUser.setTroupPoints(authUser.getTroupPoints()+puntos);
+				authUser.setPoints(authUser.getPoints()+puntos);
 
-			this.userService.save(authUser);
-			this.settlementTroupService.createNewTroup(t, st, q);
-			this.settlementService.createSettlement(s);
+				this.userService.save(authUser);
+				this.settlementTroupService.createNewTroup(t, st, q);
+				this.settlementService.createSettlement(s);
+			}
+
+			return "redirect:/user/troups";
+		}else {
+			session.invalidate();
+			return "redirect:/";
 		}
-
-		return "redirect:/user/troups";
+		
 	}
 }

@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/buildings.css">
 <script type="text/javascript" th:src="@{/js/myOwnJS.js}"></script>
-<title>Neo Material / General</title>
+<title th:text="#{buildings.title}"></title>
 </head>
 
-<body onload="showTime(), ck()">
-	<div id="mainContainer" class="container-fluid">
+<body onload="showTime(), ck(), reloj()">
+	<div id="mainContainer" class="container-fluid d-none d-lg-block">
 		<div class="row justify-content-center">
 			<div class="col-1 recourceContainer">
 				<div class="row">
@@ -82,16 +82,21 @@
 							d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
                     </svg>
 				</a> <a href="/user/general" class="btn btn-info w-100 mt-5"
-					role="button">GENERAL</a> <a href="/user/buildings"
-					class="btn btn-info buttonActive w-100 mt-3" role="button">EDIFICIOS</a>
-				<a href="/user/researches" class="btn btn-info w-100 mt-3"
-					role="button">INVESTIGACION</a> <a href="/user/troups"
-					class="btn btn-info w-100 mt-3" role="button">TROPAS</a> <a
-					href="/user/movements" class="btn btn-info w-100 mt-3"
-					role="button">MOVIMIENTOS</a> <a href="/user/radar"
-					class="btn btn-info w-100 mt-3" role="button">RADAR</a> <a
-					href="/user/ranking" class="btn btn-info w-100 mt-3" role="button">CLASIFICACION</a>
-				<a href="/logOut" class="btn btn-danger w-100 mt-5" role="button">SALIR</a>
+					role="button" th:text="#{nav.general}"></a> <a
+					href="/user/buildings" class="btn btn-info buttonActive w-100 mt-3"
+					role="button" th:text="#{nav.building}"></a> <a
+					href="/user/researches" class="btn btn-info w-100 mt-3"
+					role="button" th:text="#{nav.research}"></a> <a href="/user/troups"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.troup}"></a> <a href="/user/movements"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.movement}"></a> <a href="/user/radar"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.radar}"></a> <a href="/user/ranking"
+					class="btn btn-info w-100 mt-3" role="button"
+					th:text="#{nav.ranking}"></a> <a href="/logOut"
+					class="btn btn-danger w-100 mt-5" role="button"
+					th:text="#{nav.exit}"></a>
 			</div>
 			<div class="container col-7 mt-5">
 				<div class="row">
@@ -115,7 +120,7 @@
 												<div class="col-8">
 													<div class="form-group row">
 														<div class="col-8">
-															<label>Tiempo:</label>
+															<label th:text="#{buildings.time}"></label>
 														</div>
 														<div class="col-4">
 															<label id="prodTimer" th:text="${sb.buildTime}"></label>
@@ -123,7 +128,7 @@
 													</div>
 													<div class="form-group row">
 														<div class="col-8">
-															<label onclick="cron()">Energia:</label>
+															<label th:text="#{buildings.energy}"></label>
 														</div>
 														<div class="col-4">
 															<label id="energyReq" th:text="${sb.reqEQuantity}"></label>
@@ -135,13 +140,14 @@
 												<div class="col-3">
 													<input type="hidden">
 													<button th:id="'btn'+${sb.id}" type="submit"
-														class="btn btn-success" onclick="ck(this)">Mejorar</button>
+														class="btn btn-success" onclick="ck(this)"
+														th:text="#{buildings.upgrade}"></button>
 												</div>
 											</form>
 										</div>
 										<div class="row mx-4">
 
-											<div class="form-row mt-3 justify-content-center">
+											<div class="form-row mt-xl-3 justify-content-center">
 												<a data-toggle="modal" th:data-target="'#sb'+${sb.id}">
 													<svg width="3em" height="3em" viewBox="0 0 16 16"
 														class="bi bi-exclamation-square" fill="currentColor"
@@ -158,7 +164,7 @@
 													<div class="modal-dialog">
 														<div class="modal-content">
 															<div class="modal-header"
-																style="background-color: var(- -mainBlack);">
+																style="background-color: var(--mainBlack);">
 																<h5 class="modal-title" id="staticBackdropLabel"
 																	th:text="${sb.buildingIds.name}"></h5>
 																<button type="button" class="close" data-dismiss="modal"
@@ -167,19 +173,19 @@
 																</button>
 															</div>
 															<div class="modal-body"
-																style="background-color: var(- -mainBlack);">
+																style="background-color: var(--mainBlack);">
 																<p th:text="${sb.buildingIds.description}"></p>
 																<table class="table table-light">
 																	<thead>
 																		<tr>
-																			<td scope="col">Cantidad Recursos Nivel Actual:</td>
+																			<td scope="col"
+																				th:text="#{buildings.modal.resources}"></td>
 																			<td scope="row" th:text="${sb.resourceQuantity}"></td>
 																		</tr>
 																	</thead>
 																	<tbody>
 																		<tr>
-																			<td scope="col">Cantidad Puntos Otorgados
-																				Siguiente Nivel:</td>
+																			<td scope="col" th:text="#{buildings.modal.points}"></td>
 
 																			<td
 																				th:text="${sb.reqWQuantity}+${sb.reqGQuantity}+${sb.reqCQuantity}+${sb.reqSQuantity}+${sb.reqRadQuantity}"></td>
@@ -247,9 +253,27 @@
 							<h5 th:text="${continent} + ':' + ${country} + ':' + ${region}"></h5>
 						</div>
 						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4"
+								src="/assets/buildings/edificios_bg.jpg">
 							<h5 id="timerContainer"></h5>
 						</div>
-						<h5 id="product" th:if="${timer}!=0" th:text="${timer}" /></h5>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4"
+								src="/assets/researches/investigacion_bg.jpg">
+							<h5 id="timerContainerR"></h5>
+						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4"
+								src="/assets/tropas/defensas_bg.png">
+							<h5 id="timerContainerT"></h5>
+						</div>
+						<div class="row justify-content-center">
+							<img class="imgSettlement mt-4"
+								src="/assets/movements/ataque_bg.jpg">
+							<h5 id="timerContainerAttack"></h5>
+						</div>
+						<h5 id="crono" class="d-none" th:if="${timer}!=0"
+							th:text="${timer}" /></h5>
 					</div>
 				</div>
 			</div>
@@ -257,6 +281,20 @@
 		<div class="row justify-content-start">
 			<h2 id="clock"
 				style="position: fixed; bottom: 5px; background-color: var(--mainBlack-0-40);"></h2>
+		</div>
+	</div>
+
+	<div id="mainContainer" class="container-fluid d-lg-none">
+		<div class="alert alert-warning" role="alert"
+			th:text="#{responsive.alert}"></div>
+		<div class="row justify-content-around">
+			<div id="infoContainer" class="col-10">
+				<a th:href="@{/wiki}" id="btnWiki" class="btn btn-danger"
+					role="button" th:text="#{responsive.btn}"></a>
+				<h2 th:text="#{responsive.info1}"></h2>
+				<h2 th:text="#{responsive.info2}"></h2>
+				<h2 th:text="#{responsive.info3}"></h2>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>

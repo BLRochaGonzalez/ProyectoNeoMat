@@ -97,3 +97,12 @@ h5{
     border-color: var(--mainColor);
     margin-top: 5px;
 }
+
+@media (max-width: 1200px) { 
+	#selectorImg1, #selectorImg2, #selectorImg3, #selectorImg4, #selectorImg5, #selectorImg6, #selectorImg7, #selectorImg8, #selectorImg9, #selectorImg10, #selectorImg11, #selectorImg12, #selectorImg13, #selectorImg14, #selectorImg15, #selectorImg16, #selectorImg17, #selectorImg18, #selectorImg19, #selectorImg20, #selectorImg21{
+    height: 8vh;
+	}
+	#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16,#17,#18,#19,#20,#21{
+		width:4vw;
+	}
+}
