@@ -12,7 +12,7 @@
 	<groupId>org.iesalixar.bluisrochag</groupId>
 	<artifactId>NeoMat</artifactId>
 	<packaging>war</packaging>
-	<version>0.3.2</version>
+	<version>0.3.6</version>
 	<name>NeoMat</name>
 	<description>Blas Luis Rocha González project for Web Applications Development</description>
 

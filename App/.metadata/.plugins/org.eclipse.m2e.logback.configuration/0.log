@@ -21340,3 +21340,18 @@
 2020-12-13 20:17:18,090 [Worker-78: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 129 resources
 2020-12-13 20:17:23,272 [Worker-78: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-12-13 20:17:23,272 [Worker-78: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\DAW\Proyecto_NeoMat\NeoMat\App\NeoMat\src\test\resources
+2020-12-13 21:07:09,011 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-12-13 21:10:04,402 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-13 21:10:04,406 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-12-13 21:10:04,417 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 129 resources
+2020-12-13 21:10:04,425 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-13 21:10:04,426 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\DAW\Proyecto_NeoMat\NeoMat\App\NeoMat\src\test\resources
+2020-12-13 21:10:05,771 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-13 21:10:05,771 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-12-13 21:10:05,772 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-12-13 21:10:05,772 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-13 21:10:05,772 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\DAW\Proyecto_NeoMat\NeoMat\App\NeoMat\src\test\resources
+2020-12-13 21:10:13,859 [Worker-13: Launching Executing clean in D__DAW_Proyecto_NeoMat_NeoMat_App_NeoMat] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\DAW\Proyecto_NeoMat\NeoMat\App\NeoMat
+2020-12-13 21:10:13,860 [Worker-13: Launching Executing clean in D__DAW_Proyecto_NeoMat_NeoMat_App_NeoMat] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean -Dstyle.color=always
+2020-12-13 21:10:23,144 [Worker-0: Launching Executing install in D__DAW_Proyecto_NeoMat_NeoMat_App_NeoMat] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\DAW\Proyecto_NeoMat\NeoMat\App\NeoMat
+2020-12-13 21:10:23,144 [Worker-0: Launching Executing install in D__DAW_Proyecto_NeoMat_NeoMat_App_NeoMat] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install -Dstyle.color=always
