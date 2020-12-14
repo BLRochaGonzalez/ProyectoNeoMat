@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/wiki.css">
-<script src="/js/myOwnJS.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/myOwnJS.js"></script>
 <title th:text="#{wiki.title}"></title>
 </head>
 
@@ -20,7 +20,7 @@
 						<h2 th:text="#{wiki.name}"></h2>
 					</div>
 					<div class="col-4">
-						<a href="/" id="btnWiki" class="btn btn-info" role="button"
+						<a th:href="@{/}" id="btnWiki" class="btn btn-info" role="button"
 							th:text="#{wiki.btn}"></a>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/resources/radiacion.jpg" class="img-fluid" />
+							<img src="../assets/resources/radiacion.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.resource.radiation}"></h5>
@@ -55,7 +55,7 @@
 							<p th:text="#{wiki.resource.energy.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/resources/solar.jpg" class="img-fluid" />
+							<img src="../assets/resources/solar.jpg" class="img-fluid" />
 						</div>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 				<div id="prologueInfo" class="row p-5">
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/buildings/1.jpg" class="img-fluid" />
+							<img src="../assets/buildings/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.building.1}"></h5>
@@ -78,12 +78,12 @@
 							<p th:text="#{wiki.building.2.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/buildings/2.jpg" class="img-fluid" />
+							<img src="../assets/buildings/2.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/buildings/3.jpg" class="img-fluid" />
+							<img src="../assets/buildings/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.building.3}"></h5>
@@ -96,12 +96,12 @@
 							<p th:text="#{wiki.building.4.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/buildings/4.jpg" class="img-fluid" />
+							<img src="../assets/buildings/4.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/buildings/7.jpg" class="img-fluid" />
+							<img src="../assets/buildings/7.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.building.7}"></h5>
@@ -114,7 +114,7 @@
 							<p th:text="#{wiki.building.8.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/buildings/8.jpg" class="img-fluid" />
+							<img src="../assets/buildings/8.jpg" class="img-fluid" />
 						</div>
 					</div>
 				</div>
@@ -124,7 +124,7 @@
 				<div id="resourcesInfo" class="row p-5">
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/invest/1.jpg" class="img-fluid" />
+							<img src="../assets/invest/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.research.1}"></h5>
@@ -137,12 +137,12 @@
 							<p th:text="#{wiki.research.2.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/invest/2.jpg" class="img-fluid" />
+							<img src="../assets/invest/2.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/invest/3.jpg" class="img-fluid" />
+							<img src="../assets/invest/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.research.3}"></h5>
@@ -155,12 +155,12 @@
 							<p th:text="#{wiki.research.4.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/invest/4.jpg" class="img-fluid" />
+							<img src="../assets/invest/4.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/invest/5.jpg" class="img-fluid" />
+							<img src="../assets/invest/5.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.research.5}"></h5>
@@ -173,7 +173,7 @@
 							<p th:text="#{wiki.research.6.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/invest/6.jpg" class="img-fluid" />
+							<img src="../assets/invest/6.jpg" class="img-fluid" />
 						</div>
 					</div>
 				</div>
@@ -184,7 +184,7 @@
 					<h4 th:text="#{wiki.troups.attack}"></h4>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/1.jpg" class="img-fluid" />
+							<img src="../assets/tropas/1.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.1}"></h5>
@@ -197,12 +197,12 @@
 							<p th:text="#{wiki.troups.attack.2.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/2.jpg" class="img-fluid" />
+							<img src="../assets/tropas/2.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/3.jpg" class="img-fluid" />
+							<img src="../assets/tropas/3.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.3}"></h5>
@@ -215,12 +215,12 @@
 							<p th:text="#{wiki.troups.attack.4.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/4.jpg" class="img-fluid" />
+							<img src="../assets/tropas/4.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/5.jpg" class="img-fluid" />
+							<img src="../assets/tropas/5.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.5}"></h5>
@@ -233,12 +233,12 @@
 							<p th:text="#{wiki.troups.attack.6.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/6.jpg" class="img-fluid" />
+							<img src="../assets/tropas/6.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/7.jpg" class="img-fluid" />
+							<img src="../assets/tropas/7.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.7}"></h5>
@@ -251,12 +251,12 @@
 							<p th:text="#{wiki.troups.attack.8.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/8.jpg" class="img-fluid" />
+							<img src="../assets/tropas/8.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/9.jpg" class="img-fluid" />
+							<img src="../assets/tropas/9.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.9}"></h5>
@@ -269,12 +269,12 @@
 							<p th:text="#{wiki.troups.attack.10.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/10.jpg" class="img-fluid" />
+							<img src="../assets/tropas/10.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/11.jpg" class="img-fluid" />
+							<img src="../assets/tropas/11.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.11}"></h5>
@@ -287,12 +287,12 @@
 							<p th:text="#{wiki.troups.attack.12.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/12.jpg" class="img-fluid" />
+							<img src="../assets/tropas/12.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/13.jpg" class="img-fluid" />
+							<img src="../assets/tropas/13.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.attack.13}"></h5>
@@ -306,12 +306,12 @@
 							<p th:text="#{wiki.troups.defend.1.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/14.jpg" class="img-fluid" />
+							<img src="../assets/tropas/14.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/15.jpg" class="img-fluid" />
+							<img src="../assets/tropas/15.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.defend.2}"></h5>
@@ -324,12 +324,12 @@
 							<p th:text="#{wiki.troups.defend.3.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/16.jpg" class="img-fluid" />
+							<img src="../assets/tropas/16.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/17.jpg" class="img-fluid" />
+							<img src="../assets/tropas/17.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.defend.4}"></h5>
@@ -342,12 +342,12 @@
 							<p th:text="#{wiki.troups.defend.5.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/18.jpg" class="img-fluid" />
+							<img src="../assets/tropas/18.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/19.jpg" class="img-fluid" />
+							<img src="../assets/tropas/19.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.defend.6}"></h5>
@@ -360,12 +360,12 @@
 							<p th:text="#{wiki.troups.defend.7.info}"></p>
 						</div>
 						<div class="col-3">
-							<img src="/assets/tropas/20.jpg" class="img-fluid" />
+							<img src="../assets/tropas/20.jpg" class="img-fluid" />
 						</div>
 					</div>
 					<div class="row pb-4">
 						<div class="col-3">
-							<img src="/assets/tropas/21.jpg" class="img-fluid" />
+							<img src="../assets/tropas/21.jpg" class="img-fluid" />
 						</div>
 						<div class="col-9">
 							<h5 th:text="#{wiki.troups.defend.8}"></h5>
@@ -376,8 +376,8 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../jquery/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

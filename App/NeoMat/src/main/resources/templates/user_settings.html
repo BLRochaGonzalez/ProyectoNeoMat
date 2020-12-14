@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/admin.css">
-<script src="/js/myOwnJS.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/admin.css">
+<script src="../js/myOwnJS.js"></script>
 <title th:text="#{usersettings.title}"></title>
 </head>
 
@@ -17,7 +17,7 @@
 				<a th:href="@{/admin/game}" class="btn btn-info w-75" th:text="#{usersettings.btn.game}"></a>
 			</div>
 			<div class="col-2">
-				<a href="/logOut" class="btn btn-danger w-75" th:text="#{nav.exit}">Exit</a>
+				<a th:href="@{/logOut}" class="btn btn-danger w-75" th:text="#{nav.exit}">Exit</a>
 			</div>
 		</div>
 		<div id="usersphp" class="row justify-content-center">
@@ -82,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="/jquery/jquery-3.5.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../jquery/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

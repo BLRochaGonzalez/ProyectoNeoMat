@@ -17,7 +17,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Scope("session")
@@ -45,8 +45,8 @@ public class GamesettingsController {
 		
 	}
 	
-	@GetMapping("/page/{tipo}/{numPage}")
-	public String findPaginated(@PathVariable (value = "numPage") int numPage, @PathVariable (value = "tipo") String tipo, Model model, HttpSession session) {
+	@GetMapping("/page")
+	public String findPaginated(@RequestParam (value = "numPage") int numPage, @RequestParam (value = "tipo") String tipo, Model model, HttpSession session) {
 		User authUser = (User) session.getAttribute("user");
 		
 		if(authUser.getRole().equals("admin")) {
